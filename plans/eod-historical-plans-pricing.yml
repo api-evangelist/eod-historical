@@ -1,0 +1,281 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: EOD Historical Data
+providerId: eod-historical
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Fintech
+  - Market Data
+  - Plans
+description: >-
+  EODHD offers a free tier (20 API calls/day, no credit card required) and four paid monthly or
+  annual subscription tiers ranging from $19.99/month (EOD All World) to $99.99/month (All-In-One).
+  All paid plans include 100,000 API calls/day and 1,000 requests/minute. Annual billing saves
+  approximately two months cost. Commercial use requires a separate commercial solution; all standard
+  plans are licensed for personal use only.
+sources:
+  - https://eodhd.com/pricing/
+plans:
+  - id: eod-historical-free
+    name: Free
+    type: freemium
+    description: Free tier — 20 API calls per day, 1-year data depth, personal use only, no credit card required.
+    entries:
+      - label: Daily quota
+        name: free_daily
+        type: quota
+        metric: request
+        limit: 20
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate limit
+        name: free_rate
+        type: quota
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Basic end-of-day stock and ETF data
+      - name: 1-year historical depth
+      - name: Demo API key (AAPL.US, TSLA.US, VTI.US, AMZN.US, BTC-USD.CC, EURUSD.FOREX)
+  - id: eod-historical-eod-all-world
+    name: EOD Historical Data — All World
+    type: subscription
+    description: $19.99/month (or $199/year) — 100,000 API calls/day, 30+ years EOD data, splits and dividends, adjusted prices.
+    entries:
+      - label: Monthly subscription
+        name: eod_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '19.99'
+        userMultiplied: false
+      - label: Annual subscription
+        name: eod_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '199.00'
+        userMultiplied: false
+      - label: Daily quota
+        name: eod_daily
+        type: quota
+        metric: request
+        limit: 100000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate limit
+        name: eod_rate
+        type: quota
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: 30+ years end-of-day historical data
+      - name: Splits and dividends
+      - name: Adjusted close prices
+      - name: 150,000+ tickers across 60+ exchanges
+      - name: 500 welcome bonus API calls
+  - id: eod-historical-eod-intraday
+    name: EOD+Intraday — All World Extended
+    type: subscription
+    description: $29.99/month (or $299.90/year) — adds intraday data to the All World EOD plan.
+    entries:
+      - label: Monthly subscription
+        name: intraday_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '29.99'
+        userMultiplied: false
+      - label: Annual subscription
+        name: intraday_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '299.90'
+        userMultiplied: false
+      - label: Daily quota
+        name: intraday_daily
+        type: quota
+        metric: request
+        limit: 100000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate limit
+        name: intraday_rate
+        type: quota
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All EOD All World features
+      - name: Intraday historical data (1-min, 5-min bars)
+      - name: 500 welcome bonus API calls
+  - id: eod-historical-fundamentals
+    name: Fundamentals Data Feed
+    type: subscription
+    description: $59.99/month (or $599.90/year) — fundamental data including income statements, balance sheets, earnings, insider transactions.
+    entries:
+      - label: Monthly subscription
+        name: fundamentals_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '59.99'
+        userMultiplied: false
+      - label: Annual subscription
+        name: fundamentals_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '599.90'
+        userMultiplied: false
+      - label: Daily quota
+        name: fundamentals_daily
+        type: quota
+        metric: request
+        limit: 100000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate limit
+        name: fundamentals_rate
+        type: quota
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Stock fundamentals (income statement, balance sheet, cash flow)
+      - name: ETF and mutual fund fundamentals
+      - name: Earnings history and estimates
+      - name: Insider transactions (SEC Form 4)
+      - name: 500 welcome bonus API calls
+  - id: eod-historical-all-in-one
+    name: ALL-IN-ONE Package
+    type: subscription
+    description: $99.99/month (or $999.90/year) — complete package including EOD historical, fundamentals, calendar, and bonds data.
+    entries:
+      - label: Monthly subscription
+        name: allinone_monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '99.99'
+        userMultiplied: false
+      - label: Annual subscription
+        name: allinone_annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '999.90'
+        userMultiplied: false
+      - label: Daily quota
+        name: allinone_daily
+        type: quota
+        metric: request
+        limit: 100000
+        timeFrame: day
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate limit
+        name: allinone_rate
+        type: quota
+        metric: requests_per_minute
+        limit: 1000
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: All EOD historical data and intraday
+      - name: All fundamentals data
+      - name: Calendar API (earnings, dividends, IPOs, splits)
+      - name: Bonds data
+      - name: Options chains with Greeks
+      - name: Financial news and sentiment
+      - name: Macroeconomic indicators
+      - name: ESG data
+      - name: Technical indicators
+      - name: WebSocket real-time streaming
+      - name: 500 welcome bonus API calls
+  - id: eod-historical-commercial
+    name: Commercial License
+    type: enterprise
+    description: Commercial use license for production applications — contact sales for pricing.
+    entries:
+      - label: Custom pricing
+        name: commercial_custom
+        type: subscription
+        metric: contract
+        limit: -1
+        timeFrame: contract
+        geo: global
+        unit: 1
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Commercial use rights
+      - name: Custom data volume
+      - name: Dedicated support
+      - name: SLA guarantees
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

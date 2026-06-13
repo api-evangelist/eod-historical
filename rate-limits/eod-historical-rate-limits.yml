@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: EOD Historical Data
+providerId: eod-historical
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Fintech
+  - Market Data
+  - Rate Limiting
+description: >-
+  EODHD enforces a daily API call quota that resets at midnight GMT and a per-minute burst cap.
+  The free tier is limited to 20 calls/day. All paid plans share a 100,000 calls/day quota and
+  1,000 requests/minute burst limit. Requests that exceed the daily quota return an HTTP 429
+  response. Daily counts and remaining limits are reported via the /api/user endpoint. There is
+  no per-second cap documented; the 1,000 rpm cap applies uniformly across all paid tiers.
+sources:
+  - https://eodhd.com/pricing/
+  - https://eodhd.com/financial-apis/user-api
+responseCodes:
+  throttled: 429
+limits:
+  - name: Free daily quota
+    scope: api_key
+    metric: requests_per_day
+    limit: 20
+    notes: Free tier; resets midnight GMT.
+  - name: Free per-minute cap
+    scope: api_key
+    metric: requests_per_minute
+    limit: 1000
+    notes: Free tier burst cap.
+  - name: Paid daily quota
+    scope: api_key
+    metric: requests_per_day
+    limit: 100000
+    notes: Applies to all paid plans (EOD All World, Intraday, Fundamentals, All-In-One). Resets midnight GMT.
+  - name: Paid per-minute cap
+    scope: api_key
+    metric: requests_per_minute
+    limit: 1000
+    notes: Applies to all paid plans; sustained burst limit.
+policies:
+  - name: Daily Reset
+    description: >-
+      API call counters reset at midnight GMT. The exact reset time can be tracked via the
+      apiRequestsDate field returned by the /api/user endpoint.
+  - name: Quota Monitoring
+    description: >-
+      Remaining daily quota can be inspected at any time via GET https://eodhd.com/api/user?api_token={token}&fmt=json.
+      The response fields apiRequests and dailyRateLimit expose current usage and the cap. The extraLimit
+      field shows additionally purchased call credits.
+  - name: Extra Credits
+    description: >-
+      Additional API calls can be purchased on top of any paid plan to handle temporary spikes.
+      The remaining extra credits are visible in the extraLimit field of the User API response.
+  - name: Backoff Strategy
+    description: >-
+      Implement exponential backoff with jitter when HTTP 429 responses are received. For batch
+      workflows, spread requests evenly across the day to stay below the 1,000 rpm cap. Each
+      historical endpoint call counts as 1 API call regardless of the date range requested.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

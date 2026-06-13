@@ -1,0 +1,126 @@
+aid: eod-historical
+url: https://raw.githubusercontent.com/api-evangelist/eod-historical/refs/heads/main/apis.yml
+name: EOD Historical Data
+kind: company
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fintech
+  - Market Data
+  - Stocks
+  - ETF
+  - Fundamentals
+  - Options
+  - Forex
+  - Crypto
+  - Macroeconomic
+  - Technical Indicators
+  - News
+  - Sentiment
+  - Historical Data
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+description: >-
+  EOD Historical Data (EODHD) provides institutional-grade financial data through a REST API at
+  https://eodhd.com/api covering 150,000+ tickers across 60+ global exchanges. The API spans
+  end-of-day historical prices (30+ years), real-time OHLCV, intraday bars, fundamentals (income
+  statements, balance sheets, cash flows), ETF and mutual fund data, options chains with Greeks,
+  dividends, splits, corporate actions, technical indicators, financial news with sentiment, insider
+  transactions, macroeconomic indicators, ESG data, and WebSocket streaming. Authentication is via
+  api_token query parameter; output is JSON, CSV, or XML.
+apis:
+  - aid: eod-historical:financial-data-api
+    name: EOD Historical Data Financial API
+    tags:
+      - Stocks
+      - End-of-Day
+      - Historical
+      - Real-Time
+      - Intraday
+      - Fundamentals
+      - ETF
+      - Options
+      - Forex
+      - Crypto
+      - Macroeconomic
+      - Technical Indicators
+      - News
+      - Sentiment
+      - Dividends
+      - Splits
+      - ESG
+      - Insider Transactions
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://eodhd.com/api
+    humanURL: https://eodhd.com/financial-apis/
+    description: >-
+      Single REST API base providing 74 endpoints across end-of-day data (/eod), real-time prices
+      (/real-time), intraday (/intraday), fundamentals (/fundamentals), options chains (/options),
+      dividends and splits (/div), technical indicators (/indicators), financial news (/news),
+      macroeconomic data (/macro-indicator), calendar events (/calendar), insider transactions
+      (/insider-transactions), ESG metrics, market screener (/screener), exchange information
+      (/exchanges-list), ticker search (/search), and WebSocket streaming at
+      wss://ws.eodhistoricaldata.com/ws. Free demo key included; paid plans start at $19.99/month.
+    properties:
+      - type: Documentation
+        url: https://eodhd.com/financial-apis/
+      - type: Pricing
+        url: https://eodhd.com/pricing/
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/EodHistoricalData/EODHD-openapi/main/openapi.yaml
+      - type: GitHubOrganization
+        url: https://github.com/EodHistoricalData
+    x-features:
+      - 150,000+ tickers across 60+ global exchanges
+      - 30+ years of end-of-day historical data
+      - Real-time OHLCV and WebSocket streaming (wss://ws.eodhistoricaldata.com/ws)
+      - Fundamentals - income statements, balance sheets, cash flows, ratios
+      - ETF, mutual fund, and index fundamental data
+      - US stock options chains with Greeks (end-of-day)
+      - Technical indicators (SMA, EMA, RSI, MACD, Bollinger Bands, etc.)
+      - Financial news feed with sentiment analysis
+      - Macroeconomic indicators (GDP, inflation, demographics by country)
+      - Insider transactions (SEC Form 4 filings)
+      - ESG data, sanctions screening, market capitalization history
+      - Calendar API (earnings, dividends, IPOs, splits)
+      - CUSIP/ISIN/FIGI/LEI/CIK symbol mapping
+      - JSON, CSV, and XML output formats
+      - OpenAPI 3.1 specification with 74 endpoints
+    x-use-cases:
+      - Build equity research dashboards with 30+ years of historical price and fundamental data
+      - Backtest trading strategies using intraday and end-of-day OHLCV data
+      - Power quant models with options chains, technical indicators, and macro data
+      - Screen global markets via screener API combined with fundamental filters
+      - Monitor insider activity and ESG scores for portfolio risk analysis
+common:
+  - type: Portal
+    url: https://eodhd.com/
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: SignUp
+    url: https://eodhd.com/register/
+  - type: Login
+    url: https://eodhd.com/cp/
+  - type: Blog
+    url: https://eodhd.com/financial-apis-blog/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/EodHistoricalData/EODHD-openapi/main/openapi.yaml
+  - type: Support
+    url: https://eodhd.com/support/
+  - type: TermsOfService
+    url: https://eodhd.com/financial-apis/terms-and-conditions/
+  - type: PrivacyPolicy
+    url: https://eodhd.com/financial-apis/privacy-policy/
+  - type: Plans
+    url: plans/eod-historical-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/eod-historical-rate-limits.yml
+  - type: FinOps
+    url: finops/eod-historical-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

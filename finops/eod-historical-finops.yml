@@ -1,0 +1,82 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: EOD Historical Data
+providerId: eod-historical
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Fintech
+  - Market Data
+  - FinOps
+  - FOCUS
+description: >-
+  FinOps view of EOD Historical Data (EODHD). Flat monthly or annual subscription per API key
+  tied to a plan tier (Free, EOD All World $19.99, Intraday $29.99, Fundamentals $59.99,
+  All-In-One $99.99). All paid plans grant the same 100,000 calls/day and 1,000 rpm limits;
+  tier choice is driven by data-type access (intraday, fundamentals, options). Annual billing
+  saves approximately two months cost (~17%). Extra API call credits can be purchased separately.
+  Commercial use requires a separate contract. Standard plans are personal-use licensed.
+sources:
+  - https://eodhd.com/pricing/
+  - https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: EOD Historical Data (Unicorn Data Services)
+serviceCategory: Fintech
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Subscription
+    - Adjustment
+focusColumns:
+  ServiceName: EOD Historical Data Financial API
+  ServiceCategory: Fintech
+  ProviderName: EOD Historical Data
+  PublisherName: Unicorn Data Services
+  InvoiceIssuerName: EOD Historical Data
+  BillingCurrency: USD
+  ChargeCategory: Subscription
+meters:
+  - name: subscription
+    description: Monthly or annual subscription for an API key granting a specific data tier.
+    unit: month
+    aggregation: sum
+    dimensions:
+      - api_key
+      - plan_tier
+  - name: extra_credits
+    description: Additional API call credits purchased beyond the plan daily quota.
+    unit: credit_block
+    aggregation: sum
+    dimensions:
+      - api_key
+principles:
+  - name: Visibility
+    description: >-
+      Tie each API key to a single owning workload or team. Monitor daily usage via /api/user endpoint.
+      Collect monthly invoices into the FinOps cost store for chargeback.
+  - name: Allocation
+    description: >-
+      Allocate subscription cost to the consuming product or business unit by API key. A single All-In-One
+      key covers all data types; separate keys per team allow clear cost attribution at $19.99–$99.99/month.
+  - name: Optimization
+    description: >-
+      Right-size the plan to the data types actually used: avoid paying for All-In-One ($99.99) when only
+      EOD prices are needed ($19.99). Switch to annual billing for a ~17% saving when usage is stable.
+      Monitor extraLimit to assess whether extra credits are a recurring cost needing a plan upgrade.
+  - name: Accountability
+    description: >-
+      Assign a billing owner per API key. Review plan tier at each annual renewal against measured
+      daily call volume and the data endpoints actually called. Student discount (50% for 12 months)
+      can reduce costs for academic workloads.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
