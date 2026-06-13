@@ -1,0 +1,36 @@
+[
+  {
+    "code": "AAPL",
+    "exchange": "US",
+    "date": "2024-01-15",
+    "reportDate": "2024-01-17",
+    "ownerCik": "0001288176",
+    "ownerName": "COOK TIMOTHY D",
+    "ownerRelationship": "Officer",
+    "ownerTitle": "Chief Executive Officer",
+    "transactionDate": "2024-01-12",
+    "transactionCode": "S",
+    "transactionAmount": 50000,
+    "transactionPrice": 185.92,
+    "transactionAcquiredDisposed": "D",
+    "postTransactionAmount": 3245000,
+    "link": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000012/0000320193-24-000012-index.htm"
+  },
+  {
+    "code": "AAPL",
+    "exchange": "US",
+    "date": "2024-02-01",
+    "reportDate": "2024-02-05",
+    "ownerCik": "0001326380",
+    "ownerName": "WILLIAMS JEFFREY E",
+    "ownerRelationship": "Officer",
+    "ownerTitle": "Chief Operating Officer",
+    "transactionDate": "2024-01-30",
+    "transactionCode": "P",
+    "transactionAmount": 10000,
+    "transactionPrice": 182.63,
+    "transactionAcquiredDisposed": "A",
+    "postTransactionAmount": 1120000,
+    "link": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000018/0000320193-24-000018-index.htm"
+  }
+]

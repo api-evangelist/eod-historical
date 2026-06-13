@@ -1,0 +1,35 @@
+[
+  {
+    "Code": "AAPL",
+    "Exchange": "US",
+    "Name": "Apple Inc",
+    "Type": "Common Stock",
+    "Country": "USA",
+    "Currency": "USD",
+    "ISIN": "US0378331005",
+    "previousClose": 182.91,
+    "previousCloseDate": "2024-01-03"
+  },
+  {
+    "Code": "AAPL.F",
+    "Exchange": "F",
+    "Name": "Apple Inc.",
+    "Type": "Common Stock",
+    "Country": "Germany",
+    "Currency": "EUR",
+    "ISIN": "US0378331005",
+    "previousClose": 169.74,
+    "previousCloseDate": "2024-01-03"
+  },
+  {
+    "Code": "AAPL.MX",
+    "Exchange": "MX",
+    "Name": "Apple Inc",
+    "Type": "Common Stock",
+    "Country": "Mexico",
+    "Currency": "MXN",
+    "ISIN": "US0378331005",
+    "previousClose": 3121.50,
+    "previousCloseDate": "2024-01-03"
+  }
+]

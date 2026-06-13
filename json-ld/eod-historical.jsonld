@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "eod": "https://eodhd.com/vocab/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://eodhd.com/financial-apis/",
+  "name": "EOD Historical Data Financial API",
+  "description": "Institutional-grade financial market data API providing historical prices, real-time quotes, fundamentals, options, technical indicators, macroeconomic data, and financial news for 150,000+ tickers across 60+ global exchanges.",
+  "url": "https://eodhd.com/financial-apis/",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://eodhd.com/",
+    "name": "EOD Historical Data",
+    "url": "https://eodhd.com/",
+    "email": "supportlevel1@eodhistoricaldata.com",
+    "sameAs": [
+      "https://github.com/EodHistoricalData"
+    ]
+  },
+  "termsOfService": "https://eodhd.com/financial-apis/terms-conditions",
+  "license": "https://eodhd.com/financial-apis/terms-conditions",
+  "documentation": "https://eodhd.com/financial-apis/",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://eodhd.com/pricing/",
+    "priceCurrency": "USD",
+    "price": "19.99",
+    "description": "Paid plans starting at $19.99/month; free demo API key available"
+  },
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "name": "Search Tickers",
+      "description": "Search for financial instruments by name or ticker symbol",
+      "target": "https://eodhd.com/api/search/{query}?api_token={api_token}",
+      "query-input": ["required name=query", "required name=api_token"]
+    },
+    {
+      "@type": "Action",
+      "name": "Get End-of-Day Prices",
+      "description": "Retrieve historical end-of-day OHLCV price data for a ticker",
+      "target": "https://eodhd.com/api/eod/{ticker}?api_token={api_token}&fmt=json",
+      "query-input": ["required name=ticker", "required name=api_token"]
+    },
+    {
+      "@type": "Action",
+      "name": "Get Real-Time Quote",
+      "description": "Retrieve current real-time or delayed quote for a ticker",
+      "target": "https://eodhd.com/api/real-time/{ticker}?api_token={api_token}&fmt=json",
+      "query-input": ["required name=ticker", "required name=api_token"]
+    },
+    {
+      "@type": "Action",
+      "name": "Get Fundamentals",
+      "description": "Retrieve company fundamental data including financial statements and ratios",
+      "target": "https://eodhd.com/api/fundamentals/{ticker}?api_token={api_token}",
+      "query-input": ["required name=ticker", "required name=api_token"]
+    },
+    {
+      "@type": "Action",
+      "name": "Get Technical Indicators",
+      "description": "Calculate technical analysis indicators such as SMA, EMA, RSI, and MACD",
+      "target": "https://eodhd.com/api/technical/{ticker}?function={function}&api_token={api_token}",
+      "query-input": ["required name=ticker", "required name=function", "required name=api_token"]
+    }
+  ],
+  "serviceType": [
+    "Financial Market Data",
+    "Historical Price Data",
+    "Real-Time Quotes",
+    "Company Fundamentals",
+    "Options Data",
+    "Technical Analysis",
+    "Macroeconomic Data",
+    "Financial News",
+    "ESG Data"
+  ],
+  "areaServed": "Worldwide",
+  "availableLanguage": "en",
+  "eod:endpointCount": 69,
+  "eod:tickerCount": "150000+",
+  "eod:exchangeCount": "60+",
+  "eod:dataHistory": "30+ years",
+  "eod:authMethod": "api_token query parameter",
+  "eod:outputFormats": ["JSON", "CSV", "XML"],
+  "eod:streamingEndpoint": "wss://ws.eodhistoricaldata.com/ws"
+}

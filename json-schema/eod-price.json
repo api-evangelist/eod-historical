@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eodhd.com/schemas/eod-price",
+  "title": "EOD Price",
+  "description": "End-of-day OHLCV price record returned by the /eod/{ticker} endpoint",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trading date in YYYY-MM-DD format"
+    },
+    "open": {
+      "type": "number",
+      "description": "Opening price"
+    },
+    "high": {
+      "type": "number",
+      "description": "Highest price during trading session"
+    },
+    "low": {
+      "type": "number",
+      "description": "Lowest price during trading session"
+    },
+    "close": {
+      "type": "number",
+      "description": "Closing price"
+    },
+    "adjusted_close": {
+      "type": "number",
+      "description": "Split and dividend adjusted closing price"
+    },
+    "volume": {
+      "type": "integer",
+      "description": "Total shares traded"
+    }
+  },
+  "required": ["date", "open", "high", "low", "close", "adjusted_close", "volume"]
+}

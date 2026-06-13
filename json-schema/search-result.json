@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eodhd.com/schemas/search-result",
+  "title": "Search Result",
+  "description": "Ticker/instrument search result returned by the /search/{query} endpoint",
+  "type": "object",
+  "properties": {
+    "Code": {
+      "type": "string",
+      "description": "Ticker code"
+    },
+    "Exchange": {
+      "type": "string",
+      "description": "Exchange code"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Company or instrument name"
+    },
+    "Type": {
+      "type": "string",
+      "description": "Instrument type (Common Stock, ETF, etc.)"
+    },
+    "Country": {
+      "type": "string",
+      "description": "Country of listing"
+    },
+    "Currency": {
+      "type": "string",
+      "description": "Trading currency"
+    },
+    "ISIN": {
+      "type": ["string", "null"],
+      "description": "International Securities Identification Number"
+    },
+    "previousClose": {
+      "type": ["number", "null"],
+      "description": "Previous day's closing price"
+    },
+    "previousCloseDate": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date of previous closing price"
+    }
+  },
+  "required": ["Code", "Exchange", "Name", "Type", "Country", "Currency"]
+}

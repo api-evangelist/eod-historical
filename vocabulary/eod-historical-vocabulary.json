@@ -1,0 +1,110 @@
+{
+  "vocabulary": {
+    "name": "EOD Historical Data API Vocabulary",
+    "description": "Domain vocabulary for the EODHD Financial Data API covering financial market data, historical prices, fundamentals, and analytics",
+    "version": "1.0.0",
+    "source": "https://eodhd.com/financial-apis/",
+    "terms": [
+      {
+        "term": "EOD",
+        "definition": "End-of-Day — the final official price and volume data for a security recorded after market close",
+        "domain": "Market Data"
+      },
+      {
+        "term": "OHLCV",
+        "definition": "Open, High, Low, Close, Volume — the five standard data points recorded for each trading session",
+        "domain": "Market Data"
+      },
+      {
+        "term": "Adjusted Close",
+        "definition": "Closing price adjusted retroactively for corporate actions such as stock splits and dividends to produce a continuous time series",
+        "domain": "Market Data"
+      },
+      {
+        "term": "Ticker",
+        "definition": "Unique alphabetic abbreviation used to identify a publicly traded company or financial instrument on an exchange, e.g. AAPL.US",
+        "domain": "Reference Data"
+      },
+      {
+        "term": "Exchange Code",
+        "definition": "Short identifier for a stock exchange, e.g. US (NYSE/NASDAQ), LSE, F (Frankfurt), T (Tokyo)",
+        "domain": "Reference Data"
+      },
+      {
+        "term": "ISIN",
+        "definition": "International Securities Identification Number — a 12-character alphanumeric code that uniquely identifies a security globally",
+        "domain": "Reference Data"
+      },
+      {
+        "term": "CUSIP",
+        "definition": "Committee on Uniform Security Identification Procedures — a 9-character alphanumeric code used to identify securities in the US and Canada",
+        "domain": "Reference Data"
+      },
+      {
+        "term": "Fundamentals",
+        "definition": "Financial statement data for a company including income statements, balance sheets, and cash flow statements, typically sourced from SEC filings",
+        "domain": "Fundamentals"
+      },
+      {
+        "term": "Intraday",
+        "definition": "Price data recorded at sub-daily intervals (1min, 5min, 1h) during active trading sessions",
+        "domain": "Market Data"
+      },
+      {
+        "term": "Options Chain",
+        "definition": "The complete list of call and put option contracts available for a given underlying security across all expiration dates and strike prices",
+        "domain": "Derivatives"
+      },
+      {
+        "term": "Greeks",
+        "definition": "Measures of sensitivity of an options contract price to various factors: Delta (underlying price), Gamma (delta rate), Theta (time), Vega (volatility), Rho (interest rate)",
+        "domain": "Derivatives"
+      },
+      {
+        "term": "Implied Volatility",
+        "definition": "The market's forecast of a likely movement in a security's price, derived from options pricing",
+        "domain": "Derivatives"
+      },
+      {
+        "term": "Technical Indicator",
+        "definition": "Mathematical calculations based on price and volume data used to forecast price movements, e.g. SMA, EMA, RSI, MACD, Bollinger Bands",
+        "domain": "Technical Analysis"
+      },
+      {
+        "term": "Macroeconomic Indicator",
+        "definition": "Country-level economic statistics such as GDP, inflation rate, unemployment, and trade balance",
+        "domain": "Economic Data"
+      },
+      {
+        "term": "Insider Transaction",
+        "definition": "A purchase or sale of company stock by a corporate officer, director, or holder of more than 10% of the company's shares, as reported to the SEC on Form 4",
+        "domain": "Corporate Actions"
+      },
+      {
+        "term": "ESG",
+        "definition": "Environmental, Social, and Governance — a framework for evaluating a company's sustainability and ethical practices",
+        "domain": "ESG"
+      },
+      {
+        "term": "api_token",
+        "definition": "Query parameter used to authenticate requests to the EODHD API",
+        "domain": "Authentication"
+      },
+      {
+        "term": "Sentiment",
+        "definition": "A numerical score indicating the emotional tone (positive/negative/neutral) of financial news articles related to a security or market",
+        "domain": "News & Sentiment"
+      },
+      {
+        "term": "Market Screener",
+        "definition": "A tool that filters securities based on specified fundamental, technical, or market criteria",
+        "domain": "Screening"
+      },
+      {
+        "term": "WebSocket",
+        "definition": "Real-time streaming data protocol available at wss://ws.eodhistoricaldata.com/ws for live market price updates",
+        "domain": "Streaming"
+      }
+    ]
+  }
+}

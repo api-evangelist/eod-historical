@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eodhd.com/schemas/options-contract",
+  "title": "Options Contract",
+  "description": "Options contract record with Greeks returned by the /mp/unicornbay/options/contracts endpoint",
+  "type": "object",
+  "properties": {
+    "contract": {
+      "type": "string",
+      "description": "Options contract identifier"
+    },
+    "underlying_symbol": {
+      "type": "string",
+      "description": "Symbol of the underlying security"
+    },
+    "exp_date": {
+      "type": "string",
+      "description": "Expiration date in YYYY-MM-DD format"
+    },
+    "expiration_type": {
+      "type": ["string", "null"],
+      "description": "Type of expiration (e.g., weekly, monthly)"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["call", "put"],
+      "description": "Option type"
+    },
+    "strike": {
+      "type": ["number", "null"],
+      "description": "Strike price"
+    },
+    "exchange": {
+      "type": ["string", "null"],
+      "description": "Exchange where the option trades"
+    },
+    "currency": {
+      "type": ["string", "null"],
+      "description": "Currency of the option contract"
+    },
+    "open": {
+      "type": ["number", "null"],
+      "description": "Opening price"
+    },
+    "high": {
+      "type": ["number", "null"],
+      "description": "Highest price"
+    },
+    "low": {
+      "type": ["number", "null"],
+      "description": "Lowest price"
+    },
+    "last": {
+      "type": ["number", "null"],
+      "description": "Last traded price"
+    },
+    "volume": {
+      "type": ["integer", "null"],
+      "description": "Trading volume"
+    },
+    "open_interest": {
+      "type": ["integer", "null"],
+      "description": "Number of open contracts"
+    },
+    "bid": {
+      "type": ["number", "null"],
+      "description": "Current bid price"
+    },
+    "ask": {
+      "type": ["number", "null"],
+      "description": "Current ask price"
+    },
+    "implied_volatility": {
+      "type": ["number", "null"],
+      "description": "Implied volatility"
+    },
+    "delta": {
+      "type": ["number", "null"],
+      "description": "Delta Greek - rate of change of option price with respect to underlying price"
+    },
+    "gamma": {
+      "type": ["number", "null"],
+      "description": "Gamma Greek - rate of change of delta"
+    },
+    "theta": {
+      "type": ["number", "null"],
+      "description": "Theta Greek - time decay of option value"
+    },
+    "vega": {
+      "type": ["number", "null"],
+      "description": "Vega Greek - sensitivity to volatility"
+    },
+    "rho": {
+      "type": ["number", "null"],
+      "description": "Rho Greek - sensitivity to interest rate"
+    }
+  },
+  "required": ["contract", "underlying_symbol", "exp_date", "type"]
+}
