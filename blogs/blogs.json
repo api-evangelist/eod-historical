@@ -2,6 +2,13 @@
   "repo": "eod-historical",
   "feeds": [
     {
+      "source": "https://eodhd.com/financial-apis-blog/feed/",
+      "feed_url": "https://eodhd.com/financial-apis-blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://eodhd.com/cp/",
       "feed_url": "https://eodhd.com/cp/",
       "title": "",
@@ -9,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 10,
+  "fetched": "2026-06-27T12:03:07Z"
 }

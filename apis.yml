@@ -99,7 +99,7 @@ common:
     url: https://eodhd.com/financial-apis/
   - type: Pricing
     url: https://eodhd.com/pricing/
-  - type: SignUp
+  - type: Signup
     url: https://eodhd.com/register/
   - type: Login
     url: https://eodhd.com/cp/
