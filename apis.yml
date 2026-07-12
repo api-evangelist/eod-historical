@@ -93,6 +93,10 @@ apis:
       - Screen global markets via screener API combined with fundamental filters
       - Monitor insider activity and ESG scores for portfolio risk analysis
 common:
+  - type: DomainSecurity
+    url: security/eod-historical-domain-security.yml
+  - type: Authentication
+    url: authentication/eod-historical-authentication.yml
   - type: Portal
     url: https://eodhd.com/
   - type: Documentation
