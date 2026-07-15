@@ -93,6 +93,8 @@ apis:
       - Screen global markets via screener API combined with fundamental filters
       - Monitor insider activity and ESG scores for portfolio risk analysis
 common:
+  - type: AgenticAccess
+    url: agentic-access/eod-historical-agentic-access.yml
   - type: DomainSecurity
     url: security/eod-historical-domain-security.yml
   - type: Authentication
