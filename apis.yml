@@ -2,7 +2,20 @@ aid: eod-historical
 url: https://raw.githubusercontent.com/api-evangelist/eod-historical/refs/heads/main/apis.yml
 name: EOD Historical Data
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Freemium · Open access
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/eod-historical.png
 tags:
   - Fintech
   - Market Data
@@ -29,70 +42,329 @@ description: >-
   transactions, macroeconomic indicators, ESG data, and WebSocket streaming. Authentication is via
   api_token query parameter; output is JSON, CSV, or XML.
 apis:
-  - aid: eod-historical:financial-data-api
-    name: EOD Historical Data Financial API
-    tags:
-      - Stocks
-      - End-of-Day
-      - Historical
-      - Real-Time
-      - Intraday
-      - Fundamentals
-      - ETF
-      - Options
-      - Forex
-      - Crypto
-      - Macroeconomic
-      - Technical Indicators
-      - News
-      - Sentiment
-      - Dividends
-      - Splits
-      - ESG
-      - Insider Transactions
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://eodhd.com/api
-    humanURL: https://eodhd.com/financial-apis/
-    description: >-
-      Single REST API base providing 74 endpoints across end-of-day data (/eod), real-time prices
-      (/real-time), intraday (/intraday), fundamentals (/fundamentals), options chains (/options),
-      dividends and splits (/div), technical indicators (/indicators), financial news (/news),
-      macroeconomic data (/macro-indicator), calendar events (/calendar), insider transactions
-      (/insider-transactions), ESG metrics, market screener (/screener), exchange information
-      (/exchanges-list), ticker search (/search), and WebSocket streaming at
-      wss://ws.eodhistoricaldata.com/ws. Free demo key included; paid plans start at $19.99/month.
-    properties:
-      - type: Documentation
-        url: https://eodhd.com/financial-apis/
-      - type: Pricing
-        url: https://eodhd.com/pricing/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/EodHistoricalData/EODHD-openapi/main/openapi.yaml
-      - type: GitHubOrganization
-        url: https://github.com/EodHistoricalData
-    x-features:
-      - 150,000+ tickers across 60+ global exchanges
-      - 30+ years of end-of-day historical data
-      - Real-time OHLCV and WebSocket streaming (wss://ws.eodhistoricaldata.com/ws)
-      - Fundamentals - income statements, balance sheets, cash flows, ratios
-      - ETF, mutual fund, and index fundamental data
-      - US stock options chains with Greeks (end-of-day)
-      - Technical indicators (SMA, EMA, RSI, MACD, Bollinger Bands, etc.)
-      - Financial news feed with sentiment analysis
-      - Macroeconomic indicators (GDP, inflation, demographics by country)
-      - Insider transactions (SEC Form 4 filings)
-      - ESG data, sanctions screening, market capitalization history
-      - Calendar API (earnings, dividends, IPOs, splits)
-      - CUSIP/ISIN/FIGI/LEI/CIK symbol mapping
-      - JSON, CSV, and XML output formats
-      - OpenAPI 3.1 specification with 74 endpoints
-    x-use-cases:
-      - Build equity research dashboards with 30+ years of historical price and fundamental data
-      - Backtest trading strategies using intraday and end-of-day OHLCV data
-      - Power quant models with options chains, technical indicators, and macro data
-      - Screen global markets via screener API combined with fundamental filters
-      - Monitor insider activity and ESG scores for portfolio risk analysis
+- aid: eod-historical:eod-historical-calendar-api
+  name: EOD Historical Data Calendar API
+  description: Calendar events including earnings, IPOs, splits, dividends, and trends
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Calendar
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-calendar-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-cboe-api
+  name: EOD Historical Data CBOE API
+  description: CBOE index data and listings
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - CBOE
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-cboe-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-corporate-actions-api
+  name: EOD Historical Data Corporate Actions API
+  description: Symbol changes and insider transactions
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Corporate Actions
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-corporate-actions-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-dividends-splits-api
+  name: EOD Historical Data Dividends & Splits API
+  description: Dividend and split history
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Dividends & Splits
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-dividends-splits-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-economic-data-api
+  name: EOD Historical Data Economic Data API
+  description: Economic events and macro indicators
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Economic Data
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-economic-data-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-end-of-day-data-api
+  name: EOD Historical Data End-of-Day Data API
+  description: Historical and current end-of-day price data
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - End-of-Day Data
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-end-of-day-data-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-esg-api
+  name: EOD Historical Data ESG API
+  description: Environmental, Social, and Governance ratings (Investverte)
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - ESG
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-esg-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-exchanges-api
+  name: EOD Historical Data Exchanges API
+  description: Exchange information and symbols
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Exchanges
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-exchanges-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-fundamentals-api
+  name: EOD Historical Data Fundamentals API
+  description: Fundamental data for stocks and companies
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Fundamentals
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-fundamentals-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-indices-api
+  name: EOD Historical Data Indices API
+  description: S&P/Dow Jones indices data and components
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Indices
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-indices-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-intraday-data-api
+  name: EOD Historical Data Intraday Data API
+  description: Real-time and intraday price data
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Intraday Data
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-intraday-data-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-investment-analytics-api
+  name: EOD Historical Data Investment Analytics API
+  description: Risk scoring, bond analysis, bank financials, reports (PRAAMS)
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Investment Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-investment-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-logos-api
+  name: EOD Historical Data Logos API
+  description: Company and ticker logos
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Logos
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-logos-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-market-data-api
+  name: EOD Historical Data Market Data API
+  description: Market capitalization and other market data
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Market Data
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-market-data-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-news-api
+  name: EOD Historical Data News API
+  description: Financial news and sentiment analysis
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-news-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-options-api
+  name: EOD Historical Data Options API
+  description: Options contracts and pricing data
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Options
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-options-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-screening-api
+  name: EOD Historical Data Screening API
+  description: Stock screening tools
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Screening
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-screening-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-technical-api
+  name: EOD Historical Data Technical API
+  description: Technical analysis indicators
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - Technical
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-technical-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-us-treasury-api
+  name: EOD Historical Data US Treasury API
+  description: US Treasury interest rates (bills, yields, long-term, real yields)
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - US Treasury
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-us-treasury-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
+- aid: eod-historical:eod-historical-user-api
+  name: EOD Historical Data User API
+  description: User account and subscription information
+  humanURL: https://eodhd.com/financial-apis/
+  baseURL: https://eodhd.com/api
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/eod-historical-user-api-openapi.yml
+  - type: Documentation
+    url: https://eodhd.com/financial-apis/
+  - type: Pricing
+    url: https://eodhd.com/pricing/
+  - type: GitHubOrganization
+    url: https://github.com/EodHistoricalData
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/eod-historical-data/overview
   - type: AgenticAccess
     url: agentic-access/eod-historical-agentic-access.yml
   - type: DomainSecurity
