@@ -1,0 +1,555 @@
+{
+  "info": {
+    "_postman_id": "05f1c045-a6ef-48c9-b485-be5cc79224bc",
+    "name": "EODHD Financial Data Calendar CBOE API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:16.000Z",
+    "updatedAt": "2026-07-28T01:34:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05f1c045-a6ef-48c9-b485-be5cc79224bc"
+  },
+  "item": [
+    {
+      "name": "cboe",
+      "item": [
+        {
+          "name": "index",
+          "item": [
+            {
+              "name": "Get CBOE index historical data",
+              "id": "334e63a8-3c5b-4ee5-a3eb-f76bc0d7c13a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cboe/index?api_token=<string>&filter[index_code]=<string>&filter[feed_type]=<string>&filter[date]=<date>&filter[include_review]=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cboe",
+                    "index"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) CBOE index code (e.g., 'VIX', 'SPX').",
+                      "key": "filter[index_code]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Feed type filter.",
+                      "key": "filter[feed_type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Date filter in 'YYYY-MM-DD' format.",
+                      "key": "filter[date]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Include review data.",
+                      "key": "filter[include_review]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                },
+                "description": "Returns historical end-of-day data for a specific CBOE index, including daily open, high, low, close values."
+              },
+              "response": [
+                {
+                  "id": "8ea91cda-9c3f-4d86-a72c-4d6b2193d3c5",
+                  "name": "Successfully retrieved CBOE index data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/index?api_token=<API Key>&filter[index_code]=<string>&filter[feed_type]=<string>&filter[date]=<date>&filter[include_review]=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "index"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) CBOE index code (e.g., 'VIX', 'SPX').",
+                          "key": "filter[index_code]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Feed type filter.",
+                          "key": "filter[feed_type]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date filter in 'YYYY-MM-DD' format.",
+                          "key": "filter[date]",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Include review data.",
+                          "key": "filter[include_review]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<number>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<number>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-8ea91cda-9c3f-4d86-a72c-4d6b2193d3c5"
+                },
+                {
+                  "id": "62bcaa7b-b99b-41f5-95f5-0c589554b792",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/index?api_token=<API Key>&filter[index_code]=<string>&filter[feed_type]=<string>&filter[date]=<date>&filter[include_review]=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "index"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) CBOE index code (e.g., 'VIX', 'SPX').",
+                          "key": "filter[index_code]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Feed type filter.",
+                          "key": "filter[feed_type]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date filter in 'YYYY-MM-DD' format.",
+                          "key": "filter[date]",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Include review data.",
+                          "key": "filter[include_review]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-62bcaa7b-b99b-41f5-95f5-0c589554b792"
+                },
+                {
+                  "id": "65fc9b18-2121-4a7f-ab96-31cf73bfc7da",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/index?api_token=<API Key>&filter[index_code]=<string>&filter[feed_type]=<string>&filter[date]=<date>&filter[include_review]=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "index"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) CBOE index code (e.g., 'VIX', 'SPX').",
+                          "key": "filter[index_code]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Feed type filter.",
+                          "key": "filter[feed_type]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date filter in 'YYYY-MM-DD' format.",
+                          "key": "filter[date]",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Include review data.",
+                          "key": "filter[include_review]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-65fc9b18-2121-4a7f-ab96-31cf73bfc7da"
+                },
+                {
+                  "id": "6c6c986a-d04b-48c6-9ac8-bac1a1f8374b",
+                  "name": "Index not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/index?api_token=<API Key>&filter[index_code]=<string>&filter[feed_type]=<string>&filter[date]=<date>&filter[include_review]=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "index"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) CBOE index code (e.g., 'VIX', 'SPX').",
+                          "key": "filter[index_code]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Feed type filter.",
+                          "key": "filter[feed_type]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Date filter in 'YYYY-MM-DD' format.",
+                          "key": "filter[date]",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Include review data.",
+                          "key": "filter[include_review]",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-6c6c986a-d04b-48c6-9ac8-bac1a1f8374b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:17.000Z",
+              "updatedAt": "2026-07-28T01:34:17.000Z",
+              "uid": "35240-334e63a8-3c5b-4ee5-a3eb-f76bc0d7c13a"
+            }
+          ],
+          "id": "962c5f10-0f93-4103-822d-37c874694cb8",
+          "createdAt": "2026-07-28T01:34:17.000Z",
+          "updatedAt": "2026-07-28T01:34:17.000Z",
+          "uid": "35240-962c5f10-0f93-4103-822d-37c874694cb8"
+        },
+        {
+          "name": "indices",
+          "item": [
+            {
+              "name": "List CBOE indices",
+              "id": "55adfa6f-09f3-4360-94fc-32b32a2cd052",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cboe/indices?api_token=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cboe",
+                    "indices"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                },
+                "description": "Returns a list of all available CBOE indices with their latest values and metadata."
+              },
+              "response": [
+                {
+                  "id": "fee3e253-f4c2-4c59-af73-62093545f321",
+                  "name": "Successfully retrieved CBOE indices list.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/indices?api_token=<API Key>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "indices"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"last_value\": \"<number>\",\n    \"change\": \"<number>\",\n    \"change_p\": \"<number>\",\n    \"last_update\": \"<date>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"name\": \"<string>\",\n    \"last_value\": \"<number>\",\n    \"change\": \"<number>\",\n    \"change_p\": \"<number>\",\n    \"last_update\": \"<date>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-fee3e253-f4c2-4c59-af73-62093545f321"
+                },
+                {
+                  "id": "a9586114-b9cb-490d-8e44-859fee1ec7ee",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/indices?api_token=<API Key>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "indices"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-a9586114-b9cb-490d-8e44-859fee1ec7ee"
+                },
+                {
+                  "id": "e6d81605-5136-49a7-972d-7a72ac310aa6",
+                  "name": "Too Many Requests.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/cboe/indices?api_token=<API Key>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cboe",
+                        "indices"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:17.000Z",
+                  "updatedAt": "2026-07-28T01:34:17.000Z",
+                  "uid": "35240-e6d81605-5136-49a7-972d-7a72ac310aa6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:17.000Z",
+              "updatedAt": "2026-07-28T01:34:17.000Z",
+              "uid": "35240-55adfa6f-09f3-4360-94fc-32b32a2cd052"
+            }
+          ],
+          "id": "fc0a41db-585a-46ba-9253-efc5cb9df90c",
+          "createdAt": "2026-07-28T01:34:17.000Z",
+          "updatedAt": "2026-07-28T01:34:17.000Z",
+          "uid": "35240-fc0a41db-585a-46ba-9253-efc5cb9df90c"
+        }
+      ],
+      "id": "0f606898-6047-4d65-9801-c9cb2d882955",
+      "createdAt": "2026-07-28T01:34:17.000Z",
+      "updatedAt": "2026-07-28T01:34:17.000Z",
+      "uid": "35240-0f606898-6047-4d65-9801-c9cb2d882955"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

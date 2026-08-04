@@ -1,0 +1,1549 @@
+{
+  "info": {
+    "_postman_id": "c32465c2-c3d6-43a4-8417-876bd487088a",
+    "name": "EODHD Financial Data Calendar Fundamentals API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:43.000Z",
+    "updatedAt": "2026-07-28T01:34:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c32465c2-c3d6-43a4-8417-876bd487088a"
+  },
+  "item": [
+    {
+      "name": "bulk-fundamentals",
+      "item": [
+        {
+          "name": "{EXCHANGE}",
+          "item": [
+            {
+              "name": "Retrieve bulk fundamental data for an exchange",
+              "id": "27dafc9c-ede9-43bb-a2bb-a5e5532df12d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bulk-fundamentals/:EXCHANGE?api_token=<string>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bulk-fundamentals",
+                    ":EXCHANGE"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Offset for pagination (number of records to skip).",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of records to return (max 500).",
+                      "key": "limit",
+                      "value": "500"
+                    },
+                    {
+                      "description": "API version for response format.",
+                      "key": "version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "e2b925a5-fc95-4626-a229-68d34034eede",
+                      "key": "EXCHANGE",
+                      "value": "<string>",
+                      "description": "(Required) Exchange code (e.g., 'US', 'LSE', 'TO')."
+                    }
+                  ]
+                },
+                "description": "Fetches fundamental data in bulk for all symbols on a given exchange. Supports filtering by specific symbols and data sections (General, Highlights, Valuation, etc.)."
+              },
+              "response": [
+                {
+                  "id": "80108a7a-4c94-404d-b1d3-e0f3b11600a8",
+                  "name": "Successfully retrieved bulk fundamental data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bulk-fundamentals",
+                        ":EXCHANGE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Offset for pagination (number of records to skip).",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of records to return (max 500).",
+                          "key": "limit",
+                          "value": "500"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"General\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Exchange\": \"<string>\",\n      \"Sector\": \"<string>\",\n      \"Industry\": \"<string>\"\n    },\n    \"Highlights\": {\n      \"MarketCapitalization\": \"<number>\",\n      \"EBITDA\": \"<number>\",\n      \"PERatio\": \"<number>\"\n    },\n    \"Valuation\": {\n      \"TrailingPE\": \"<number>\",\n      \"ForwardPE\": \"<number>\"\n    }\n  },\n  {\n    \"General\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Exchange\": \"<string>\",\n      \"Sector\": \"<string>\",\n      \"Industry\": \"<string>\"\n    },\n    \"Highlights\": {\n      \"MarketCapitalization\": \"<number>\",\n      \"EBITDA\": \"<number>\",\n      \"PERatio\": \"<number>\"\n    },\n    \"Valuation\": {\n      \"TrailingPE\": \"<number>\",\n      \"ForwardPE\": \"<number>\"\n    }\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-80108a7a-4c94-404d-b1d3-e0f3b11600a8"
+                },
+                {
+                  "id": "fc9271d0-18a5-48e5-8050-f7cb60b30ed7",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bulk-fundamentals",
+                        ":EXCHANGE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Offset for pagination (number of records to skip).",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of records to return (max 500).",
+                          "key": "limit",
+                          "value": "500"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-fc9271d0-18a5-48e5-8050-f7cb60b30ed7"
+                },
+                {
+                  "id": "5163bb3b-d412-4bb9-8546-46c71ec1e897",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bulk-fundamentals",
+                        ":EXCHANGE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Offset for pagination (number of records to skip).",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of records to return (max 500).",
+                          "key": "limit",
+                          "value": "500"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-5163bb3b-d412-4bb9-8546-46c71ec1e897"
+                },
+                {
+                  "id": "1db6fa74-9009-473b-90ae-770f22ae9e72",
+                  "name": "Exchange not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bulk-fundamentals",
+                        ":EXCHANGE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Offset for pagination (number of records to skip).",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of records to return (max 500).",
+                          "key": "limit",
+                          "value": "500"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-1db6fa74-9009-473b-90ae-770f22ae9e72"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:44.000Z",
+              "updatedAt": "2026-07-28T01:34:44.000Z",
+              "uid": "35240-27dafc9c-ede9-43bb-a2bb-a5e5532df12d"
+            }
+          ],
+          "id": "37c8701a-59b3-421d-aaff-da61f06c1930",
+          "createdAt": "2026-07-28T01:34:44.000Z",
+          "updatedAt": "2026-07-28T01:34:44.000Z",
+          "uid": "35240-37c8701a-59b3-421d-aaff-da61f06c1930"
+        }
+      ],
+      "id": "c3aeb4a2-f049-4237-8c96-593c9d4ed649",
+      "createdAt": "2026-07-28T01:34:44.000Z",
+      "updatedAt": "2026-07-28T01:34:44.000Z",
+      "uid": "35240-c3aeb4a2-f049-4237-8c96-593c9d4ed649"
+    },
+    {
+      "name": "fundamentals",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve filtered fundamental data for a specific symbol",
+              "id": "89f08203-5b5e-4f2d-a42e-d35ca75ee8c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/fundamentals/:ticker?api_token=<string>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "fundamentals",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                      "key": "historical",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "API version for response format.",
+                      "key": "version",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Set to 1 to bypass cache and get fresh data.",
+                      "key": "no_cache",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "c04d2148-4932-44ea-817a-632cd3e88a41",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) The ticker symbol in the format SYMBOL.EXCHANGE, e.g., 'AAPL.US' for Apple Inc. on NASDAQ."
+                    }
+                  ]
+                },
+                "description": "Fetches various sections of fundamental data for a given stock symbol. Use filters to specify the data section and sub-sections, such as Financials::Balance_Sheet::quarterly::2024-06-30 for quarterly Balance Sheet data."
+              },
+              "response": [
+                {
+                  "id": "20ec146c-7800-4ee8-bcd3-ce1872ddb3b0",
+                  "name": "Successfully retrieved filtered fundamental data for the specified symbol and section.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fundamentals",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                          "key": "historical",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to 1 to bypass cache and get fresh data.",
+                          "key": "no_cache",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"General\": {\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Sector\": \"<string>\"\n  },\n  \"Highlights\": {\n    \"MarketCapitalization\": \"<number>\",\n    \"EBITDA\": \"<number>\",\n    \"PERatio\": \"<number>\"\n  },\n  \"Valuation\": {\n    \"TrailingPE\": \"<number>\",\n    \"ForwardPE\": \"<number>\",\n    \"EnterpriseValue\": \"<number>\"\n  },\n  \"SharesStats\": {\n    \"SharesOutstanding\": \"<number>\",\n    \"SharesFloat\": \"<number>\",\n    \"PercentInstitutions\": \"<number>\"\n  },\n  \"Technicals\": {\n    \"Beta\": \"<number>\",\n    \"52WeekHigh\": \"<number>\",\n    \"52WeekLow\": \"<number>\"\n  },\n  \"SplitsDividends\": {\n    \"DividendYield\": \"<number>\",\n    \"DividendDate\": \"<date>\",\n    \"LastSplitFactor\": \"<string>\"\n  },\n  \"AnalystRatings\": {\n    \"Rating\": \"<number>\",\n    \"StrongBuy\": \"<integer>\",\n    \"Sell\": \"<integer>\"\n  },\n  \"Holders\": {\n    \"Institutions\": [\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      }\n    ],\n    \"Funds\": [\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      }\n    ]\n  },\n  \"InsiderTransactions\": [\n    {\n      \"date\": \"<date>\",\n      \"ownerName\": \"<string>\",\n      \"transactionCode\": \"<string>\",\n      \"transactionAmount\": \"<number>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"ownerName\": \"<string>\",\n      \"transactionCode\": \"<string>\",\n      \"transactionAmount\": \"<number>\"\n    }\n  ],\n  \"ESGScores\": {\n    \"environmentScore\": \"<number>\",\n    \"socialScore\": \"<number>\",\n    \"governanceScore\": \"<number>\"\n  },\n  \"outstandingShares\": {\n    \"annual\": [\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      }\n    ],\n    \"quarterly\": [\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      }\n    ]\n  },\n  \"Earnings\": {\n    \"History\": [\n      {\n        \"date\": \"<date>\",\n        \"epsActual\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"epsActual\": \"<number>\"\n      }\n    ],\n    \"Trend\": [\n      {\n        \"period\": \"<string>\",\n        \"epsEstimateAvg\": \"<number>\"\n      },\n      {\n        \"period\": \"<string>\",\n        \"epsEstimateAvg\": \"<number>\"\n      }\n    ]\n  },\n  \"Financials\": {\n    \"Balance_Sheet\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    },\n    \"Income_Statement\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    },\n    \"Cash_Flow\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-20ec146c-7800-4ee8-bcd3-ce1872ddb3b0"
+                },
+                {
+                  "id": "c93fe814-a413-4526-9261-aa3cb67e29bc",
+                  "name": "Invalid request parameters or missing required filter.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fundamentals",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                          "key": "historical",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to 1 to bypass cache and get fresh data.",
+                          "key": "no_cache",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-c93fe814-a413-4526-9261-aa3cb67e29bc"
+                },
+                {
+                  "id": "e59ee818-d343-4516-94f5-2259cc8d91a3",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fundamentals",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                          "key": "historical",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to 1 to bypass cache and get fresh data.",
+                          "key": "no_cache",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-e59ee818-d343-4516-94f5-2259cc8d91a3"
+                },
+                {
+                  "id": "ede66ec0-495c-4aa1-a08e-4d700c182b2e",
+                  "name": "Data not found for the specified symbol or filter.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "fundamentals",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                          "key": "historical",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to 1 to bypass cache and get fresh data.",
+                          "key": "no_cache",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-ede66ec0-495c-4aa1-a08e-4d700c182b2e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:44.000Z",
+              "updatedAt": "2026-07-28T01:34:44.000Z",
+              "uid": "35240-89f08203-5b5e-4f2d-a42e-d35ca75ee8c2"
+            }
+          ],
+          "id": "c53c8eae-03ce-4ba8-b48a-873a45650df3",
+          "createdAt": "2026-07-28T01:34:44.000Z",
+          "updatedAt": "2026-07-28T01:34:44.000Z",
+          "uid": "35240-c53c8eae-03ce-4ba8-b48a-873a45650df3"
+        }
+      ],
+      "id": "4cf8fce1-0ebf-4520-bb12-28096df20e4d",
+      "createdAt": "2026-07-28T01:34:44.000Z",
+      "updatedAt": "2026-07-28T01:34:44.000Z",
+      "uid": "35240-4cf8fce1-0ebf-4520-bb12-28096df20e4d"
+    },
+    {
+      "name": "v1.1",
+      "item": [
+        {
+          "name": "bulk-fundamentals",
+          "item": [
+            {
+              "name": "{EXCHANGE}",
+              "item": [
+                {
+                  "name": "Retrieve bulk fundamental data for an exchange (v1.1)",
+                  "id": "f8cc8603-ddbe-4640-abab-42656e4e6dad",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1.1/bulk-fundamentals/:EXCHANGE?api_token=<string>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1.1",
+                        "bulk-fundamentals",
+                        ":EXCHANGE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Offset for pagination (number of records to skip).",
+                          "key": "offset",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of records to return (max 500).",
+                          "key": "limit",
+                          "value": "500"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Output format. In v1.1, only json format is supported.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2286e8a5-d6e1-4623-851f-0cfb843064e8",
+                          "key": "EXCHANGE",
+                          "value": "<string>",
+                          "description": "(Required) Exchange code (e.g., 'US', 'LSE', 'TO')."
+                        }
+                      ]
+                    },
+                    "description": "Fetches fundamental data in bulk for all symbols on a given exchange using API v1.1. Supports filtering by specific symbols and data sections (General, Highlights, Valuation, etc.). In v1.1, the fmt parameter only supports json format."
+                  },
+                  "response": [
+                    {
+                      "id": "20f940ac-b77b-4d65-ac8f-04d8ef306709",
+                      "name": "Successfully retrieved bulk fundamental data.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "bulk-fundamentals",
+                            ":EXCHANGE"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Offset for pagination (number of records to skip).",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of records to return (max 500).",
+                              "key": "limit",
+                              "value": "500"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Output format. In v1.1, only json format is supported.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "EXCHANGE"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"General\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Exchange\": \"<string>\",\n      \"Sector\": \"<string>\",\n      \"Industry\": \"<string>\"\n    },\n    \"Highlights\": {\n      \"MarketCapitalization\": \"<number>\",\n      \"EBITDA\": \"<number>\",\n      \"PERatio\": \"<number>\"\n    },\n    \"Valuation\": {\n      \"TrailingPE\": \"<number>\",\n      \"ForwardPE\": \"<number>\"\n    }\n  },\n  {\n    \"General\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Exchange\": \"<string>\",\n      \"Sector\": \"<string>\",\n      \"Industry\": \"<string>\"\n    },\n    \"Highlights\": {\n      \"MarketCapitalization\": \"<number>\",\n      \"EBITDA\": \"<number>\",\n      \"PERatio\": \"<number>\"\n    },\n    \"Valuation\": {\n      \"TrailingPE\": \"<number>\",\n      \"ForwardPE\": \"<number>\"\n    }\n  }\n]",
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-20f940ac-b77b-4d65-ac8f-04d8ef306709"
+                    },
+                    {
+                      "id": "1f9e4819-c1e3-42fa-a09f-b56bbfc1e2c6",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "bulk-fundamentals",
+                            ":EXCHANGE"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Offset for pagination (number of records to skip).",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of records to return (max 500).",
+                              "key": "limit",
+                              "value": "500"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Output format. In v1.1, only json format is supported.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "EXCHANGE"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-1f9e4819-c1e3-42fa-a09f-b56bbfc1e2c6"
+                    },
+                    {
+                      "id": "13198734-ac73-4215-9b3f-8caf6a8e4a8c",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "bulk-fundamentals",
+                            ":EXCHANGE"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Offset for pagination (number of records to skip).",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of records to return (max 500).",
+                              "key": "limit",
+                              "value": "500"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Output format. In v1.1, only json format is supported.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "EXCHANGE"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-13198734-ac73-4215-9b3f-8caf6a8e4a8c"
+                    },
+                    {
+                      "id": "a91c0160-f083-4905-818e-3489d173b1db",
+                      "name": "Exchange not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/bulk-fundamentals/:EXCHANGE?api_token=<API Key>&symbols=<string>&offset=0&limit=500&version=<integer>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "bulk-fundamentals",
+                            ":EXCHANGE"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL').",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Offset for pagination (number of records to skip).",
+                              "key": "offset",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of records to return (max 500).",
+                              "key": "limit",
+                              "value": "500"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Output format. In v1.1, only json format is supported.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "EXCHANGE"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-a91c0160-f083-4905-818e-3489d173b1db"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-f8cc8603-ddbe-4640-abab-42656e4e6dad"
+                }
+              ],
+              "id": "fe1a213f-8b50-46f4-b010-5fdfb866a397",
+              "createdAt": "2026-07-28T01:34:44.000Z",
+              "updatedAt": "2026-07-28T01:34:44.000Z",
+              "uid": "35240-fe1a213f-8b50-46f4-b010-5fdfb866a397"
+            }
+          ],
+          "id": "584633cd-8f6e-46c0-b1a5-16fa2c85d557",
+          "createdAt": "2026-07-28T01:34:44.000Z",
+          "updatedAt": "2026-07-28T01:34:44.000Z",
+          "uid": "35240-584633cd-8f6e-46c0-b1a5-16fa2c85d557"
+        },
+        {
+          "name": "fundamentals",
+          "item": [
+            {
+              "name": "{ticker}",
+              "item": [
+                {
+                  "name": "Retrieve filtered fundamental data for a specific symbol (v1.1)",
+                  "id": "c5467a92-ddc9-436d-b19a-ff0adde318b5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1.1/fundamentals/:ticker?api_token=<string>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1.1",
+                        "fundamentals",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                          "key": "filter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                          "key": "historical",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "API version for response format.",
+                          "key": "version",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to 1 to bypass cache and get fresh data.",
+                          "key": "no_cache",
+                          "value": "1"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6020e6b9-22d2-404d-9939-8fc1b04cd653",
+                          "key": "ticker",
+                          "value": "<string>",
+                          "description": "(Required) The ticker symbol in the format SYMBOL.EXCHANGE, e.g., 'AAPL.US' for Apple Inc. on NASDAQ."
+                        }
+                      ]
+                    },
+                    "description": "Fetches various sections of fundamental data for a given stock symbol using API v1.1. This version differs from v1 in the Earnings Trend section, which is split into Quarterly and Annual sub-objects with an additional \"quarter\" field on quarterly items. Use filters to specify the data section and sub-sections, such as Financials::Balance_Sheet::quarterly::2024-06-30 for quarterly Balance Sheet data."
+                  },
+                  "response": [
+                    {
+                      "id": "0d342931-767a-484b-8a51-092f94d1611b",
+                      "name": "Successfully retrieved filtered fundamental data for the specified symbol and section.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "fundamentals",
+                            ":ticker"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                              "key": "historical",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Set to 1 to bypass cache and get fresh data.",
+                              "key": "no_cache",
+                              "value": "1"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticker"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"General\": {\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Sector\": \"<string>\"\n  },\n  \"Highlights\": {\n    \"MarketCapitalization\": \"<number>\",\n    \"EBITDA\": \"<number>\",\n    \"PERatio\": \"<number>\"\n  },\n  \"Valuation\": {\n    \"TrailingPE\": \"<number>\",\n    \"ForwardPE\": \"<number>\",\n    \"EnterpriseValue\": \"<number>\"\n  },\n  \"SharesStats\": {\n    \"SharesOutstanding\": \"<number>\",\n    \"SharesFloat\": \"<number>\",\n    \"PercentInstitutions\": \"<number>\"\n  },\n  \"Technicals\": {\n    \"Beta\": \"<number>\",\n    \"52WeekHigh\": \"<number>\",\n    \"52WeekLow\": \"<number>\"\n  },\n  \"SplitsDividends\": {\n    \"DividendYield\": \"<number>\",\n    \"DividendDate\": \"<date>\",\n    \"LastSplitFactor\": \"<string>\"\n  },\n  \"AnalystRatings\": {\n    \"Rating\": \"<number>\",\n    \"StrongBuy\": \"<integer>\",\n    \"Sell\": \"<integer>\"\n  },\n  \"Holders\": {\n    \"Institutions\": [\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      }\n    ],\n    \"Funds\": [\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalShares\": \"<number>\"\n      }\n    ]\n  },\n  \"InsiderTransactions\": [\n    {\n      \"date\": \"<date>\",\n      \"ownerName\": \"<string>\",\n      \"transactionCode\": \"<string>\",\n      \"transactionAmount\": \"<number>\"\n    },\n    {\n      \"date\": \"<date>\",\n      \"ownerName\": \"<string>\",\n      \"transactionCode\": \"<string>\",\n      \"transactionAmount\": \"<number>\"\n    }\n  ],\n  \"ESGScores\": {\n    \"environmentScore\": \"<number>\",\n    \"socialScore\": \"<number>\",\n    \"governanceScore\": \"<number>\"\n  },\n  \"outstandingShares\": {\n    \"annual\": [\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      }\n    ],\n    \"quarterly\": [\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"shares\": \"<number>\"\n      }\n    ]\n  },\n  \"Earnings\": {\n    \"History\": [\n      {\n        \"date\": \"<date>\",\n        \"epsActual\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"epsActual\": \"<number>\"\n      }\n    ],\n    \"Trend\": {\n      \"Quarterly\": [\n        {\n          \"period\": \"<string>\",\n          \"quarter\": \"Q4\",\n          \"epsEstimateAvg\": \"<number>\"\n        },\n        {\n          \"period\": \"<string>\",\n          \"quarter\": \"Q4\",\n          \"epsEstimateAvg\": \"<number>\"\n        }\n      ],\n      \"Annual\": [\n        {\n          \"period\": \"<string>\",\n          \"epsEstimateAvg\": \"<number>\"\n        },\n        {\n          \"period\": \"<string>\",\n          \"epsEstimateAvg\": \"<number>\"\n        }\n      ]\n    }\n  },\n  \"Financials\": {\n    \"Balance_Sheet\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    },\n    \"Income_Statement\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    },\n    \"Cash_Flow\": {\n      \"annual\": \"<array>\",\n      \"quarterly\": \"<array>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-0d342931-767a-484b-8a51-092f94d1611b"
+                    },
+                    {
+                      "id": "c58efeaa-e0e7-4e4d-b5df-4970ef04c9f2",
+                      "name": "Invalid request parameters or missing required filter.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "fundamentals",
+                            ":ticker"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                              "key": "historical",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Set to 1 to bypass cache and get fresh data.",
+                              "key": "no_cache",
+                              "value": "1"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticker"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-c58efeaa-e0e7-4e4d-b5df-4970ef04c9f2"
+                    },
+                    {
+                      "id": "2c7df7d9-a362-4359-b3b7-295437e39e47",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "fundamentals",
+                            ":ticker"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                              "key": "historical",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Set to 1 to bypass cache and get fresh data.",
+                              "key": "no_cache",
+                              "value": "1"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticker"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-2c7df7d9-a362-4359-b3b7-295437e39e47"
+                    },
+                    {
+                      "id": "cca6025d-b2e8-440e-8d5a-91c89ccf945e",
+                      "name": "Data not found for the specified symbol or filter.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1.1/fundamentals/:ticker?api_token=<API Key>&filter=<string>&historical=1&from=<date>&to=<date>&version=<integer>&no_cache=1",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1.1",
+                            "fundamentals",
+                            ":ticker"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token for authentication. Use 'demo' for limited access with specific symbols.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections.",
+                              "key": "filter",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares).",
+                              "key": "historical",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Start date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date for historical data in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "API version for response format.",
+                              "key": "version",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Set to 1 to bypass cache and get fresh data.",
+                              "key": "no_cache",
+                              "value": "1"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ticker"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:44.000Z",
+                      "updatedAt": "2026-07-28T01:34:44.000Z",
+                      "uid": "35240-cca6025d-b2e8-440e-8d5a-91c89ccf945e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:44.000Z",
+                  "updatedAt": "2026-07-28T01:34:44.000Z",
+                  "uid": "35240-c5467a92-ddc9-436d-b19a-ff0adde318b5"
+                }
+              ],
+              "id": "b19b0f6a-3cb6-4357-897e-0cc47f7736bf",
+              "createdAt": "2026-07-28T01:34:44.000Z",
+              "updatedAt": "2026-07-28T01:34:44.000Z",
+              "uid": "35240-b19b0f6a-3cb6-4357-897e-0cc47f7736bf"
+            }
+          ],
+          "id": "9c113067-bcf2-4109-8d03-c6f08fadb51e",
+          "createdAt": "2026-07-28T01:34:44.000Z",
+          "updatedAt": "2026-07-28T01:34:44.000Z",
+          "uid": "35240-9c113067-bcf2-4109-8d03-c6f08fadb51e"
+        }
+      ],
+      "id": "fbb92651-6127-4e73-91dd-646597b8e16f",
+      "createdAt": "2026-07-28T01:34:44.000Z",
+      "updatedAt": "2026-07-28T01:34:44.000Z",
+      "uid": "35240-fbb92651-6127-4e73-91dd-646597b8e16f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

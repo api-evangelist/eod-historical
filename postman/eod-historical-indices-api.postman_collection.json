@@ -1,0 +1,693 @@
+{
+  "info": {
+    "_postman_id": "3bbdad07-ba41-4b33-a00a-fb46c73b7cfe",
+    "name": "EODHD Financial Data Calendar Indices API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:46.000Z",
+    "updatedAt": "2026-07-28T01:34:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3bbdad07-ba41-4b33-a00a-fb46c73b7cfe"
+  },
+  "item": [
+    {
+      "name": "mp",
+      "item": [
+        {
+          "name": "unicornbay",
+          "item": [
+            {
+              "name": "spglobal",
+              "item": [
+                {
+                  "name": "comp",
+                  "item": [
+                    {
+                      "name": "{symbol}",
+                      "item": [
+                        {
+                          "name": "Index components (current + historical)",
+                          "id": "eca4d4f1-26bb-4b1d-91dc-07abff967943",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "spglobal",
+                                "comp",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Response format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "338e2788-69a1-405e-9866-1cb129905f44",
+                                  "key": "symbol",
+                                  "value": "<string>",
+                                  "description": "(Required) Index symbol, e.g., GSPC.INDX"
+                                }
+                              ]
+                            },
+                            "description": "Returns the current components and historical changes for an index symbol."
+                          },
+                          "response": [
+                            {
+                              "id": "fa6b567f-b282-485d-9dfc-598a677349f5",
+                              "name": "Successful response with index general info, components, and historical membership.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "mp",
+                                    "unicornbay",
+                                    "spglobal",
+                                    "comp",
+                                    ":symbol"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Response format.",
+                                      "key": "fmt",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "(Required) API token for authentication.",
+                                      "key": "api_token",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "symbol"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"General\": {\n    \"Code\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"MarketCap\": \"<number,null>\",\n    \"CurrencyCode\": \"<string,null>\",\n    \"CurrencyName\": \"<string,null>\",\n    \"CurrencySymbol\": \"<string,null>\",\n    \"CountryName\": \"<string,null>\",\n    \"CountryISO\": \"<string,null>\",\n    \"OpenFigi\": \"<string,null>\"\n  },\n  \"Components\": {\n    \"anim_7\": {\n      \"Code\": \"<string>\",\n      \"Exchange\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Sector\": \"<string,null>\",\n      \"Industry\": \"<string,null>\",\n      \"Weight\": \"<number,null>\"\n    }\n  },\n  \"HistoricalTickerComponents\": {\n    \"ametba0\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"StartDate\": \"<string>\",\n      \"IsActiveNow\": 0,\n      \"IsDelisted\": 0,\n      \"EndDate\": \"<string,null>\"\n    },\n    \"nulla_05\": {\n      \"Code\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"StartDate\": \"<string>\",\n      \"IsActiveNow\": 1,\n      \"IsDelisted\": 0,\n      \"EndDate\": \"<string,null>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T01:34:46.000Z",
+                              "updatedAt": "2026-07-28T01:34:46.000Z",
+                              "uid": "35240-fa6b567f-b282-485d-9dfc-598a677349f5"
+                            },
+                            {
+                              "id": "39fc8615-cef3-48c2-a7ae-c0cd518b3063",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/html"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "mp",
+                                    "unicornbay",
+                                    "spglobal",
+                                    "comp",
+                                    ":symbol"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Response format.",
+                                      "key": "fmt",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "(Required) API token for authentication.",
+                                      "key": "api_token",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "symbol"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:34:46.000Z",
+                              "updatedAt": "2026-07-28T01:34:46.000Z",
+                              "uid": "35240-39fc8615-cef3-48c2-a7ae-c0cd518b3063"
+                            },
+                            {
+                              "id": "a027150b-8888-4da3-b44d-ea276fb33546",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/html"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "mp",
+                                    "unicornbay",
+                                    "spglobal",
+                                    "comp",
+                                    ":symbol"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Response format.",
+                                      "key": "fmt",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "(Required) API token for authentication.",
+                                      "key": "api_token",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "symbol"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:34:46.000Z",
+                              "updatedAt": "2026-07-28T01:34:46.000Z",
+                              "uid": "35240-a027150b-8888-4da3-b44d-ea276fb33546"
+                            },
+                            {
+                              "id": "2af91270-878d-42fc-b9a0-018c5e5eb9d6",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/html"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "mp",
+                                    "unicornbay",
+                                    "spglobal",
+                                    "comp",
+                                    ":symbol"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Response format.",
+                                      "key": "fmt",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "(Required) API token for authentication.",
+                                      "key": "api_token",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "symbol"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:34:46.000Z",
+                              "updatedAt": "2026-07-28T01:34:46.000Z",
+                              "uid": "35240-2af91270-878d-42fc-b9a0-018c5e5eb9d6"
+                            },
+                            {
+                              "id": "1933cd47-e49e-46ec-aafa-670fbced4c14",
+                              "name": "Too Many Requests",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/html"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/mp/unicornbay/spglobal/comp/:symbol?fmt=json&api_token=<API Key>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "mp",
+                                    "unicornbay",
+                                    "spglobal",
+                                    "comp",
+                                    ":symbol"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Response format.",
+                                      "key": "fmt",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "(Required) API token for authentication.",
+                                      "key": "api_token",
+                                      "value": "<API Key>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "symbol"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:34:46.000Z",
+                              "updatedAt": "2026-07-28T01:34:46.000Z",
+                              "uid": "35240-1933cd47-e49e-46ec-aafa-670fbced4c14"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:34:46.000Z",
+                          "updatedAt": "2026-07-28T01:34:46.000Z",
+                          "uid": "35240-eca4d4f1-26bb-4b1d-91dc-07abff967943"
+                        }
+                      ],
+                      "id": "387dbcd9-77dc-4032-a5f6-1fbf50012976",
+                      "createdAt": "2026-07-28T01:34:46.000Z",
+                      "updatedAt": "2026-07-28T01:34:46.000Z",
+                      "uid": "35240-387dbcd9-77dc-4032-a5f6-1fbf50012976"
+                    }
+                  ],
+                  "id": "7d33af25-b8e8-40b0-a19f-16cec25f3b9e",
+                  "createdAt": "2026-07-28T01:34:46.000Z",
+                  "updatedAt": "2026-07-28T01:34:46.000Z",
+                  "uid": "35240-7d33af25-b8e8-40b0-a19f-16cec25f3b9e"
+                },
+                {
+                  "name": "list",
+                  "item": [
+                    {
+                      "name": "List of indices with details",
+                      "id": "3c66f440-a5e6-4348-a29c-a73c7717b006",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/unicornbay/spglobal/list?fmt=json&api_token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "unicornbay",
+                            "spglobal",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "Response format.",
+                              "key": "fmt",
+                              "value": "json"
+                            },
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "Returns essential EOD details for 100+ S&P & Dow Jones indices."
+                      },
+                      "response": [
+                        {
+                          "id": "0298e8fe-7844-4368-afd8-c8c216e50c10",
+                          "name": "Successful response with an array of indices.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/spglobal/list?fmt=json&api_token=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "spglobal",
+                                "list"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Response format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"ID\": \"<string>\",\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Constituents\": \"<integer>\",\n    \"LastUpdate\": \"<string>\",\n    \"Value\": \"<number,null>\",\n    \"MarketCap\": \"<number,null>\",\n    \"Divisor\": \"<number,null>\",\n    \"DailyReturn\": \"<number,string,null>\",\n    \"Dividend\": \"<number,null>\",\n    \"AdjustedMarketCap\": \"<number,null>\",\n    \"AdjustedDivisor\": \"<number,null>\",\n    \"AdjustedConstituents\": \"<integer,null>\",\n    \"CurrencyCode\": \"<string,null>\",\n    \"CurrencyName\": \"<string,null>\",\n    \"CurrencySymbol\": \"<string,null>\"\n  },\n  {\n    \"ID\": \"<string>\",\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Constituents\": \"<integer>\",\n    \"LastUpdate\": \"<string>\",\n    \"Value\": \"<number,null>\",\n    \"MarketCap\": \"<number,null>\",\n    \"Divisor\": \"<number,null>\",\n    \"DailyReturn\": \"<number,string,null>\",\n    \"Dividend\": \"<number,null>\",\n    \"AdjustedMarketCap\": \"<number,null>\",\n    \"AdjustedDivisor\": \"<number,null>\",\n    \"AdjustedConstituents\": \"<integer,null>\",\n    \"CurrencyCode\": \"<string,null>\",\n    \"CurrencyName\": \"<string,null>\",\n    \"CurrencySymbol\": \"<string,null>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:34:46.000Z",
+                          "updatedAt": "2026-07-28T01:34:46.000Z",
+                          "uid": "35240-0298e8fe-7844-4368-afd8-c8c216e50c10"
+                        },
+                        {
+                          "id": "e209c714-1aa0-4cfe-bf48-b8eebf97c09b",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/html"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/spglobal/list?fmt=json&api_token=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "spglobal",
+                                "list"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Response format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:34:46.000Z",
+                          "updatedAt": "2026-07-28T01:34:46.000Z",
+                          "uid": "35240-e209c714-1aa0-4cfe-bf48-b8eebf97c09b"
+                        },
+                        {
+                          "id": "dda4ae6b-e173-4601-86da-b7b703b8fee0",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/html"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/spglobal/list?fmt=json&api_token=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "spglobal",
+                                "list"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Response format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:34:46.000Z",
+                          "updatedAt": "2026-07-28T01:34:46.000Z",
+                          "uid": "35240-dda4ae6b-e173-4601-86da-b7b703b8fee0"
+                        },
+                        {
+                          "id": "a40d94fc-ca23-4eb6-9765-730e48da0999",
+                          "name": "Too Many Requests",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/html"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/spglobal/list?fmt=json&api_token=<API Key>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "spglobal",
+                                "list"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Response format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:34:46.000Z",
+                          "updatedAt": "2026-07-28T01:34:46.000Z",
+                          "uid": "35240-a40d94fc-ca23-4eb6-9765-730e48da0999"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:34:46.000Z",
+                      "updatedAt": "2026-07-28T01:34:46.000Z",
+                      "uid": "35240-3c66f440-a5e6-4348-a29c-a73c7717b006"
+                    }
+                  ],
+                  "id": "e76c21e6-a8b2-48d1-8a43-1f49bb3b7c8b",
+                  "createdAt": "2026-07-28T01:34:46.000Z",
+                  "updatedAt": "2026-07-28T01:34:46.000Z",
+                  "uid": "35240-e76c21e6-a8b2-48d1-8a43-1f49bb3b7c8b"
+                }
+              ],
+              "id": "1fe4b265-5af0-4083-81aa-9844a124c12c",
+              "createdAt": "2026-07-28T01:34:46.000Z",
+              "updatedAt": "2026-07-28T01:34:46.000Z",
+              "uid": "35240-1fe4b265-5af0-4083-81aa-9844a124c12c"
+            }
+          ],
+          "id": "7b54ab78-1e98-427b-99f1-18af83bd9dec",
+          "createdAt": "2026-07-28T01:34:46.000Z",
+          "updatedAt": "2026-07-28T01:34:46.000Z",
+          "uid": "35240-7b54ab78-1e98-427b-99f1-18af83bd9dec"
+        }
+      ],
+      "id": "cbe12307-ad90-4689-a600-6fe946676423",
+      "createdAt": "2026-07-28T01:34:46.000Z",
+      "updatedAt": "2026-07-28T01:34:46.000Z",
+      "uid": "35240-cbe12307-ad90-4689-a600-6fe946676423"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

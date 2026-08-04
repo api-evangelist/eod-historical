@@ -1,0 +1,1017 @@
+{
+  "info": {
+    "_postman_id": "848a200a-9820-4970-abed-afb98d072e30",
+    "name": "EODHD Financial Data Calendar Economic Data API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:28.000Z",
+    "updatedAt": "2026-07-28T01:34:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-848a200a-9820-4970-abed-afb98d072e30"
+  },
+  "item": [
+    {
+      "name": "commodities",
+      "item": [
+        {
+          "name": "historical",
+          "item": [
+            {
+              "name": "{code}",
+              "item": [
+                {
+                  "name": "Get historical commodity prices",
+                  "id": "019951c9-4d54-440c-a02e-c65fe90caba1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/commodities/historical/:code?api_token=<string>&interval=daily&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "commodities",
+                        "historical",
+                        ":code"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval \u2014 'daily' (default), 'weekly', or 'monthly'.",
+                          "key": "interval",
+                          "value": "daily"
+                        },
+                        {
+                          "description": "Start date in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f2fa6392-d606-464f-9b5f-aa63f1c815aa",
+                          "key": "code",
+                          "value": "<string>",
+                          "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                        }
+                      ]
+                    },
+                    "description": "Returns historical price data for a specific commodity by its code (e.g., WTI, BRENT, NATURAL_GAS)."
+                  },
+                  "response": [
+                    {
+                      "id": "0d459e83-3231-4b4d-a089-475722aaebe9",
+                      "name": "Successfully retrieved commodity historical data.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/commodities/historical/:code?api_token=<API Key>&interval=daily&from=<date>&to=<date>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "commodities",
+                            "historical",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Data interval \u2014 'daily' (default), 'weekly', or 'monthly'.",
+                              "key": "interval",
+                              "value": "daily"
+                            },
+                            {
+                              "description": "Start date in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<number>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<number>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:34:28.000Z",
+                      "updatedAt": "2026-07-28T01:34:28.000Z",
+                      "uid": "35240-0d459e83-3231-4b4d-a089-475722aaebe9"
+                    },
+                    {
+                      "id": "c506ccf6-ce83-4d5a-8fc0-5a90a32930ad",
+                      "name": "Invalid request parameters.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/commodities/historical/:code?api_token=<API Key>&interval=daily&from=<date>&to=<date>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "commodities",
+                            "historical",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Data interval \u2014 'daily' (default), 'weekly', or 'monthly'.",
+                              "key": "interval",
+                              "value": "daily"
+                            },
+                            {
+                              "description": "Start date in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:28.000Z",
+                      "updatedAt": "2026-07-28T01:34:28.000Z",
+                      "uid": "35240-c506ccf6-ce83-4d5a-8fc0-5a90a32930ad"
+                    },
+                    {
+                      "id": "efd9abfd-6b4e-4be9-a35a-17a34d8ff4ba",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/commodities/historical/:code?api_token=<API Key>&interval=daily&from=<date>&to=<date>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "commodities",
+                            "historical",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Data interval \u2014 'daily' (default), 'weekly', or 'monthly'.",
+                              "key": "interval",
+                              "value": "daily"
+                            },
+                            {
+                              "description": "Start date in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:28.000Z",
+                      "updatedAt": "2026-07-28T01:34:28.000Z",
+                      "uid": "35240-efd9abfd-6b4e-4be9-a35a-17a34d8ff4ba"
+                    },
+                    {
+                      "id": "b9ed26bb-9674-4376-be75-535a95750255",
+                      "name": "Commodity not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/commodities/historical/:code?api_token=<API Key>&interval=daily&from=<date>&to=<date>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "commodities",
+                            "historical",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Data interval \u2014 'daily' (default), 'weekly', or 'monthly'.",
+                              "key": "interval",
+                              "value": "daily"
+                            },
+                            {
+                              "description": "Start date in 'YYYY-MM-DD' format.",
+                              "key": "from",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "End date in 'YYYY-MM-DD' format.",
+                              "key": "to",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:28.000Z",
+                      "updatedAt": "2026-07-28T01:34:28.000Z",
+                      "uid": "35240-b9ed26bb-9674-4376-be75-535a95750255"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:28.000Z",
+                  "updatedAt": "2026-07-28T01:34:28.000Z",
+                  "uid": "35240-019951c9-4d54-440c-a02e-c65fe90caba1"
+                }
+              ],
+              "id": "495d5f2d-445c-4f7e-9f12-b55e891929ff",
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-495d5f2d-445c-4f7e-9f12-b55e891929ff"
+            }
+          ],
+          "id": "68d1dd1e-f979-41c2-8893-10a251a5717f",
+          "createdAt": "2026-07-28T01:34:28.000Z",
+          "updatedAt": "2026-07-28T01:34:28.000Z",
+          "uid": "35240-68d1dd1e-f979-41c2-8893-10a251a5717f"
+        }
+      ],
+      "id": "264eb1bc-38f3-44a4-b5c2-061133cb86a9",
+      "createdAt": "2026-07-28T01:34:28.000Z",
+      "updatedAt": "2026-07-28T01:34:28.000Z",
+      "uid": "35240-264eb1bc-38f3-44a4-b5c2-061133cb86a9"
+    },
+    {
+      "name": "economic-events",
+      "item": [
+        {
+          "name": "Retrieve economic events data",
+          "id": "d4634964-159f-472c-9946-ea24f0848d7d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/economic-events?api_token=<string>&from=<date>&to=<date>&country=<string>&comparison=qoq&offset=0&limit=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "economic-events"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your API key for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States.",
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year.",
+                  "key": "comparison",
+                  "value": "qoq"
+                },
+                {
+                  "description": "Data offset, from 0 to 1000. Default is 0.",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Number of results to return, from 0 to 1000. Default is 50.",
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Fetches economic events by date range, country, comparison type, and other optional parameters."
+          },
+          "response": [
+            {
+              "id": "d1d16c81-162e-46a5-8838-ef15299c0bc1",
+              "name": "Successfully retrieved economic events data.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/economic-events?api_token=<API Key>&from=<date>&to=<date>&country=<string>&comparison=qoq&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "economic-events"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year.",
+                      "key": "comparison",
+                      "value": "qoq"
+                    },
+                    {
+                      "description": "Data offset, from 0 to 1000. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Number of results to return, from 0 to 1000. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"type\": \"<string>\",\n    \"comparison\": \"<string,null>\",\n    \"period\": \"<string,null>\",\n    \"country\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"actual\": \"<number,null>\",\n    \"previous\": \"<number,null>\",\n    \"estimate\": \"<number,null>\",\n    \"change\": \"<number,null>\",\n    \"change_percentage\": \"<number,null>\"\n  },\n  {\n    \"type\": \"<string>\",\n    \"comparison\": \"<string,null>\",\n    \"period\": \"<string,null>\",\n    \"country\": \"<string>\",\n    \"date\": \"<dateTime>\",\n    \"actual\": \"<number,null>\",\n    \"previous\": \"<number,null>\",\n    \"estimate\": \"<number,null>\",\n    \"change\": \"<number,null>\",\n    \"change_percentage\": \"<number,null>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-d1d16c81-162e-46a5-8838-ef15299c0bc1"
+            },
+            {
+              "id": "f1994911-c6fe-46d9-a51a-74fb274298e2",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/economic-events?api_token=<API Key>&from=<date>&to=<date>&country=<string>&comparison=qoq&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "economic-events"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year.",
+                      "key": "comparison",
+                      "value": "qoq"
+                    },
+                    {
+                      "description": "Data offset, from 0 to 1000. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Number of results to return, from 0 to 1000. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-f1994911-c6fe-46d9-a51a-74fb274298e2"
+            },
+            {
+              "id": "a228a277-05a0-41ab-bb5c-1d04ea245ca3",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/economic-events?api_token=<API Key>&from=<date>&to=<date>&country=<string>&comparison=qoq&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "economic-events"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year.",
+                      "key": "comparison",
+                      "value": "qoq"
+                    },
+                    {
+                      "description": "Data offset, from 0 to 1000. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Number of results to return, from 0 to 1000. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-a228a277-05a0-41ab-bb5c-1d04ea245ca3"
+            },
+            {
+              "id": "5908b8ea-8349-4c81-b8ea-2bac16d5e5da",
+              "name": "No economic events data found for the specified parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/economic-events?api_token=<API Key>&from=<date>&to=<date>&country=<string>&comparison=qoq&offset=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "economic-events"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States.",
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year.",
+                      "key": "comparison",
+                      "value": "qoq"
+                    },
+                    {
+                      "description": "Data offset, from 0 to 1000. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Number of results to return, from 0 to 1000. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-5908b8ea-8349-4c81-b8ea-2bac16d5e5da"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:28.000Z",
+          "updatedAt": "2026-07-28T01:34:28.000Z",
+          "uid": "35240-d4634964-159f-472c-9946-ea24f0848d7d"
+        }
+      ],
+      "id": "6ba4645f-35c1-4ee1-942e-ed0cea634dda",
+      "createdAt": "2026-07-28T01:34:28.000Z",
+      "updatedAt": "2026-07-28T01:34:28.000Z",
+      "uid": "35240-6ba4645f-35c1-4ee1-942e-ed0cea634dda"
+    },
+    {
+      "name": "macro-indicator",
+      "item": [
+        {
+          "name": "{country}",
+          "item": [
+            {
+              "name": "Retrieve macroeconomic indicators for a specific country",
+              "id": "8e4da140-3b1a-4672-a42f-6fc2de8ca42d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/macro-indicator/:country?api_token=<string>&indicator=gdp_current_usd&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "macro-indicator",
+                    ":country"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'.",
+                      "key": "indicator",
+                      "value": "gdp_current_usd"
+                    },
+                    {
+                      "description": "Output format: 'json' or 'csv'. Default is 'json'.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ccbf9c15-a036-4be4-a535-758ff713a172",
+                      "key": "country",
+                      "value": "<string>",
+                      "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                    }
+                  ]
+                },
+                "description": "Fetches macroeconomic data for a selected indicator, such as GDP or inflation, by country code."
+              },
+              "response": [
+                {
+                  "id": "ff68b924-3c70-4e5a-8097-f2b1a5f2f3df",
+                  "name": "Successfully retrieved macroeconomic data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/macro-indicator/:country?api_token=<API Key>&indicator=gdp_current_usd&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "macro-indicator",
+                        ":country"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'.",
+                          "key": "indicator",
+                          "value": "gdp_current_usd"
+                        },
+                        {
+                          "description": "Output format: 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "country"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"CountryCode\": \"<string>\",\n    \"CountryName\": \"<string>\",\n    \"Indicator\": \"<string>\",\n    \"Date\": \"<date>\",\n    \"Period\": \"<string>\",\n    \"Value\": \"<number>\"\n  },\n  {\n    \"CountryCode\": \"<string>\",\n    \"CountryName\": \"<string>\",\n    \"Indicator\": \"<string>\",\n    \"Date\": \"<date>\",\n    \"Period\": \"<string>\",\n    \"Value\": \"<number>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:28.000Z",
+                  "updatedAt": "2026-07-28T01:34:28.000Z",
+                  "uid": "35240-ff68b924-3c70-4e5a-8097-f2b1a5f2f3df"
+                },
+                {
+                  "id": "5c70ec65-bd9b-4800-9ce2-08871c269082",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/macro-indicator/:country?api_token=<API Key>&indicator=gdp_current_usd&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "macro-indicator",
+                        ":country"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'.",
+                          "key": "indicator",
+                          "value": "gdp_current_usd"
+                        },
+                        {
+                          "description": "Output format: 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "country"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:28.000Z",
+                  "updatedAt": "2026-07-28T01:34:28.000Z",
+                  "uid": "35240-5c70ec65-bd9b-4800-9ce2-08871c269082"
+                },
+                {
+                  "id": "6e054fb0-868e-4965-a874-c1d3eb79b3d7",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/macro-indicator/:country?api_token=<API Key>&indicator=gdp_current_usd&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "macro-indicator",
+                        ":country"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'.",
+                          "key": "indicator",
+                          "value": "gdp_current_usd"
+                        },
+                        {
+                          "description": "Output format: 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "country"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:28.000Z",
+                  "updatedAt": "2026-07-28T01:34:28.000Z",
+                  "uid": "35240-6e054fb0-868e-4965-a874-c1d3eb79b3d7"
+                },
+                {
+                  "id": "5202407c-ddc9-4c10-a385-7ea331c0a7b0",
+                  "name": "Data not found for the specified country or indicator.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/macro-indicator/:country?api_token=<API Key>&indicator=gdp_current_usd&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "macro-indicator",
+                        ":country"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'.",
+                          "key": "indicator",
+                          "value": "gdp_current_usd"
+                        },
+                        {
+                          "description": "Output format: 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "country"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:28.000Z",
+                  "updatedAt": "2026-07-28T01:34:28.000Z",
+                  "uid": "35240-5202407c-ddc9-4c10-a385-7ea331c0a7b0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:28.000Z",
+              "updatedAt": "2026-07-28T01:34:28.000Z",
+              "uid": "35240-8e4da140-3b1a-4672-a42f-6fc2de8ca42d"
+            }
+          ],
+          "id": "5ee2195c-8c87-47a0-af37-96c00d0d385a",
+          "createdAt": "2026-07-28T01:34:28.000Z",
+          "updatedAt": "2026-07-28T01:34:28.000Z",
+          "uid": "35240-5ee2195c-8c87-47a0-af37-96c00d0d385a"
+        }
+      ],
+      "id": "02d126d6-8bfc-46de-aca6-22fdca3b43fc",
+      "createdAt": "2026-07-28T01:34:28.000Z",
+      "updatedAt": "2026-07-28T01:34:28.000Z",
+      "uid": "35240-02d126d6-8bfc-46de-aca6-22fdca3b43fc"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

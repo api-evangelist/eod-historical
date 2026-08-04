@@ -1,0 +1,670 @@
+{
+  "info": {
+    "_postman_id": "01656a0e-eb30-4a2a-820b-4b68568e84a8",
+    "name": "EODHD Financial Data Calendar Logos API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:51.000Z",
+    "updatedAt": "2026-07-28T01:34:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-01656a0e-eb30-4a2a-820b-4b68568e84a8"
+  },
+  "item": [
+    {
+      "name": "logo",
+      "item": [
+        {
+          "name": "{symbol}",
+          "item": [
+            {
+              "name": "Get ticker logo (PNG)",
+              "id": "b60f24f0-b482-4561-8744-bee98f9f1d9b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/logo/:symbol?api_token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "logo",
+                    ":symbol"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "6fb366e0-462c-4bed-b19f-27f590ef8865",
+                      "key": "symbol",
+                      "value": "<string>",
+                      "description": "(Required) Ticker with exchange, e.g., AAPL.US"
+                    }
+                  ]
+                },
+                "description": "Returns a 200x200 PNG logo (transparent background) for the given ticker symbol, formatted as {ticker}.{exchange} (e.g., AAPL.US)."
+              },
+              "response": [
+                {
+                  "id": "1d075617-ae02-4856-a877-b7c17a9d3e4d",
+                  "name": "PNG image for the requested ticker.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "image/png"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "image/png"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<binary>",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-1d075617-ae02-4856-a877-b7c17a9d3e4d"
+                },
+                {
+                  "id": "affd951b-b580-4573-8e92-fe0125d75982",
+                  "name": "Unauthorized (invalid token or suspended account).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-affd951b-b580-4573-8e92-fe0125d75982"
+                },
+                {
+                  "id": "6f095728-c850-4fca-a214-b909d36e150b",
+                  "name": "Forbidden (resource not available for current user).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-6f095728-c850-4fca-a214-b909d36e150b"
+                },
+                {
+                  "id": "02ea73bf-074e-40e3-a3b1-a8ba1407305e",
+                  "name": "Not Found (no logo for symbol).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-02ea73bf-074e-40e3-a3b1-a8ba1407305e"
+                },
+                {
+                  "id": "08a42457-656f-4b44-845a-0d2769d5eb7a",
+                  "name": "Too Many Requests (rate limit exceeded).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-08a42457-656f-4b44-845a-0d2769d5eb7a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:52.000Z",
+              "updatedAt": "2026-07-28T01:34:52.000Z",
+              "uid": "35240-b60f24f0-b482-4561-8744-bee98f9f1d9b"
+            }
+          ],
+          "id": "8dfa161f-499e-4071-b022-646276a14eb2",
+          "createdAt": "2026-07-28T01:34:52.000Z",
+          "updatedAt": "2026-07-28T01:34:52.000Z",
+          "uid": "35240-8dfa161f-499e-4071-b022-646276a14eb2"
+        }
+      ],
+      "id": "83b624b9-30bf-4a60-8b05-5179dae7897c",
+      "createdAt": "2026-07-28T01:34:52.000Z",
+      "updatedAt": "2026-07-28T01:34:52.000Z",
+      "uid": "35240-83b624b9-30bf-4a60-8b05-5179dae7897c"
+    },
+    {
+      "name": "logo-svg",
+      "item": [
+        {
+          "name": "{symbol}",
+          "item": [
+            {
+              "name": "Get ticker logo (SVG)",
+              "id": "56471d2f-3f30-4381-a900-af617675879e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "image/svg+xml"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "logo-svg",
+                    ":symbol"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "7d11fdb8-f3f0-4fb0-b796-ae0a9a486ccd",
+                      "key": "symbol",
+                      "value": "<string>",
+                      "description": "(Required) Ticker with exchange, e.g., AAPL.US"
+                    }
+                  ]
+                },
+                "description": "Returns an SVG logo for the given ticker symbol, formatted as {ticker}.{exchange} (e.g., AAPL.US)."
+              },
+              "response": [
+                {
+                  "id": "3f85c640-4c66-46a8-b9e2-04daf4e1fe09",
+                  "name": "SVG image for the requested ticker.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "image/svg+xml"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo-svg",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "image/svg+xml"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-3f85c640-4c66-46a8-b9e2-04daf4e1fe09"
+                },
+                {
+                  "id": "ff5409bd-cf3b-4989-8ed0-c30b3ef42a7c",
+                  "name": "Unauthorized (invalid token or suspended account).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo-svg",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-ff5409bd-cf3b-4989-8ed0-c30b3ef42a7c"
+                },
+                {
+                  "id": "a2f84ed8-2ab6-4d8b-946d-f211f4c2ff08",
+                  "name": "Forbidden (resource not available for current user).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo-svg",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-a2f84ed8-2ab6-4d8b-946d-f211f4c2ff08"
+                },
+                {
+                  "id": "e669a17b-d420-4bb6-a510-fb2f64dbbff6",
+                  "name": "Not Found (no logo for symbol).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo-svg",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-e669a17b-d420-4bb6-a510-fb2f64dbbff6"
+                },
+                {
+                  "id": "99c652ee-ca4e-4573-ab57-c0ffadfb23b6",
+                  "name": "Too Many Requests (rate limit exceeded).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/logo-svg/:symbol?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "logo-svg",
+                        ":symbol"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "symbol"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:34:52.000Z",
+                  "updatedAt": "2026-07-28T01:34:52.000Z",
+                  "uid": "35240-99c652ee-ca4e-4573-ab57-c0ffadfb23b6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:52.000Z",
+              "updatedAt": "2026-07-28T01:34:52.000Z",
+              "uid": "35240-56471d2f-3f30-4381-a900-af617675879e"
+            }
+          ],
+          "id": "2e4bf987-f84d-49c2-802c-e9fa516d6583",
+          "createdAt": "2026-07-28T01:34:52.000Z",
+          "updatedAt": "2026-07-28T01:34:52.000Z",
+          "uid": "35240-2e4bf987-f84d-49c2-802c-e9fa516d6583"
+        }
+      ],
+      "id": "9cbc1477-f90d-46d1-a364-0677432d6de9",
+      "createdAt": "2026-07-28T01:34:52.000Z",
+      "updatedAt": "2026-07-28T01:34:52.000Z",
+      "uid": "35240-9cbc1477-f90d-46d1-a364-0677432d6de9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

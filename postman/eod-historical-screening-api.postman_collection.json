@@ -1,0 +1,659 @@
+{
+  "info": {
+    "_postman_id": "d3be345f-9a36-4db9-ae6a-daff03c8a349",
+    "name": "EODHD Financial Data Calendar Screening API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:35:00.000Z",
+    "updatedAt": "2026-07-28T01:35:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d3be345f-9a36-4db9-ae6a-daff03c8a349"
+  },
+  "item": [
+    {
+      "name": "screener",
+      "item": [
+        {
+          "name": "Get filtered stock data based on user-defined criteria.",
+          "id": "e2af1d6e-21bf-446e-a0f1-d3f0ccc3ae6b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/screener?api_token=<string>&filters=<string>&signals=<string>&sort=<string>&limit=50&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "screener"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply, structured as nested arrays (e.g., [[\"field\", \"operation\", value], ...]).",
+                  "key": "filters",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Signals to filter tickers by pre-calculated fields (e.g., 200d_new_hi, bookvalue_pos).",
+                  "key": "signals",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Sorts results by a specified field in ascending or descending order (e.g., market_capitalization.desc).",
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of results per request. Minimum 1, maximum 500. Default is 50.",
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "description": "Data offset for paginating results. Minimum 0, maximum 999. Default is 0.",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "Retrieves stock data filtered by criteria such as market capitalization, exchange, sector, and more. Results can be sorted and paginated."
+          },
+          "response": [
+            {
+              "id": "c3c3524a-37f8-4c2f-b3d2-b719b3ddddc0",
+              "name": "Successful response with filtered stock data.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/screener?api_token=<API Key>&filters=<string>&signals=<string>&sort=<string>&limit=50&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "screener"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filters to apply, structured as nested arrays (e.g., [[\"field\", \"operation\", value], ...]).",
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Signals to filter tickers by pre-calculated fields (e.g., 200d_new_hi, bookvalue_pos).",
+                      "key": "signals",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sorts results by a specified field in ascending or descending order (e.g., market_capitalization.desc).",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results per request. Minimum 1, maximum 500. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Data offset for paginating results. Minimum 0, maximum 999. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"last_day_data_date\": \"<date>\",\n      \"adjusted_close\": \"<number>\",\n      \"refund_1d\": \"<number>\",\n      \"refund_1d_p\": \"<number>\",\n      \"refund_5d\": \"<number>\",\n      \"refund_5d_p\": \"<number>\",\n      \"exchange\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"market_capitalization\": \"<integer>\",\n      \"earnings_share\": \"<number>\",\n      \"dividend_yield\": \"<number>\",\n      \"sector\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"avgvol_1d\": \"<integer>\",\n      \"avgvol_200d\": \"<number>\"\n    },\n    {\n      \"code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"last_day_data_date\": \"<date>\",\n      \"adjusted_close\": \"<number>\",\n      \"refund_1d\": \"<number>\",\n      \"refund_1d_p\": \"<number>\",\n      \"refund_5d\": \"<number>\",\n      \"refund_5d_p\": \"<number>\",\n      \"exchange\": \"<string>\",\n      \"currency_symbol\": \"<string>\",\n      \"market_capitalization\": \"<integer>\",\n      \"earnings_share\": \"<number>\",\n      \"dividend_yield\": \"<number>\",\n      \"sector\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"avgvol_1d\": \"<integer>\",\n      \"avgvol_200d\": \"<number>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:35:00.000Z",
+              "updatedAt": "2026-07-28T01:35:00.000Z",
+              "uid": "35240-c3c3524a-37f8-4c2f-b3d2-b719b3ddddc0"
+            },
+            {
+              "id": "a33ee2d7-f118-4c97-aeef-59a6ff8686da",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/screener?api_token=<API Key>&filters=<string>&signals=<string>&sort=<string>&limit=50&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "screener"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filters to apply, structured as nested arrays (e.g., [[\"field\", \"operation\", value], ...]).",
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Signals to filter tickers by pre-calculated fields (e.g., 200d_new_hi, bookvalue_pos).",
+                      "key": "signals",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sorts results by a specified field in ascending or descending order (e.g., market_capitalization.desc).",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results per request. Minimum 1, maximum 500. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Data offset for paginating results. Minimum 0, maximum 999. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:00.000Z",
+              "updatedAt": "2026-07-28T01:35:00.000Z",
+              "uid": "35240-a33ee2d7-f118-4c97-aeef-59a6ff8686da"
+            },
+            {
+              "id": "aead24ab-e493-443b-8e4d-4dae107d8922",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/screener?api_token=<API Key>&filters=<string>&signals=<string>&sort=<string>&limit=50&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "screener"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filters to apply, structured as nested arrays (e.g., [[\"field\", \"operation\", value], ...]).",
+                      "key": "filters",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Signals to filter tickers by pre-calculated fields (e.g., 200d_new_hi, bookvalue_pos).",
+                      "key": "signals",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sorts results by a specified field in ascending or descending order (e.g., market_capitalization.desc).",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of results per request. Minimum 1, maximum 500. Default is 50.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Data offset for paginating results. Minimum 0, maximum 999. Default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:00.000Z",
+              "updatedAt": "2026-07-28T01:35:00.000Z",
+              "uid": "35240-aead24ab-e493-443b-8e4d-4dae107d8922"
+            }
+          ],
+          "createdAt": "2026-07-28T01:35:00.000Z",
+          "updatedAt": "2026-07-28T01:35:00.000Z",
+          "uid": "35240-e2af1d6e-21bf-446e-a0f1-d3f0ccc3ae6b"
+        }
+      ],
+      "id": "e8acf0bc-e78b-4381-95e5-4627c0d424d0",
+      "createdAt": "2026-07-28T01:35:00.000Z",
+      "updatedAt": "2026-07-28T01:35:00.000Z",
+      "uid": "35240-e8acf0bc-e78b-4381-95e5-4627c0d424d0"
+    },
+    {
+      "name": "search",
+      "item": [
+        {
+          "name": "{query}",
+          "item": [
+            {
+              "name": "Search stocks, companies, and ISINs",
+              "id": "a3905e9e-0d05-4083-b551-8a0fe35066ad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/search/:query?api_token=<string>&fmt=json&limit=<integer>&type=etf&exchange=<string>&bonds_only=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "search",
+                    ":query"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "Limit the number of results returned",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by security type.",
+                      "key": "type",
+                      "value": "etf"
+                    },
+                    {
+                      "description": "Filter by exchange code (e.g., 'US', 'LSE').",
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to 1 to return bonds only.",
+                      "key": "bonds_only",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "c63aa4f3-8d32-4757-9181-b11ce80935c1",
+                      "key": "query",
+                      "value": "<string>",
+                      "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                    }
+                  ]
+                },
+                "description": "Search for stocks, companies, or ISINs by a query (e.g., company name, stock symbol, or ISIN)"
+              },
+              "response": [
+                {
+                  "id": "d3bad62e-4c73-490b-8684-613cac935490",
+                  "name": "Successful response with search results",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/:query?api_token=<API Key>&fmt=json&limit=<integer>&type=etf&exchange=<string>&bonds_only=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        ":query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Limit the number of results returned",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by security type.",
+                          "key": "type",
+                          "value": "etf"
+                        },
+                        {
+                          "description": "Filter by exchange code (e.g., 'US', 'LSE').",
+                          "key": "exchange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return bonds only.",
+                          "key": "bonds_only",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"Code\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"ISIN\": \"<string,null>\",\n    \"previousClose\": \"<number>\",\n    \"previousCloseDate\": \"<date>\"\n  },\n  {\n    \"Code\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"ISIN\": \"<string,null>\",\n    \"previousClose\": \"<number>\",\n    \"previousCloseDate\": \"<date>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:35:00.000Z",
+                  "updatedAt": "2026-07-28T01:35:00.000Z",
+                  "uid": "35240-d3bad62e-4c73-490b-8684-613cac935490"
+                },
+                {
+                  "id": "2069e8bf-8f47-47bc-bed1-37902a5771fd",
+                  "name": "Invalid request parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/:query?api_token=<API Key>&fmt=json&limit=<integer>&type=etf&exchange=<string>&bonds_only=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        ":query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Limit the number of results returned",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by security type.",
+                          "key": "type",
+                          "value": "etf"
+                        },
+                        {
+                          "description": "Filter by exchange code (e.g., 'US', 'LSE').",
+                          "key": "exchange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return bonds only.",
+                          "key": "bonds_only",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:35:00.000Z",
+                  "updatedAt": "2026-07-28T01:35:00.000Z",
+                  "uid": "35240-2069e8bf-8f47-47bc-bed1-37902a5771fd"
+                },
+                {
+                  "id": "3b622f4f-c506-477b-b70d-5134014f2143",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/:query?api_token=<API Key>&fmt=json&limit=<integer>&type=etf&exchange=<string>&bonds_only=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        ":query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Limit the number of results returned",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by security type.",
+                          "key": "type",
+                          "value": "etf"
+                        },
+                        {
+                          "description": "Filter by exchange code (e.g., 'US', 'LSE').",
+                          "key": "exchange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return bonds only.",
+                          "key": "bonds_only",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:35:00.000Z",
+                  "updatedAt": "2026-07-28T01:35:00.000Z",
+                  "uid": "35240-3b622f4f-c506-477b-b70d-5134014f2143"
+                },
+                {
+                  "id": "e38b2d6d-6177-470e-9984-8775f8b996e8",
+                  "name": "No results found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/search/:query?api_token=<API Key>&fmt=json&limit=<integer>&type=etf&exchange=<string>&bonds_only=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "search",
+                        ":query"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Limit the number of results returned",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by security type.",
+                          "key": "type",
+                          "value": "etf"
+                        },
+                        {
+                          "description": "Filter by exchange code (e.g., 'US', 'LSE').",
+                          "key": "exchange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to 1 to return bonds only.",
+                          "key": "bonds_only",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "query"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:35:00.000Z",
+                  "updatedAt": "2026-07-28T01:35:00.000Z",
+                  "uid": "35240-e38b2d6d-6177-470e-9984-8775f8b996e8"
+                }
+              ],
+              "createdAt": "2026-07-28T01:35:00.000Z",
+              "updatedAt": "2026-07-28T01:35:00.000Z",
+              "uid": "35240-a3905e9e-0d05-4083-b551-8a0fe35066ad"
+            }
+          ],
+          "id": "376bed70-5d89-4993-8f29-4d9a33ad9d15",
+          "createdAt": "2026-07-28T01:35:00.000Z",
+          "updatedAt": "2026-07-28T01:35:00.000Z",
+          "uid": "35240-376bed70-5d89-4993-8f29-4d9a33ad9d15"
+        }
+      ],
+      "id": "fb52c566-9d09-4eed-b8c4-905514e1e6aa",
+      "createdAt": "2026-07-28T01:35:00.000Z",
+      "updatedAt": "2026-07-28T01:35:00.000Z",
+      "uid": "35240-fb52c566-9d09-4eed-b8c4-905514e1e6aa"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

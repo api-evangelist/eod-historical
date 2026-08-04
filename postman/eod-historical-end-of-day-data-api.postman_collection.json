@@ -1,0 +1,760 @@
+{
+  "info": {
+    "_postman_id": "4cbf87e4-7f93-46b8-b000-ff62893cfc10",
+    "name": "EODHD Financial Data Calendar End-of-Day Data API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:37.000Z",
+    "updatedAt": "2026-07-28T01:34:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4cbf87e4-7f93-46b8-b000-ff62893cfc10"
+  },
+  "item": [
+    {
+      "name": "eod",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve end-of-day historical price data",
+              "id": "a98fcbfb-0164-436e-b80f-df1d90d5e829",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/eod/:ticker?api_token=<string>&fmt=csv&from=<date>&to=<date>&period=d&filter=last_low",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eod",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "description": "Start date for historical data (YYYY-MM-DD)",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for historical data (YYYY-MM-DD)",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)",
+                      "key": "period",
+                      "value": "d"
+                    },
+                    {
+                      "description": "Filter for specific last known data points",
+                      "key": "filter",
+                      "value": "last_low"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "3ae5f395-0305-42c9-a5af-c58745ead79a",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Ticker symbol of the company"
+                    }
+                  ]
+                },
+                "description": "Retrieve end-of-day historical data for a specific company by its ticker symbol, with optional filters for specific data points."
+              },
+              "response": [
+                {
+                  "id": "ffb6065e-bbb3-490f-b89e-528c6080fa8b",
+                  "name": "Successful response with EOD historical data or single value for filtered data",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod/:ticker?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&period=d&filter=last_low",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for historical data (YYYY-MM-DD)",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data (YYYY-MM-DD)",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)",
+                          "key": "period",
+                          "value": "d"
+                        },
+                        {
+                          "description": "Filter for specific last known data points",
+                          "key": "filter",
+                          "value": "last_low"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<integer>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-ffb6065e-bbb3-490f-b89e-528c6080fa8b"
+                },
+                {
+                  "id": "9de3d555-1d73-465b-8999-4fae42f8180e",
+                  "name": "Invalid request parameters",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod/:ticker?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&period=d&filter=last_low",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for historical data (YYYY-MM-DD)",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data (YYYY-MM-DD)",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)",
+                          "key": "period",
+                          "value": "d"
+                        },
+                        {
+                          "description": "Filter for specific last known data points",
+                          "key": "filter",
+                          "value": "last_low"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-9de3d555-1d73-465b-8999-4fae42f8180e"
+                },
+                {
+                  "id": "fb08e04d-7dbb-428a-82d0-07cb5967d24c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod/:ticker?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&period=d&filter=last_low",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for historical data (YYYY-MM-DD)",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data (YYYY-MM-DD)",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)",
+                          "key": "period",
+                          "value": "d"
+                        },
+                        {
+                          "description": "Filter for specific last known data points",
+                          "key": "filter",
+                          "value": "last_low"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-fb08e04d-7dbb-428a-82d0-07cb5967d24c"
+                },
+                {
+                  "id": "c82913e8-4c11-4c80-a169-838b99b72583",
+                  "name": "Company or data not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod/:ticker?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&period=d&filter=last_low",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format (e.g., 'json')",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for historical data (YYYY-MM-DD)",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for historical data (YYYY-MM-DD)",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)",
+                          "key": "period",
+                          "value": "d"
+                        },
+                        {
+                          "description": "Filter for specific last known data points",
+                          "key": "filter",
+                          "value": "last_low"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-c82913e8-4c11-4c80-a169-838b99b72583"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:37.000Z",
+              "updatedAt": "2026-07-28T01:34:37.000Z",
+              "uid": "35240-a98fcbfb-0164-436e-b80f-df1d90d5e829"
+            }
+          ],
+          "id": "c9c0803e-8d95-43ac-9059-a2c57d6a31d8",
+          "createdAt": "2026-07-28T01:34:37.000Z",
+          "updatedAt": "2026-07-28T01:34:37.000Z",
+          "uid": "35240-c9c0803e-8d95-43ac-9059-a2c57d6a31d8"
+        }
+      ],
+      "id": "4a236523-65a0-46a6-a3ec-c2e125c8cbb4",
+      "createdAt": "2026-07-28T01:34:37.000Z",
+      "updatedAt": "2026-07-28T01:34:37.000Z",
+      "uid": "35240-4a236523-65a0-46a6-a3ec-c2e125c8cbb4"
+    },
+    {
+      "name": "eod-bulk-last-day",
+      "item": [
+        {
+          "name": "{exchange}",
+          "item": [
+            {
+              "name": "Retrieve bulk EOD, splits, or dividends data",
+              "id": "45f88572-be07-4697-9687-5891c01cc006",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/eod-bulk-last-day/:exchange?api_token=<string>&fmt=json&type=eod&date=<date>&symbols=<string>&filter=extended",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "eod-bulk-last-day",
+                    ":exchange"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format ('json' or 'csv').",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information).",
+                      "key": "type",
+                      "value": "eod"
+                    },
+                    {
+                      "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day.",
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format.",
+                      "key": "filter",
+                      "value": "extended"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "91dcc4b3-8e6d-4504-b850-ac05017d3bef",
+                      "key": "exchange",
+                      "value": "<string>",
+                      "description": "(Required) Exchange symbol (e.g., 'VI' for Vienna or 'US' for the U.S.)."
+                    }
+                  ]
+                },
+                "description": "Retrieve bulk end-of-day data, splits, or dividends for an entire exchange or specific tickers, with an option for extended data."
+              },
+              "response": [
+                {
+                  "id": "c80e07db-edf7-47c0-ba5c-d6ce4b7af687",
+                  "name": "Successful response with bulk data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod-bulk-last-day/:exchange?api_token=<API Key>&fmt=json&type=eod&date=<date>&symbols=<string>&filter=extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod-bulk-last-day",
+                        ":exchange"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format ('json' or 'csv').",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information).",
+                          "key": "type",
+                          "value": "eod"
+                        },
+                        {
+                          "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format.",
+                          "key": "filter",
+                          "value": "extended"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchange"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"exchange_short_name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<integer>\"\n  },\n  {\n    \"exchange_short_name\": \"<string>\",\n    \"code\": \"<string>\",\n    \"date\": \"<date>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"adjusted_close\": \"<number>\",\n    \"volume\": \"<integer>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-c80e07db-edf7-47c0-ba5c-d6ce4b7af687"
+                },
+                {
+                  "id": "54308fa8-69ee-4a6a-bb7d-811edb6172c3",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod-bulk-last-day/:exchange?api_token=<API Key>&fmt=json&type=eod&date=<date>&symbols=<string>&filter=extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod-bulk-last-day",
+                        ":exchange"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format ('json' or 'csv').",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information).",
+                          "key": "type",
+                          "value": "eod"
+                        },
+                        {
+                          "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format.",
+                          "key": "filter",
+                          "value": "extended"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchange"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-54308fa8-69ee-4a6a-bb7d-811edb6172c3"
+                },
+                {
+                  "id": "2fed4dc2-c897-4dbc-a5ab-bdf1df1b414a",
+                  "name": "Unauthorized request.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod-bulk-last-day/:exchange?api_token=<API Key>&fmt=json&type=eod&date=<date>&symbols=<string>&filter=extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod-bulk-last-day",
+                        ":exchange"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format ('json' or 'csv').",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information).",
+                          "key": "type",
+                          "value": "eod"
+                        },
+                        {
+                          "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format.",
+                          "key": "filter",
+                          "value": "extended"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchange"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-2fed4dc2-c897-4dbc-a5ab-bdf1df1b414a"
+                },
+                {
+                  "id": "340872e9-30cc-4479-91b9-8adf9fe5da95",
+                  "name": "No data found for the specified exchange or date.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/eod-bulk-last-day/:exchange?api_token=<API Key>&fmt=json&type=eod&date=<date>&symbols=<string>&filter=extended",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "eod-bulk-last-day",
+                        ":exchange"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format ('json' or 'csv').",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information).",
+                          "key": "type",
+                          "value": "eod"
+                        },
+                        {
+                          "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format.",
+                          "key": "filter",
+                          "value": "extended"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchange"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:37.000Z",
+                  "updatedAt": "2026-07-28T01:34:37.000Z",
+                  "uid": "35240-340872e9-30cc-4479-91b9-8adf9fe5da95"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:37.000Z",
+              "updatedAt": "2026-07-28T01:34:37.000Z",
+              "uid": "35240-45f88572-be07-4697-9687-5891c01cc006"
+            }
+          ],
+          "id": "e2172ba6-4406-4f50-b622-3e54ef51e575",
+          "createdAt": "2026-07-28T01:34:37.000Z",
+          "updatedAt": "2026-07-28T01:34:37.000Z",
+          "uid": "35240-e2172ba6-4406-4f50-b622-3e54ef51e575"
+        }
+      ],
+      "id": "0c726c13-f15b-4023-b7df-1212090956e6",
+      "createdAt": "2026-07-28T01:34:37.000Z",
+      "updatedAt": "2026-07-28T01:34:37.000Z",
+      "uid": "35240-0c726c13-f15b-4023-b7df-1212090956e6"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

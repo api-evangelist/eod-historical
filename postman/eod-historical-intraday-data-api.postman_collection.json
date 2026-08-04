@@ -1,0 +1,1582 @@
+{
+  "info": {
+    "_postman_id": "b0482810-4cbd-4a97-9e32-1a2e2aec24b6",
+    "name": "EODHD Financial Data Calendar Intraday Data API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:48.000Z",
+    "updatedAt": "2026-07-28T01:34:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b0482810-4cbd-4a97-9e32-1a2e2aec24b6"
+  },
+  "item": [
+    {
+      "name": "intraday",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve intraday historical price data",
+              "id": "1ee43985-b084-43d1-84a4-d86dce3f099b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/intraday/:ticker?api_token=<string>&interval=15m&fmt=csv&from=<integer>&to=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "intraday",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour).",
+                      "key": "interval",
+                      "value": "15m"
+                    },
+                    {
+                      "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'.",
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'.",
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'.",
+                      "key": "to",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "19c0fc21-1ab0-44f4-b21b-8783bce8e4ac",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Ticker symbol with exchange code (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "description": "Retrieve intraday historical stock data for a specific ticker."
+              },
+              "response": [
+                {
+                  "id": "96d810b9-85fc-457c-986b-d5d810485620",
+                  "name": "Successful response with intraday historical stock data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/intraday/:ticker?api_token=<API Key>&interval=15m&fmt=csv&from=<integer>&to=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "intraday",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour).",
+                          "key": "interval",
+                          "value": "15m"
+                        },
+                        {
+                          "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'.",
+                          "key": "from",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'.",
+                          "key": "to",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"timestamp\": \"<integer>\",\n    \"gmtoffset\": \"<integer>\",\n    \"datetime\": \"<dateTime>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<integer,null>\"\n  },\n  {\n    \"timestamp\": \"<integer>\",\n    \"gmtoffset\": \"<integer>\",\n    \"datetime\": \"<dateTime>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<integer,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-96d810b9-85fc-457c-986b-d5d810485620"
+                },
+                {
+                  "id": "1b9c53de-12c8-4a9e-be35-48b012df9d02",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/intraday/:ticker?api_token=<API Key>&interval=15m&fmt=csv&from=<integer>&to=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "intraday",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour).",
+                          "key": "interval",
+                          "value": "15m"
+                        },
+                        {
+                          "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'.",
+                          "key": "from",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'.",
+                          "key": "to",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-1b9c53de-12c8-4a9e-be35-48b012df9d02"
+                },
+                {
+                  "id": "ba06bac4-dd7b-48b3-88c4-08cd88d0687d",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/intraday/:ticker?api_token=<API Key>&interval=15m&fmt=csv&from=<integer>&to=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "intraday",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour).",
+                          "key": "interval",
+                          "value": "15m"
+                        },
+                        {
+                          "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'.",
+                          "key": "from",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'.",
+                          "key": "to",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-ba06bac4-dd7b-48b3-88c4-08cd88d0687d"
+                },
+                {
+                  "id": "134a7146-0602-4fb7-80fb-1f8ac2b78fa1",
+                  "name": "No data found for the specified ticker or date range.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/intraday/:ticker?api_token=<API Key>&interval=15m&fmt=csv&from=<integer>&to=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "intraday",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour).",
+                          "key": "interval",
+                          "value": "15m"
+                        },
+                        {
+                          "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'.",
+                          "key": "from",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'.",
+                          "key": "to",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-134a7146-0602-4fb7-80fb-1f8ac2b78fa1"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-1ee43985-b084-43d1-84a4-d86dce3f099b"
+            }
+          ],
+          "id": "9196e443-f86e-4d92-abdd-b2ba4f03f0fb",
+          "createdAt": "2026-07-28T01:34:48.000Z",
+          "updatedAt": "2026-07-28T01:34:48.000Z",
+          "uid": "35240-9196e443-f86e-4d92-abdd-b2ba4f03f0fb"
+        }
+      ],
+      "id": "d3a5209a-fdda-40a7-b3d2-d8b4d0a1f8e7",
+      "createdAt": "2026-07-28T01:34:48.000Z",
+      "updatedAt": "2026-07-28T01:34:48.000Z",
+      "uid": "35240-d3a5209a-fdda-40a7-b3d2-d8b4d0a1f8e7"
+    },
+    {
+      "name": "mp",
+      "item": [
+        {
+          "name": "unicornbay",
+          "item": [
+            {
+              "name": "tickdata",
+              "item": [
+                {
+                  "name": "ticks",
+                  "item": [
+                    {
+                      "name": "Retrieve marketplace tick data",
+                      "id": "3aa27c6a-b8c0-474a-8852-ba85e7974a9d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/unicornbay/tickdata/ticks?api_token=<string>&s=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "unicornbay",
+                            "tickdata",
+                            "ticks"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US').",
+                              "key": "s",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Start UNIX timestamp (UTC).",
+                              "key": "from",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "End UNIX timestamp (UTC).",
+                              "key": "to",
+                              "value": "<long>"
+                            },
+                            {
+                              "description": "Maximum number of ticks to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        },
+                        "description": "Get tick-level data via the UnicornBay marketplace data provider. Returns granular trade-by-trade data for supported symbols."
+                      },
+                      "response": [
+                        {
+                          "id": "a165a2ac-ee0d-4b73-a0e3-537af711a24a",
+                          "name": "Successfully retrieved tick data.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/tickdata/ticks?api_token=<API Key>&s=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "tickdata",
+                                "ticks"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US').",
+                                  "key": "s",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Start UNIX timestamp (UTC).",
+                                  "key": "from",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "End UNIX timestamp (UTC).",
+                                  "key": "to",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Maximum number of ticks to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"timestamp\": \"<long>\",\n    \"price\": \"<number>\",\n    \"volume\": \"<integer>\",\n    \"exchange\": \"<string>\",\n    \"conditions\": \"<string>\"\n  },\n  {\n    \"timestamp\": \"<long>\",\n    \"price\": \"<number>\",\n    \"volume\": \"<integer>\",\n    \"exchange\": \"<string>\",\n    \"conditions\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:34:48.000Z",
+                          "updatedAt": "2026-07-28T01:34:48.000Z",
+                          "uid": "35240-a165a2ac-ee0d-4b73-a0e3-537af711a24a"
+                        },
+                        {
+                          "id": "21a52548-517f-4f79-924b-4519347edd4b",
+                          "name": "Invalid request parameters.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/tickdata/ticks?api_token=<API Key>&s=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "tickdata",
+                                "ticks"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US').",
+                                  "key": "s",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Start UNIX timestamp (UTC).",
+                                  "key": "from",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "End UNIX timestamp (UTC).",
+                                  "key": "to",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Maximum number of ticks to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:48.000Z",
+                          "updatedAt": "2026-07-28T01:34:48.000Z",
+                          "uid": "35240-21a52548-517f-4f79-924b-4519347edd4b"
+                        },
+                        {
+                          "id": "ec489464-31a3-46ca-ba41-e29fc8fc065d",
+                          "name": "Unauthorized. Invalid API token.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/tickdata/ticks?api_token=<API Key>&s=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "tickdata",
+                                "ticks"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US').",
+                                  "key": "s",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Start UNIX timestamp (UTC).",
+                                  "key": "from",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "End UNIX timestamp (UTC).",
+                                  "key": "to",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Maximum number of ticks to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:48.000Z",
+                          "updatedAt": "2026-07-28T01:34:48.000Z",
+                          "uid": "35240-ec489464-31a3-46ca-ba41-e29fc8fc065d"
+                        },
+                        {
+                          "id": "0e51f94e-a9ef-4045-ba93-8bcd0087704b",
+                          "name": "Tick data not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/unicornbay/tickdata/ticks?api_token=<API Key>&s=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "unicornbay",
+                                "tickdata",
+                                "ticks"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US').",
+                                  "key": "s",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Start UNIX timestamp (UTC).",
+                                  "key": "from",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "End UNIX timestamp (UTC).",
+                                  "key": "to",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "description": "Maximum number of ticks to return.",
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:48.000Z",
+                          "updatedAt": "2026-07-28T01:34:48.000Z",
+                          "uid": "35240-0e51f94e-a9ef-4045-ba93-8bcd0087704b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:34:48.000Z",
+                      "updatedAt": "2026-07-28T01:34:48.000Z",
+                      "uid": "35240-3aa27c6a-b8c0-474a-8852-ba85e7974a9d"
+                    }
+                  ],
+                  "id": "13991e3f-506e-4260-b2f2-141b5c31792a",
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-13991e3f-506e-4260-b2f2-141b5c31792a"
+                }
+              ],
+              "id": "93d712e7-1e35-4e6d-a6fd-e2393b81790b",
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-93d712e7-1e35-4e6d-a6fd-e2393b81790b"
+            }
+          ],
+          "id": "20f18880-6c66-4c1d-8543-83b9be7dfc82",
+          "createdAt": "2026-07-28T01:34:48.000Z",
+          "updatedAt": "2026-07-28T01:34:48.000Z",
+          "uid": "35240-20f18880-6c66-4c1d-8543-83b9be7dfc82"
+        }
+      ],
+      "id": "4bfb1c40-959e-4de2-93be-198daba7f487",
+      "createdAt": "2026-07-28T01:34:48.000Z",
+      "updatedAt": "2026-07-28T01:34:48.000Z",
+      "uid": "35240-4bfb1c40-959e-4de2-93be-198daba7f487"
+    },
+    {
+      "name": "real-time",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve delayed real-time stock prices",
+              "id": "835b674d-252f-4635-9625-4ff8fc775dbe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/real-time/:ticker?s=<string>&api_token=<string>&ex=<string>&fmt=csv",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "real-time",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Exchange code filter (e.g., 'US').",
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "csv"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0977a9fb-2406-4c12-8c30-1234b103f57a",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Ticker symbol with exchange code (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "description": "Retrieve live (delayed) stock prices for specified ticker(s)."
+              },
+              "response": [
+                {
+                  "id": "a0a4ffde-8355-449a-9fb9-38188fc3d691",
+                  "name": "Successful response with live (delayed) stock prices.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/real-time/:ticker?s=<string>&api_token=<API Key>&ex=<string>&fmt=csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "real-time",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX').",
+                          "key": "s",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Exchange code filter (e.g., 'US').",
+                          "key": "ex",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"timestamp\": \"<integer>\",\n  \"gmtoffset\": \"<integer>\",\n  \"open\": \"<number>\",\n  \"high\": \"<number>\",\n  \"low\": \"<number>\",\n  \"close\": \"<number>\",\n  \"volume\": \"<integer>\",\n  \"previousClose\": \"<number>\",\n  \"change\": \"<number>\",\n  \"change_p\": \"<number>\"\n}",
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-a0a4ffde-8355-449a-9fb9-38188fc3d691"
+                },
+                {
+                  "id": "0e7c7a2d-8f40-4fdd-9982-b6dc97626ea4",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/real-time/:ticker?s=<string>&api_token=<API Key>&ex=<string>&fmt=csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "real-time",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX').",
+                          "key": "s",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Exchange code filter (e.g., 'US').",
+                          "key": "ex",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-0e7c7a2d-8f40-4fdd-9982-b6dc97626ea4"
+                },
+                {
+                  "id": "c0563d2a-fe5f-4c45-90fa-37274e50482f",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/real-time/:ticker?s=<string>&api_token=<API Key>&ex=<string>&fmt=csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "real-time",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX').",
+                          "key": "s",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Exchange code filter (e.g., 'US').",
+                          "key": "ex",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-c0563d2a-fe5f-4c45-90fa-37274e50482f"
+                },
+                {
+                  "id": "80d52460-a9b0-4213-a31d-9e816717049d",
+                  "name": "Ticker not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/real-time/:ticker?s=<string>&api_token=<API Key>&ex=<string>&fmt=csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "real-time",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX').",
+                          "key": "s",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Exchange code filter (e.g., 'US').",
+                          "key": "ex",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:48.000Z",
+                  "updatedAt": "2026-07-28T01:34:48.000Z",
+                  "uid": "35240-80d52460-a9b0-4213-a31d-9e816717049d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-835b674d-252f-4635-9625-4ff8fc775dbe"
+            }
+          ],
+          "id": "612b8e95-619f-414b-a7fe-16de9ef2956f",
+          "createdAt": "2026-07-28T01:34:48.000Z",
+          "updatedAt": "2026-07-28T01:34:48.000Z",
+          "uid": "35240-612b8e95-619f-414b-a7fe-16de9ef2956f"
+        }
+      ],
+      "id": "12a42ef6-611f-47aa-94f0-186b9a16378e",
+      "createdAt": "2026-07-28T01:34:48.000Z",
+      "updatedAt": "2026-07-28T01:34:48.000Z",
+      "uid": "35240-12a42ef6-611f-47aa-94f0-186b9a16378e"
+    },
+    {
+      "name": "ticks",
+      "item": [
+        {
+          "name": "Retrieve historical tick data",
+          "id": "cd7583a4-d086-4100-bbff-c4db7718ae41",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ticks?s=<string>&api_token=<string>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ticks"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks).",
+                  "key": "s",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API key for authentication",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start UNIX timestamp (UTC) for filtering data.",
+                  "key": "from",
+                  "value": "<long>"
+                },
+                {
+                  "description": "End UNIX timestamp (UTC) for filtering data.",
+                  "key": "to",
+                  "value": "<long>"
+                },
+                {
+                  "description": "Maximum number of ticks to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Output format (only 'json' supported)",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Get historical stock tick data for US equities using UNIX time for filtering. Limited to US exchanges."
+          },
+          "response": [
+            {
+              "id": "af0d88ea-31a0-4ec7-8f7c-e26cb5c38fd5",
+              "name": "Successful response with tick data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ticks?s=<string>&api_token=<API Key>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ticks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks).",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start UNIX timestamp (UTC) for filtering data.",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "End UNIX timestamp (UTC) for filtering data.",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Maximum number of ticks to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported)",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ex\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mkt\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"price\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"seq\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"shares\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"sl\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sub_mkt\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ts\": [\n    \"<long>\",\n    \"<long>\"\n  ]\n}",
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-af0d88ea-31a0-4ec7-8f7c-e26cb5c38fd5"
+            },
+            {
+              "id": "9583b613-379d-4aba-9e5c-d502ae676fef",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ticks?s=<string>&api_token=<API Key>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ticks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks).",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start UNIX timestamp (UTC) for filtering data.",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "End UNIX timestamp (UTC) for filtering data.",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Maximum number of ticks to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported)",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-9583b613-379d-4aba-9e5c-d502ae676fef"
+            },
+            {
+              "id": "5f4776de-5745-4bd4-99ec-fee3d389e308",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ticks?s=<string>&api_token=<API Key>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ticks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks).",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start UNIX timestamp (UTC) for filtering data.",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "End UNIX timestamp (UTC) for filtering data.",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Maximum number of ticks to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported)",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-5f4776de-5745-4bd4-99ec-fee3d389e308"
+            },
+            {
+              "id": "9df8475f-c149-4e24-9b23-d34683e641aa",
+              "name": "Ticker data not found for the specified query.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/ticks?s=<string>&api_token=<API Key>&from=<long>&to=<long>&limit=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ticks"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks).",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API key for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start UNIX timestamp (UTC) for filtering data.",
+                      "key": "from",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "End UNIX timestamp (UTC) for filtering data.",
+                      "key": "to",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "Maximum number of ticks to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported)",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-9df8475f-c149-4e24-9b23-d34683e641aa"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:48.000Z",
+          "updatedAt": "2026-07-28T01:34:48.000Z",
+          "uid": "35240-cd7583a4-d086-4100-bbff-c4db7718ae41"
+        }
+      ],
+      "id": "2141e479-934a-453e-9dd6-feefb604bc2a",
+      "createdAt": "2026-07-28T01:34:48.000Z",
+      "updatedAt": "2026-07-28T01:34:48.000Z",
+      "uid": "35240-2141e479-934a-453e-9dd6-feefb604bc2a"
+    },
+    {
+      "name": "us-quote-delayed",
+      "item": [
+        {
+          "name": "Get US delayed stock quotes",
+          "id": "f4124a23-78bd-4383-ba4c-0f0bc9c4cf0f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/us-quote-delayed?api_token=<string>&s=<string>&fields=<string>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "us-quote-delayed"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Your API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Comma-separated ticker symbols (e.g., 'AAPL,MSFT,GOOGL').",
+                  "key": "s",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Comma-separated list of fields to return (e.g., 'close,volume,change_p').",
+                  "key": "fields",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Output format.",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Returns 15-minute delayed quote data for US equities. Supports multiple symbols in a single request."
+          },
+          "response": [
+            {
+              "id": "778a550a-5409-4264-a992-6101200e2a13",
+              "name": "Successfully retrieved delayed quote data.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/us-quote-delayed?api_token=<API Key>&s=<string>&fields=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "us-quote-delayed"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated ticker symbols (e.g., 'AAPL,MSFT,GOOGL').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to return (e.g., 'close,volume,change_p').",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"code\": \"<string>\",\n    \"timestamp\": \"<long>\",\n    \"gmtoffset\": \"<integer>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<integer>\",\n    \"previousClose\": \"<number>\",\n    \"change\": \"<number>\",\n    \"change_p\": \"<number>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"timestamp\": \"<long>\",\n    \"gmtoffset\": \"<integer>\",\n    \"open\": \"<number>\",\n    \"high\": \"<number>\",\n    \"low\": \"<number>\",\n    \"close\": \"<number>\",\n    \"volume\": \"<integer>\",\n    \"previousClose\": \"<number>\",\n    \"change\": \"<number>\",\n    \"change_p\": \"<number>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-778a550a-5409-4264-a992-6101200e2a13"
+            },
+            {
+              "id": "0957026f-8719-47ad-ad2e-0f0cc13bd6b0",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/us-quote-delayed?api_token=<API Key>&s=<string>&fields=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "us-quote-delayed"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated ticker symbols (e.g., 'AAPL,MSFT,GOOGL').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to return (e.g., 'close,volume,change_p').",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-0957026f-8719-47ad-ad2e-0f0cc13bd6b0"
+            },
+            {
+              "id": "6a1ea06d-6da8-4c6e-8141-b8a19647ccd6",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/us-quote-delayed?api_token=<API Key>&s=<string>&fields=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "us-quote-delayed"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated ticker symbols (e.g., 'AAPL,MSFT,GOOGL').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to return (e.g., 'close,volume,change_p').",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:48.000Z",
+              "updatedAt": "2026-07-28T01:34:48.000Z",
+              "uid": "35240-6a1ea06d-6da8-4c6e-8141-b8a19647ccd6"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:48.000Z",
+          "updatedAt": "2026-07-28T01:34:48.000Z",
+          "uid": "35240-f4124a23-78bd-4383-ba4c-0f0bc9c4cf0f"
+        }
+      ],
+      "id": "29c5116b-833f-49e4-ad33-7afdf6a6bc6a",
+      "createdAt": "2026-07-28T01:34:48.000Z",
+      "updatedAt": "2026-07-28T01:34:48.000Z",
+      "uid": "35240-29c5116b-833f-49e4-ad33-7afdf6a6bc6a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

@@ -1,0 +1,1222 @@
+{
+  "info": {
+    "_postman_id": "3578fe59-0ef1-420e-a5e9-fe5e24abb69c",
+    "name": "EODHD Financial Data Calendar News API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:55.000Z",
+    "updatedAt": "2026-07-28T01:34:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3578fe59-0ef1-420e-a5e9-fe5e24abb69c"
+  },
+  "item": [
+    {
+      "name": "news",
+      "item": [
+        {
+          "name": "Retrieve financial news articles",
+          "id": "6c40ee42-65d4-4fe8-a1b2-2d5e7ca70708",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/news?s=<string>&t=<string>&api_token=<string>&from=<date>&to=<date>&limit=50&offset=0&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news"
+              ],
+              "query": [
+                {
+                  "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided.",
+                  "key": "s",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Tag to get news on a given topic. Required if 's' is not provided.",
+                  "key": "t",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API token for authentication",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date for news data (YYYY-MM-DD)",
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date for news data (YYYY-MM-DD)",
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "The number of results to return",
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "description": "The offset of the data",
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "description": "Response format (e.g., 'json')",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Retrieve financial news articles for a specific company ticker or topic"
+          },
+          "response": [
+            {
+              "id": "a6416b1c-e59d-43fb-8ef8-cb72fc01cfdb",
+              "name": "Successful response with financial news articles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news?s=<string>&t=<string>&api_token=<API Key>&from=<date>&to=<date>&limit=50&offset=0&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided.",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tag to get news on a given topic. Required if 's' is not provided.",
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for news data (YYYY-MM-DD)",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for news data (YYYY-MM-DD)",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The number of results to return",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "The offset of the data",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"date\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"link\": \"<uri>\",\n    \"symbols\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sentiment\": {\n      \"polarity\": \"<number>\",\n      \"neg\": \"<number>\",\n      \"neu\": \"<number>\",\n      \"pos\": \"<number>\"\n    }\n  },\n  {\n    \"date\": \"<dateTime>\",\n    \"title\": \"<string>\",\n    \"content\": \"<string>\",\n    \"link\": \"<uri>\",\n    \"symbols\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sentiment\": {\n      \"polarity\": \"<number>\",\n      \"neg\": \"<number>\",\n      \"neu\": \"<number>\",\n      \"pos\": \"<number>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-a6416b1c-e59d-43fb-8ef8-cb72fc01cfdb"
+            },
+            {
+              "id": "63b41df8-7487-43f3-b3e5-1edd97b55391",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/news?s=<string>&t=<string>&api_token=<API Key>&from=<date>&to=<date>&limit=50&offset=0&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided.",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tag to get news on a given topic. Required if 's' is not provided.",
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for news data (YYYY-MM-DD)",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for news data (YYYY-MM-DD)",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The number of results to return",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "The offset of the data",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-63b41df8-7487-43f3-b3e5-1edd97b55391"
+            },
+            {
+              "id": "6b256921-87f1-4727-a43e-a6ddc53d7f13",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/news?s=<string>&t=<string>&api_token=<API Key>&from=<date>&to=<date>&limit=50&offset=0&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided.",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tag to get news on a given topic. Required if 's' is not provided.",
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for news data (YYYY-MM-DD)",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for news data (YYYY-MM-DD)",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The number of results to return",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "The offset of the data",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-6b256921-87f1-4727-a43e-a6ddc53d7f13"
+            },
+            {
+              "id": "53417c3e-f7b5-4225-b375-4cd17df9634d",
+              "name": "No news articles found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/news?s=<string>&t=<string>&api_token=<API Key>&from=<date>&to=<date>&limit=50&offset=0&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news"
+                  ],
+                  "query": [
+                    {
+                      "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided.",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Tag to get news on a given topic. Required if 's' is not provided.",
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for news data (YYYY-MM-DD)",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for news data (YYYY-MM-DD)",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "The number of results to return",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "The offset of the data",
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Response format (e.g., 'json')",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-53417c3e-f7b5-4225-b375-4cd17df9634d"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:55.000Z",
+          "updatedAt": "2026-07-28T01:34:55.000Z",
+          "uid": "35240-6c40ee42-65d4-4fe8-a1b2-2d5e7ca70708"
+        }
+      ],
+      "id": "0160fbba-ec70-4331-af57-864ab407635d",
+      "createdAt": "2026-07-28T01:34:55.000Z",
+      "updatedAt": "2026-07-28T01:34:55.000Z",
+      "uid": "35240-0160fbba-ec70-4331-af57-864ab407635d"
+    },
+    {
+      "name": "news-word-weights",
+      "item": [
+        {
+          "name": "Top weighted news keywords for a ticker",
+          "id": "a2d76217-f718-461f-ae4e-00ab40804f5a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news-word-weights"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                  "key": "s",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date (YYYY-MM-DD)",
+                  "key": "filter[date_from]",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                  "key": "filter[date_to]",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                  "key": "filter[to]",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Number of top words to return",
+                  "key": "page[limit]",
+                  "value": "10"
+                },
+                {
+                  "description": "Response format",
+                  "key": "fmt",
+                  "value": "json"
+                },
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns the most relevant words from financial news for the given ticker and period, with weights (frequency ? significance)."
+          },
+          "response": [
+            {
+              "id": "199233f7-a1ae-4558-8e1a-502d47620cdd",
+              "name": "Weighted keywords for the requested period",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": {\n    \"ad5\": \"<number>\",\n    \"nisicb\": \"<number>\",\n    \"et98\": \"<number>\"\n  },\n  \"meta\": {\n    \"news_found\": \"<integer>\",\n    \"news_processed\": \"<integer>\"\n  },\n  \"links\": {\n    \"next\": \"<string,null>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-199233f7-a1ae-4558-8e1a-502d47620cdd"
+            },
+            {
+              "id": "02198c6d-30b0-4c83-a18f-6b00e0800e29",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-02198c6d-30b0-4c83-a18f-6b00e0800e29"
+            },
+            {
+              "id": "bdf96438-3d19-4c85-aa56-6729d00a70f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-bdf96438-3d19-4c85-aa56-6729d00a70f9"
+            },
+            {
+              "id": "19181b9d-53d6-4a0c-a765-7237822d18c3",
+              "name": "No results found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-19181b9d-53d6-4a0c-a765-7237822d18c3"
+            },
+            {
+              "id": "4a82b329-5e00-40b2-87a8-0e6161cf961f",
+              "name": "Too many requests",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-4a82b329-5e00-40b2-87a8-0e6161cf961f"
+            },
+            {
+              "id": "83540bb5-452a-4271-b7e7-2a339b97ce85",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news-word-weights?s=<string>&filter[date_from]=<date>&filter[date_to]=<date>&filter[to]=<date>&page[limit]=10&fmt=json&api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date (YYYY-MM-DD)",
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`.",
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters.",
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Number of top words to return",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "Response format",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-83540bb5-452a-4271-b7e7-2a339b97ce85"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:55.000Z",
+          "updatedAt": "2026-07-28T01:34:55.000Z",
+          "uid": "35240-a2d76217-f718-461f-ae4e-00ab40804f5a"
+        }
+      ],
+      "id": "c1bc7cbb-5927-4954-9b9c-0688488d2b5f",
+      "createdAt": "2026-07-28T01:34:55.000Z",
+      "updatedAt": "2026-07-28T01:34:55.000Z",
+      "uid": "35240-c1bc7cbb-5927-4954-9b9c-0688488d2b5f"
+    },
+    {
+      "name": "sentiments",
+      "item": [
+        {
+          "name": "Retrieve market news sentiment data",
+          "id": "dce5a51e-067b-4759-a592-f46863583808",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sentiments?s=<string>&api_token=<string>&from=<date>&to=<date>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sentiments"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us').",
+                  "key": "s",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date for sentiment data (YYYY-MM-DD).",
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date for sentiment data (YYYY-MM-DD).",
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Response format (only 'json' is supported).",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Retrieve sentiment analysis for financial news related to specified tickers."
+          },
+          "response": [
+            {
+              "id": "68599493-9036-48fb-98a6-58ce33f48392",
+              "name": "Successful response with sentiment data by ticker.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sentiments?s=<string>&api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sentiments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for sentiment data (YYYY-MM-DD).",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for sentiment data (YYYY-MM-DD).",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Response format (only 'json' is supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"ticker\": {\n    \"nulla_6f\": [\n      {\n        \"date\": \"<date>\",\n        \"count\": \"<integer>\",\n        \"normalized\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"count\": \"<integer>\",\n        \"normalized\": \"<number>\"\n      }\n    ],\n    \"veniam_f7c\": [\n      {\n        \"date\": \"<date>\",\n        \"count\": \"<integer>\",\n        \"normalized\": \"<number>\"\n      },\n      {\n        \"date\": \"<date>\",\n        \"count\": \"<integer>\",\n        \"normalized\": \"<number>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-68599493-9036-48fb-98a6-58ce33f48392"
+            },
+            {
+              "id": "ec991821-09cd-4d22-af10-b8a41a7cc598",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sentiments?s=<string>&api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sentiments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for sentiment data (YYYY-MM-DD).",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for sentiment data (YYYY-MM-DD).",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Response format (only 'json' is supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-ec991821-09cd-4d22-af10-b8a41a7cc598"
+            },
+            {
+              "id": "8a7a3089-f288-4f4c-98cb-b812cf677339",
+              "name": "Unauthorized. Invalid or missing API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sentiments?s=<string>&api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sentiments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for sentiment data (YYYY-MM-DD).",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for sentiment data (YYYY-MM-DD).",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Response format (only 'json' is supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-8a7a3089-f288-4f4c-98cb-b812cf677339"
+            },
+            {
+              "id": "14d0d1bb-8da9-41bd-a571-e45805cf1316",
+              "name": "No sentiment data found for specified tickers or date range.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sentiments?s=<string>&api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sentiments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us').",
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Start date for sentiment data (YYYY-MM-DD).",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for sentiment data (YYYY-MM-DD).",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Response format (only 'json' is supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:55.000Z",
+              "updatedAt": "2026-07-28T01:34:55.000Z",
+              "uid": "35240-14d0d1bb-8da9-41bd-a571-e45805cf1316"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:55.000Z",
+          "updatedAt": "2026-07-28T01:34:55.000Z",
+          "uid": "35240-dce5a51e-067b-4759-a592-f46863583808"
+        }
+      ],
+      "id": "90a94842-cb14-4894-81bd-6356b33c8ccc",
+      "createdAt": "2026-07-28T01:34:55.000Z",
+      "updatedAt": "2026-07-28T01:34:55.000Z",
+      "uid": "35240-90a94842-cb14-4894-81bd-6356b33c8ccc"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

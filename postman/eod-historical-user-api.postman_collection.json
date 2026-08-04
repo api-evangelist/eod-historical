@@ -1,0 +1,373 @@
+{
+  "info": {
+    "_postman_id": "2345aef6-69d7-411a-a411-cc3c07681d6b",
+    "name": "EODHD Financial Data Calendar User API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:35:05.000Z",
+    "updatedAt": "2026-07-28T01:35:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2345aef6-69d7-411a-a411-cc3c07681d6b"
+  },
+  "item": [
+    {
+      "name": "internal-user",
+      "item": [
+        {
+          "name": "Retrieve internal user account information",
+          "id": "a0bff601-a213-451f-b594-6f9588f61a0c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/internal-user?api_token=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "internal-user"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com.",
+                  "key": "api_token",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Fetch detailed internal account information for the authenticated user, including subscription type, usage statistics, and available data feeds. Requires a valid `api_token` as a query parameter."
+          },
+          "response": [
+            {
+              "id": "9c2c094c-472f-4575-8ef4-23bb4417c8d7",
+              "name": "Successful response with user information.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/internal-user?api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "internal-user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"subscriptionType\": \"monthly\",\n  \"paymentMethod\": \"<string>\",\n  \"apiRequests\": \"<integer>\",\n  \"apiRequestsDate\": \"<date>\",\n  \"dailyRateLimit\": \"<integer>\",\n  \"extraLimit\": \"<integer>\",\n  \"inviteToken\": \"<string,null>\",\n  \"inviteTokenClicked\": \"<integer>\",\n  \"subscriptionMode\": \"paid\",\n  \"availableDataFeeds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"availableMarketplaceDataFeeds\": {\n    \"dailyRateLimit\": \"<integer>\",\n    \"requestsSpent\": \"<integer>\",\n    \"timeToReset\": \"<string>\",\n    \"subscriptions\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-9c2c094c-472f-4575-8ef4-23bb4417c8d7"
+            },
+            {
+              "id": "be94f963-6698-459b-9874-f8038103ba9c",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/internal-user?api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "internal-user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-be94f963-6698-459b-9874-f8038103ba9c"
+            },
+            {
+              "id": "f6ed7609-94b7-475b-8591-50dbb1036c6b",
+              "name": "Unauthorized. The API token is missing, invalid, or expired.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/internal-user?api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "internal-user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-f6ed7609-94b7-475b-8591-50dbb1036c6b"
+            },
+            {
+              "id": "cef2a098-523d-4b0c-bbfb-4cb82adec2e7",
+              "name": "User not found.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/internal-user?api_token=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "internal-user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-cef2a098-523d-4b0c-bbfb-4cb82adec2e7"
+            }
+          ],
+          "createdAt": "2026-07-28T01:35:06.000Z",
+          "updatedAt": "2026-07-28T01:35:06.000Z",
+          "uid": "35240-a0bff601-a213-451f-b594-6f9588f61a0c"
+        }
+      ],
+      "id": "318400a9-85b7-4196-ae37-1c70b8ab04f3",
+      "createdAt": "2026-07-28T01:35:06.000Z",
+      "updatedAt": "2026-07-28T01:35:06.000Z",
+      "uid": "35240-318400a9-85b7-4196-ae37-1c70b8ab04f3"
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "Get current user details",
+          "id": "d299e5e9-3916-44ad-ae00-29d6e95f56ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user?api_token=<string>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Output format.",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Returns details about the authenticated user, including subscription info and API usage."
+          },
+          "response": [
+            {
+              "id": "0eee6f96-ff54-4b71-8236-b646c282fd38",
+              "name": "Successfully retrieved user details.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/user?api_token=<API Key>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"subscriptionType\": \"<string>\",\n  \"paymentMethod\": \"<string>\",\n  \"apiRequests\": \"<integer>\",\n  \"apiRequestsDate\": \"<string>\",\n  \"dailyRateLimit\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-0eee6f96-ff54-4b71-8236-b646c282fd38"
+            },
+            {
+              "id": "1ca0bd3c-7f91-4f15-8cc3-4c25177d00c1",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/user?api_token=<API Key>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "user"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:35:06.000Z",
+              "updatedAt": "2026-07-28T01:35:06.000Z",
+              "uid": "35240-1ca0bd3c-7f91-4f15-8cc3-4c25177d00c1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:35:06.000Z",
+          "updatedAt": "2026-07-28T01:35:06.000Z",
+          "uid": "35240-d299e5e9-3916-44ad-ae00-29d6e95f56ad"
+        }
+      ],
+      "id": "caee4f17-b009-49a7-91a8-9d7e8584fa49",
+      "createdAt": "2026-07-28T01:35:06.000Z",
+      "updatedAt": "2026-07-28T01:35:06.000Z",
+      "uid": "35240-caee4f17-b009-49a7-91a8-9d7e8584fa49"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

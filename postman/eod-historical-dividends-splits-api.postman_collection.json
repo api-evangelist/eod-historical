@@ -1,0 +1,660 @@
+{
+  "info": {
+    "_postman_id": "fc1d307c-b03b-445c-ba20-d3644a24203b",
+    "name": "EODHD Financial Data Calendar Dividends & Splits API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:26.000Z",
+    "updatedAt": "2026-07-28T01:34:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fc1d307c-b03b-445c-ba20-d3644a24203b"
+  },
+  "item": [
+    {
+      "name": "div",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve historical dividend data",
+              "id": "63f911a1-24c3-48ed-a3e0-9282e770a200",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/div/:ticker?api_token=<string>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "div",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "9f1c8025-5771-4193-8cd4-96ea330c1e39",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "description": "Fetches historical dividend data for a specified stock symbol, including key dividend dates and values."
+              },
+              "response": [
+                {
+                  "id": "7d184b04-fc40-45a5-890c-d56702fc13f7",
+                  "name": "Successfully retrieved historical dividend data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/div/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "div",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"date\": \"<date>\",\n    \"value\": \"<float>\",\n    \"currency\": \"<string>\",\n    \"declarationDate\": \"<date>\",\n    \"recordDate\": \"<date>\",\n    \"paymentDate\": \"<date>\",\n    \"period\": \"<string>\",\n    \"unadjustedValue\": \"<float>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"value\": \"<float>\",\n    \"currency\": \"<string>\",\n    \"declarationDate\": \"<date>\",\n    \"recordDate\": \"<date>\",\n    \"paymentDate\": \"<date>\",\n    \"period\": \"<string>\",\n    \"unadjustedValue\": \"<float>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-7d184b04-fc40-45a5-890c-d56702fc13f7"
+                },
+                {
+                  "id": "017cfbbc-3a51-4278-a033-366395c2dccf",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/div/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "div",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-017cfbbc-3a51-4278-a033-366395c2dccf"
+                },
+                {
+                  "id": "93274fde-6883-402d-930a-9f4a8bd4757c",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/div/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "div",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-93274fde-6883-402d-930a-9f4a8bd4757c"
+                },
+                {
+                  "id": "bb4cf7dc-c952-4668-b5cb-7fa0af317e1b",
+                  "name": "Dividend data not found for the specified ticker or date range.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/div/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "div",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-bb4cf7dc-c952-4668-b5cb-7fa0af317e1b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:27.000Z",
+              "updatedAt": "2026-07-28T01:34:27.000Z",
+              "uid": "35240-63f911a1-24c3-48ed-a3e0-9282e770a200"
+            }
+          ],
+          "id": "2617d6d0-549c-4c1e-8c44-e69fa7e9e990",
+          "createdAt": "2026-07-28T01:34:27.000Z",
+          "updatedAt": "2026-07-28T01:34:27.000Z",
+          "uid": "35240-2617d6d0-549c-4c1e-8c44-e69fa7e9e990"
+        }
+      ],
+      "id": "5405d029-e2e5-4f20-ac7e-2b3019e1444e",
+      "createdAt": "2026-07-28T01:34:27.000Z",
+      "updatedAt": "2026-07-28T01:34:27.000Z",
+      "uid": "35240-5405d029-e2e5-4f20-ac7e-2b3019e1444e"
+    },
+    {
+      "name": "splits",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve historical split data",
+              "id": "6220ca75-dc8d-48c4-9a76-d27f5d5acc0f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/splits/:ticker?api_token=<string>&from=<date>&to=<date>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "splits",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "06609ea1-cba3-4558-87fd-6a1a7d12ce51",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "description": "Fetches historical stock split data for a specified ticker, including split dates and ratios."
+              },
+              "response": [
+                {
+                  "id": "83ef7bbb-269a-4070-9610-cd281965402a",
+                  "name": "Successfully retrieved historical split data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/splits/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "splits",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"date\": \"<date>\",\n    \"split\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"split\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-83ef7bbb-269a-4070-9610-cd281965402a"
+                },
+                {
+                  "id": "01a9cb0f-2960-4ede-9298-6fc2ca14f2b6",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/splits/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "splits",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-01a9cb0f-2960-4ede-9298-6fc2ca14f2b6"
+                },
+                {
+                  "id": "40ee551d-d68d-4664-a04c-36f39d40db84",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/splits/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "splits",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-40ee551d-d68d-4664-a04c-36f39d40db84"
+                },
+                {
+                  "id": "58db118a-3910-4acc-8102-ab630b7e6e55",
+                  "name": "Split data not found for the specified ticker or date range.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/splits/:ticker?api_token=<API Key>&from=<date>&to=<date>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "splits",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:27.000Z",
+                  "updatedAt": "2026-07-28T01:34:27.000Z",
+                  "uid": "35240-58db118a-3910-4acc-8102-ab630b7e6e55"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:27.000Z",
+              "updatedAt": "2026-07-28T01:34:27.000Z",
+              "uid": "35240-6220ca75-dc8d-48c4-9a76-d27f5d5acc0f"
+            }
+          ],
+          "id": "a654de79-46d8-4a25-9681-4186ad3242a9",
+          "createdAt": "2026-07-28T01:34:27.000Z",
+          "updatedAt": "2026-07-28T01:34:27.000Z",
+          "uid": "35240-a654de79-46d8-4a25-9681-4186ad3242a9"
+        }
+      ],
+      "id": "7231fa7f-fcac-4531-86d3-a441f9b0ca0e",
+      "createdAt": "2026-07-28T01:34:27.000Z",
+      "updatedAt": "2026-07-28T01:34:27.000Z",
+      "uid": "35240-7231fa7f-fcac-4531-86d3-a441f9b0ca0e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

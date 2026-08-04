@@ -1,0 +1,375 @@
+{
+  "info": {
+    "_postman_id": "fa520963-222f-41b4-81ac-5ed6a854010b",
+    "name": "EODHD Financial Data Calendar Market Data API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:53.000Z",
+    "updatedAt": "2026-07-28T01:34:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa520963-222f-41b4-81ac-5ed6a854010b"
+  },
+  "item": [
+    {
+      "name": "historical-market-cap",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve historical market capitalization data",
+              "id": "30d355df-7151-4293-8966-0e92092f8278",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/historical-market-cap/:ticker?api_token=<string>&from=<date>&to=<date>&reverse=true&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "historical-market-cap",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API key for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Set to 'true' to reverse sort order (newest first).",
+                      "key": "reverse",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "34d02238-83ec-49ef-8eb0-4e3585070e6b",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                    }
+                  ]
+                },
+                "description": "Fetches historical market capitalization for a specified stock symbol with weekly frequency."
+              },
+              "response": [
+                {
+                  "id": "83a5035b-c096-439a-bf12-f37181f8edd9",
+                  "name": "Successfully retrieved historical market capitalization data.\n\nThe response is a JSON object whose keys are sequential integer indices (as strings: \"0\", \"1\", \"2\", ...) and whose values are objects containing `date` and `value`. Iterate over the values, no",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/historical-market-cap/:ticker?api_token=<API Key>&from=<date>&to=<date>&reverse=true&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "historical-market-cap",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Set to 'true' to reverse sort order (newest first).",
+                          "key": "reverse",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"exercitation_d\": {\n    \"date\": \"<date>\",\n    \"value\": \"<number>\"\n  },\n  \"adipisicing_5d8\": {\n    \"date\": \"<date>\",\n    \"value\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:34:54.000Z",
+                  "updatedAt": "2026-07-28T01:34:54.000Z",
+                  "uid": "35240-83a5035b-c096-439a-bf12-f37181f8edd9"
+                },
+                {
+                  "id": "16d79317-f125-410b-bc79-fffa2fba6f3e",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/historical-market-cap/:ticker?api_token=<API Key>&from=<date>&to=<date>&reverse=true&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "historical-market-cap",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Set to 'true' to reverse sort order (newest first).",
+                          "key": "reverse",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:54.000Z",
+                  "updatedAt": "2026-07-28T01:34:54.000Z",
+                  "uid": "35240-16d79317-f125-410b-bc79-fffa2fba6f3e"
+                },
+                {
+                  "id": "119a256c-f375-4085-aef9-e43d35749d99",
+                  "name": "Unauthorized. Invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/historical-market-cap/:ticker?api_token=<API Key>&from=<date>&to=<date>&reverse=true&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "historical-market-cap",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Set to 'true' to reverse sort order (newest first).",
+                          "key": "reverse",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:54.000Z",
+                  "updatedAt": "2026-07-28T01:34:54.000Z",
+                  "uid": "35240-119a256c-f375-4085-aef9-e43d35749d99"
+                },
+                {
+                  "id": "7259d7fe-92c2-4b20-84e2-34a7c69fd1b9",
+                  "name": "Market capitalization data not found for the specified ticker or date range.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/historical-market-cap/:ticker?api_token=<API Key>&from=<date>&to=<date>&reverse=true&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "historical-market-cap",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API key for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Set to 'true' to reverse sort order (newest first).",
+                          "key": "reverse",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Defaults to 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:54.000Z",
+                  "updatedAt": "2026-07-28T01:34:54.000Z",
+                  "uid": "35240-7259d7fe-92c2-4b20-84e2-34a7c69fd1b9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:54.000Z",
+              "updatedAt": "2026-07-28T01:34:54.000Z",
+              "uid": "35240-30d355df-7151-4293-8966-0e92092f8278"
+            }
+          ],
+          "id": "0094d711-8f39-4d3a-8de8-88276ac57015",
+          "createdAt": "2026-07-28T01:34:54.000Z",
+          "updatedAt": "2026-07-28T01:34:54.000Z",
+          "uid": "35240-0094d711-8f39-4d3a-8de8-88276ac57015"
+        }
+      ],
+      "id": "533ca64c-bdfb-4994-aca9-2bbaccbaf3b8",
+      "createdAt": "2026-07-28T01:34:54.000Z",
+      "updatedAt": "2026-07-28T01:34:54.000Z",
+      "uid": "35240-533ca64c-bdfb-4994-aca9-2bbaccbaf3b8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

@@ -1,0 +1,651 @@
+{
+  "info": {
+    "_postman_id": "356ace09-73b5-455d-bddc-88917a102fde",
+    "name": "EODHD Financial Data Calendar Corporate Actions API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:17.000Z",
+    "updatedAt": "2026-07-28T01:34:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-356ace09-73b5-455d-bddc-88917a102fde"
+  },
+  "item": [
+    {
+      "name": "insider-transactions",
+      "item": [
+        {
+          "name": "Retrieve insider transaction data",
+          "id": "7ec2064c-5474-47b9-bf81-a4e47fbfeed5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insider-transactions?api_token=<string>&limit=100&from=<date>&to=<date>&code=<string>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insider-transactions"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API token for authentication",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Max number of entries per result, from 1 to 1000. Default is 100.",
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date.",
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date.",
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols.",
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Output format (only 'json' supported).",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Fetch insider transaction data for US-listed companies. Covers insider buys and sells, providing transaction details such as date, shares, and price."
+          },
+          "response": [
+            {
+              "id": "82cb9a42-6efd-4b54-bec9-8ab7ef805956",
+              "name": "Successful response with insider transaction data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/insider-transactions?api_token=<API Key>&limit=100&from=<date>&to=<date>&code=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Max number of entries per result, from 1 to 1000. Default is 100.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"code\": \"<string>\",\n    \"exchange\": \"<string>\",\n    \"date\": \"<date>\",\n    \"reportDate\": \"<date>\",\n    \"ownerCik\": \"<string,null>\",\n    \"ownerName\": \"<string>\",\n    \"ownerRelationship\": \"<string,null>\",\n    \"ownerTitle\": \"<string>\",\n    \"transactionDate\": \"<date>\",\n    \"transactionCode\": \"S\",\n    \"transactionAmount\": \"<integer>\",\n    \"transactionPrice\": \"<float>\",\n    \"transactionAcquiredDisposed\": \"D\",\n    \"postTransactionAmount\": \"<integer,null>\",\n    \"link\": \"<uri>\"\n  },\n  {\n    \"code\": \"<string>\",\n    \"exchange\": \"<string>\",\n    \"date\": \"<date>\",\n    \"reportDate\": \"<date>\",\n    \"ownerCik\": \"<string,null>\",\n    \"ownerName\": \"<string>\",\n    \"ownerRelationship\": \"<string,null>\",\n    \"ownerTitle\": \"<string>\",\n    \"transactionDate\": \"<date>\",\n    \"transactionCode\": \"P\",\n    \"transactionAmount\": \"<integer>\",\n    \"transactionPrice\": \"<float>\",\n    \"transactionAcquiredDisposed\": \"D\",\n    \"postTransactionAmount\": \"<integer,null>\",\n    \"link\": \"<uri>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-82cb9a42-6efd-4b54-bec9-8ab7ef805956"
+            },
+            {
+              "id": "34eaef0f-0e9d-40b1-b64c-d8ddf789cf70",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/insider-transactions?api_token=<API Key>&limit=100&from=<date>&to=<date>&code=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Max number of entries per result, from 1 to 1000. Default is 100.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-34eaef0f-0e9d-40b1-b64c-d8ddf789cf70"
+            },
+            {
+              "id": "55513427-22c5-43de-a91d-b3f9192438cc",
+              "name": "Unauthorized access, invalid or missing API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/insider-transactions?api_token=<API Key>&limit=100&from=<date>&to=<date>&code=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Max number of entries per result, from 1 to 1000. Default is 100.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-55513427-22c5-43de-a91d-b3f9192438cc"
+            },
+            {
+              "id": "0eeb8520-cb5c-4e61-97fb-b1f989f129b5",
+              "name": "No insider transaction data found for the specified criteria.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/insider-transactions?api_token=<API Key>&limit=100&from=<date>&to=<date>&code=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Max number of entries per result, from 1 to 1000. Default is 100.",
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols.",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Output format (only 'json' supported).",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-0eeb8520-cb5c-4e61-97fb-b1f989f129b5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:18.000Z",
+          "updatedAt": "2026-07-28T01:34:18.000Z",
+          "uid": "35240-7ec2064c-5474-47b9-bf81-a4e47fbfeed5"
+        }
+      ],
+      "id": "36ba26f4-fd90-4345-9b2e-3d58c710e4e1",
+      "createdAt": "2026-07-28T01:34:18.000Z",
+      "updatedAt": "2026-07-28T01:34:18.000Z",
+      "uid": "35240-36ba26f4-fd90-4345-9b2e-3d58c710e4e1"
+    },
+    {
+      "name": "symbol-change-history",
+      "item": [
+        {
+          "name": "Retrieve symbol change history",
+          "id": "71c1ca6f-3caf-4583-8ef5-e3ae1b8646d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/symbol-change-history?from=<date>&to=<date>&api_token=<string>&ex=<string>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "symbol-change-history"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format.",
+                  "key": "from",
+                  "value": "<date>"
+                },
+                {
+                  "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format.",
+                  "key": "to",
+                  "value": "<date>"
+                },
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Exchange code filter (e.g., 'US').",
+                  "key": "ex",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Retrieve the symbol change history within a specified date range. Only US exchanges are currently supported."
+          },
+          "response": [
+            {
+              "id": "46c1e0b0-e6fb-41ca-9171-d832f6ea979c",
+              "name": "Successful response with symbol change history.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/symbol-change-history?from=<date>&to=<date>&api_token=<API Key>&ex=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Exchange code filter (e.g., 'US').",
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"exchange\": \"<string>\",\n    \"old_symbol\": \"<string>\",\n    \"new_symbol\": \"<string>\",\n    \"company_name\": \"<string>\",\n    \"effective\": \"<date>\"\n  },\n  {\n    \"exchange\": \"<string>\",\n    \"old_symbol\": \"<string>\",\n    \"new_symbol\": \"<string>\",\n    \"company_name\": \"<string>\",\n    \"effective\": \"<date>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-46c1e0b0-e6fb-41ca-9171-d832f6ea979c"
+            },
+            {
+              "id": "5a4bd8e0-ceaa-4d9b-8abc-11ca9bb58a64",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/symbol-change-history?from=<date>&to=<date>&api_token=<API Key>&ex=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Exchange code filter (e.g., 'US').",
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-5a4bd8e0-ceaa-4d9b-8abc-11ca9bb58a64"
+            },
+            {
+              "id": "9ba7401d-8766-42ba-8c4f-2425328afff0",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/symbol-change-history?from=<date>&to=<date>&api_token=<API Key>&ex=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Exchange code filter (e.g., 'US').",
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-9ba7401d-8766-42ba-8c4f-2425328afff0"
+            },
+            {
+              "id": "ec204b3a-bad3-45aa-8800-319a0f6669cf",
+              "name": "No symbol change history found for the specified date range.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/symbol-change-history?from=<date>&to=<date>&api_token=<API Key>&ex=<string>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Exchange code filter (e.g., 'US').",
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:18.000Z",
+              "updatedAt": "2026-07-28T01:34:18.000Z",
+              "uid": "35240-ec204b3a-bad3-45aa-8800-319a0f6669cf"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:18.000Z",
+          "updatedAt": "2026-07-28T01:34:18.000Z",
+          "uid": "35240-71c1ca6f-3caf-4583-8ef5-e3ae1b8646d9"
+        }
+      ],
+      "id": "a71fb0a8-5af4-4830-87a0-0de7f66aaa6f",
+      "createdAt": "2026-07-28T01:34:18.000Z",
+      "updatedAt": "2026-07-28T01:34:18.000Z",
+      "uid": "35240-a71fb0a8-5af4-4830-87a0-0de7f66aaa6f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

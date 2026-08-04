@@ -1,0 +1,1288 @@
+{
+  "info": {
+    "_postman_id": "4a01ef64-4b2c-4095-a53d-e2ba95606184",
+    "name": "EODHD Financial Data Calendar ESG API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:39.000Z",
+    "updatedAt": "2026-07-28T01:34:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4a01ef64-4b2c-4095-a53d-e2ba95606184"
+  },
+  "item": [
+    {
+      "name": "mp",
+      "item": [
+        {
+          "name": "investverte",
+          "item": [
+            {
+              "name": "companies",
+              "item": [
+                {
+                  "name": "List ESG-rated companies",
+                  "id": "4f395112-6c4e-4d7f-8099-529d7f13e1d0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/mp/investverte/companies?api_token=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "mp",
+                        "investverte",
+                        "companies"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of all companies with ESG ratings available from Investverte."
+                  },
+                  "response": [
+                    {
+                      "id": "06f9f58d-34db-409f-affc-907b20c7209b",
+                      "name": "Successfully retrieved ESG companies list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/companies?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "companies"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"symbol\": \"<string>\",\n    \"name\": \"<string>\",\n    \"country\": \"<string>\",\n    \"sector\": \"<string>\",\n    \"industry\": \"<string>\"\n  },\n  {\n    \"symbol\": \"<string>\",\n    \"name\": \"<string>\",\n    \"country\": \"<string>\",\n    \"sector\": \"<string>\",\n    \"industry\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-06f9f58d-34db-409f-affc-907b20c7209b"
+                    },
+                    {
+                      "id": "dd0941ea-4215-4cc9-a3a6-96d085e57981",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/companies?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "companies"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-dd0941ea-4215-4cc9-a3a6-96d085e57981"
+                    },
+                    {
+                      "id": "584e1118-3704-4dd4-a899-5c64177db6a5",
+                      "name": "Too Many Requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/companies?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "companies"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-584e1118-3704-4dd4-a899-5c64177db6a5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-4f395112-6c4e-4d7f-8099-529d7f13e1d0"
+                }
+              ],
+              "id": "b7c0c5e5-a966-42d5-84b0-5395f9eff899",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-b7c0c5e5-a966-42d5-84b0-5395f9eff899"
+            },
+            {
+              "name": "countries",
+              "item": [
+                {
+                  "name": "List ESG country scores",
+                  "id": "f095d0ea-fe3e-4d5e-8b7d-9837ef588a10",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/mp/investverte/countries?api_token=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "mp",
+                        "investverte",
+                        "countries"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of all countries with their aggregate ESG scores from Investverte."
+                  },
+                  "response": [
+                    {
+                      "id": "2c2b143e-b507-46da-89c3-78184c2c242d",
+                      "name": "Successfully retrieved ESG country scores.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/countries?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "countries"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"country\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"esg_score\": \"<number>\",\n    \"environmental_score\": \"<number>\",\n    \"social_score\": \"<number>\",\n    \"governance_score\": \"<number>\",\n    \"num_companies\": \"<integer>\"\n  },\n  {\n    \"country\": \"<string>\",\n    \"country_code\": \"<string>\",\n    \"esg_score\": \"<number>\",\n    \"environmental_score\": \"<number>\",\n    \"social_score\": \"<number>\",\n    \"governance_score\": \"<number>\",\n    \"num_companies\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-2c2b143e-b507-46da-89c3-78184c2c242d"
+                    },
+                    {
+                      "id": "7d5f3cc5-3ee4-43a6-8ec8-92006f44112d",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/countries?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "countries"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-7d5f3cc5-3ee4-43a6-8ec8-92006f44112d"
+                    },
+                    {
+                      "id": "1ecbd077-11b0-4f8b-ae45-6d5cc1afb051",
+                      "name": "Too Many Requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/countries?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "countries"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-1ecbd077-11b0-4f8b-ae45-6d5cc1afb051"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-f095d0ea-fe3e-4d5e-8b7d-9837ef588a10"
+                }
+              ],
+              "id": "80d6516e-a7fb-4b3c-8fcd-e7cde4e3bd90",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-80d6516e-a7fb-4b3c-8fcd-e7cde4e3bd90"
+            },
+            {
+              "name": "country",
+              "item": [
+                {
+                  "name": "{symbol}",
+                  "item": [
+                    {
+                      "name": "Get ESG country details",
+                      "id": "c690d035-cae6-43e9-af98-8961c1cb7474",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/country/:symbol?api_token=<string>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "country",
+                            ":symbol"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e74f69bf-544f-4c05-99a4-88849f3915aa",
+                              "key": "symbol",
+                              "value": "<string>",
+                              "description": "(Required) Country code (e.g., 'US', 'GB', 'DE')."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed ESG scores and metrics for a specific country from Investverte."
+                      },
+                      "response": [
+                        {
+                          "id": "957050b7-1d1c-477c-8148-541728869428",
+                          "name": "Successfully retrieved country ESG details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/country/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "country",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"country\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"esg_score\": \"<number>\",\n  \"environmental_score\": \"<number>\",\n  \"social_score\": \"<number>\",\n  \"governance_score\": \"<number>\",\n  \"top_companies\": [\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"esg_score\": \"<number>\"\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"esg_score\": \"<number>\"\n    }\n  ],\n  \"sector_breakdown\": [\n    {\n      \"sector\": \"<string>\",\n      \"avg_esg_score\": \"<number>\",\n      \"num_companies\": \"<integer>\"\n    },\n    {\n      \"sector\": \"<string>\",\n      \"avg_esg_score\": \"<number>\",\n      \"num_companies\": \"<integer>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-957050b7-1d1c-477c-8148-541728869428"
+                        },
+                        {
+                          "id": "094ce01f-a9f8-4a76-9ba1-16c42ef87391",
+                          "name": "Unauthorized. Invalid API token.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/country/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "country",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-094ce01f-a9f8-4a76-9ba1-16c42ef87391"
+                        },
+                        {
+                          "id": "b2e40ba7-2ef3-4df6-8a8c-1a4762d293b0",
+                          "name": "Country not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/country/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "country",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-b2e40ba7-2ef3-4df6-8a8c-1a4762d293b0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-c690d035-cae6-43e9-af98-8961c1cb7474"
+                    }
+                  ],
+                  "id": "e3a7bb65-7736-4104-b946-f21cdf8ec621",
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-e3a7bb65-7736-4104-b946-f21cdf8ec621"
+                }
+              ],
+              "id": "2a317900-5f12-4725-91b1-a6200def036b",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-2a317900-5f12-4725-91b1-a6200def036b"
+            },
+            {
+              "name": "esg",
+              "item": [
+                {
+                  "name": "{symbol}",
+                  "item": [
+                    {
+                      "name": "Get ESG rating for a company",
+                      "id": "0cbfc4da-f6e3-49e0-92bc-ac2a431a60f3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/esg/:symbol?api_token=<string>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "esg",
+                            ":symbol"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "d51ce9eb-bf38-41e2-ab58-1303d8418214",
+                              "key": "symbol",
+                              "value": "<string>",
+                              "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed ESG ratings and scores for a specific company from Investverte."
+                      },
+                      "response": [
+                        {
+                          "id": "6aa66a9c-280f-45e6-8096-fdac05a1267b",
+                          "name": "Successfully retrieved ESG rating.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/esg/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "esg",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"symbol\": \"<string>\",\n  \"name\": \"<string>\",\n  \"esg_score\": \"<number>\",\n  \"esg_rating\": \"<string>\",\n  \"environmental_score\": \"<number>\",\n  \"social_score\": \"<number>\",\n  \"governance_score\": \"<number>\",\n  \"environmental_details\": {},\n  \"social_details\": {},\n  \"governance_details\": {},\n  \"last_updated\": \"<date>\"\n}",
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-6aa66a9c-280f-45e6-8096-fdac05a1267b"
+                        },
+                        {
+                          "id": "821daa98-5d08-46e0-900b-0beb44104523",
+                          "name": "Unauthorized. Invalid API token.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/esg/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "esg",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-821daa98-5d08-46e0-900b-0beb44104523"
+                        },
+                        {
+                          "id": "21206283-2282-404e-87fc-adf963a0bb70",
+                          "name": "Company not found or no ESG data available.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/esg/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "esg",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-21206283-2282-404e-87fc-adf963a0bb70"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-0cbfc4da-f6e3-49e0-92bc-ac2a431a60f3"
+                    }
+                  ],
+                  "id": "ead0bb72-7ffc-4d19-813b-6a57131b106c",
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-ead0bb72-7ffc-4d19-813b-6a57131b106c"
+                }
+              ],
+              "id": "9b15a320-7721-4224-ac6d-105abe36c39b",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-9b15a320-7721-4224-ac6d-105abe36c39b"
+            },
+            {
+              "name": "sector",
+              "item": [
+                {
+                  "name": "{symbol}",
+                  "item": [
+                    {
+                      "name": "Get ESG sector details",
+                      "id": "eff573f8-392b-4a4a-ab9b-11f1674a3c6e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/sector/:symbol?api_token=<string>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "sector",
+                            ":symbol"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "359af1d3-50f2-4aa9-a0b0-b226cd229636",
+                              "key": "symbol",
+                              "value": "<string>",
+                              "description": "(Required) Sector identifier."
+                            }
+                          ]
+                        },
+                        "description": "Returns detailed ESG scores and metrics for a specific sector from Investverte."
+                      },
+                      "response": [
+                        {
+                          "id": "5efc1d4c-fb0f-471e-acef-9aff2d6e475b",
+                          "name": "Successfully retrieved sector ESG details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/sector/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "sector",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"sector\": \"<string>\",\n  \"esg_score\": \"<number>\",\n  \"environmental_score\": \"<number>\",\n  \"social_score\": \"<number>\",\n  \"governance_score\": \"<number>\",\n  \"top_companies\": [\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"esg_score\": \"<number>\"\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"esg_score\": \"<number>\"\n    }\n  ],\n  \"country_breakdown\": [\n    {\n      \"country\": \"<string>\",\n      \"avg_esg_score\": \"<number>\",\n      \"num_companies\": \"<integer>\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"avg_esg_score\": \"<number>\",\n      \"num_companies\": \"<integer>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-5efc1d4c-fb0f-471e-acef-9aff2d6e475b"
+                        },
+                        {
+                          "id": "cdeb46bf-5ee2-47ca-bfa4-54ae2c9522ab",
+                          "name": "Unauthorized. Invalid API token.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/sector/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "sector",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-cdeb46bf-5ee2-47ca-bfa4-54ae2c9522ab"
+                        },
+                        {
+                          "id": "be435e17-5060-4db0-b43d-a565d5ea4e24",
+                          "name": "Sector not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/mp/investverte/sector/:symbol?api_token=<API Key>&fmt=json",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "mp",
+                                "investverte",
+                                "sector",
+                                ":symbol"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) API token for authentication.",
+                                  "key": "api_token",
+                                  "value": "<API Key>"
+                                },
+                                {
+                                  "description": "Output format.",
+                                  "key": "fmt",
+                                  "value": "json"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "symbol"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:34:40.000Z",
+                          "updatedAt": "2026-07-28T01:34:40.000Z",
+                          "uid": "35240-be435e17-5060-4db0-b43d-a565d5ea4e24"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-eff573f8-392b-4a4a-ab9b-11f1674a3c6e"
+                    }
+                  ],
+                  "id": "5475898b-002a-48a8-a69b-978ab39c6e42",
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-5475898b-002a-48a8-a69b-978ab39c6e42"
+                }
+              ],
+              "id": "f693aa24-05ba-4091-9a92-eca7609d2e3b",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-f693aa24-05ba-4091-9a92-eca7609d2e3b"
+            },
+            {
+              "name": "sectors",
+              "item": [
+                {
+                  "name": "List ESG sector scores",
+                  "id": "bbb3ee6b-8d1f-4dc3-a66c-9046cbe12735",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/mp/investverte/sectors?api_token=<string>&fmt=json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "mp",
+                        "investverte",
+                        "sectors"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Output format.",
+                          "key": "fmt",
+                          "value": "json"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of all sectors with their aggregate ESG scores from Investverte."
+                  },
+                  "response": [
+                    {
+                      "id": "37d95d42-3c9a-4b90-a794-26822bbb2982",
+                      "name": "Successfully retrieved ESG sector scores.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/sectors?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "sectors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"sector\": \"<string>\",\n    \"esg_score\": \"<number>\",\n    \"environmental_score\": \"<number>\",\n    \"social_score\": \"<number>\",\n    \"governance_score\": \"<number>\",\n    \"num_companies\": \"<integer>\"\n  },\n  {\n    \"sector\": \"<string>\",\n    \"esg_score\": \"<number>\",\n    \"environmental_score\": \"<number>\",\n    \"social_score\": \"<number>\",\n    \"governance_score\": \"<number>\",\n    \"num_companies\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-37d95d42-3c9a-4b90-a794-26822bbb2982"
+                    },
+                    {
+                      "id": "0d325bf5-5b76-4b7f-a0ef-fda9f5e52161",
+                      "name": "Unauthorized. Invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/sectors?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "sectors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-0d325bf5-5b76-4b7f-a0ef-fda9f5e52161"
+                    },
+                    {
+                      "id": "1181da97-b6b1-4efb-9b42-a56b956faccf",
+                      "name": "Too Many Requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/mp/investverte/sectors?api_token=<API Key>&fmt=json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "mp",
+                            "investverte",
+                            "sectors"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Output format.",
+                              "key": "fmt",
+                              "value": "json"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:40.000Z",
+                      "updatedAt": "2026-07-28T01:34:40.000Z",
+                      "uid": "35240-1181da97-b6b1-4efb-9b42-a56b956faccf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:40.000Z",
+                  "updatedAt": "2026-07-28T01:34:40.000Z",
+                  "uid": "35240-bbb3ee6b-8d1f-4dc3-a66c-9046cbe12735"
+                }
+              ],
+              "id": "1bc7c8f7-febb-4d0e-9089-17e3fbdea82d",
+              "createdAt": "2026-07-28T01:34:40.000Z",
+              "updatedAt": "2026-07-28T01:34:40.000Z",
+              "uid": "35240-1bc7c8f7-febb-4d0e-9089-17e3fbdea82d"
+            }
+          ],
+          "id": "2f577c4a-f2a1-4e2f-a622-099186a4fe97",
+          "createdAt": "2026-07-28T01:34:40.000Z",
+          "updatedAt": "2026-07-28T01:34:40.000Z",
+          "uid": "35240-2f577c4a-f2a1-4e2f-a622-099186a4fe97"
+        }
+      ],
+      "id": "cb4ac10b-dd64-4510-81bf-b387bd0e3199",
+      "createdAt": "2026-07-28T01:34:40.000Z",
+      "updatedAt": "2026-07-28T01:34:40.000Z",
+      "uid": "35240-cb4ac10b-dd64-4510-81bf-b387bd0e3199"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

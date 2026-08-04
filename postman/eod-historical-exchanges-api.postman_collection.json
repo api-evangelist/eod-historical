@@ -1,0 +1,1495 @@
+{
+  "info": {
+    "_postman_id": "23dbb3ca-ce23-4d22-8906-3dd787a53142",
+    "name": "EODHD Financial Data Calendar Exchanges API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:34:41.000Z",
+    "updatedAt": "2026-07-28T01:34:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-23dbb3ca-ce23-4d22-8906-3dd787a53142"
+  },
+  "item": [
+    {
+      "name": "exchange-details",
+      "item": [
+        {
+          "name": "{EXCHANGE_CODE}",
+          "item": [
+            {
+              "name": "Retrieve details for a specific exchange",
+              "id": "92be8d3e-9f9d-4006-a4c0-8198bd0ca7e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/exchange-details/:EXCHANGE_CODE?api_token=<string>&fmt=csv&from=<date>&to=<date>&format_version=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exchange-details",
+                    ":EXCHANGE_CODE"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Response format version.",
+                      "key": "format_version",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8209012b-5e4b-4fe2-93a3-19136a4dc782",
+                      "key": "EXCHANGE_CODE",
+                      "value": "<string>",
+                      "description": "(Required) Exchange code for which details are to be retrieved (e.g., 'US' for the USA exchange)."
+                    }
+                  ]
+                },
+                "description": "Retrieve exchange details, trading hours, holidays, and active tickers for a specified exchange."
+              },
+              "response": [
+                {
+                  "id": "6ed13d59-0df8-464a-a071-f09169bd8757",
+                  "name": "Successful response with exchange details and trading hours.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-details/:EXCHANGE_CODE?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&format_version=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-details",
+                        ":EXCHANGE_CODE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Response format version.",
+                          "key": "format_version",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE_CODE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Name\": \"<string>\",\n  \"Code\": \"<string>\",\n  \"OperatingMIC\": \"<string>\",\n  \"Country\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"Timezone\": \"<string>\",\n  \"ExchangeHolidays\": [\n    {\n      \"Holiday\": \"<string>\",\n      \"Date\": \"<date>\",\n      \"Type\": \"<string>\"\n    },\n    {\n      \"Holiday\": \"<string>\",\n      \"Date\": \"<date>\",\n      \"Type\": \"<string>\"\n    }\n  ],\n  \"ExchangeEarlyCloseDays\": [\n    {\n      \"Date\": \"<date>\",\n      \"CloseTime\": \"<time>\"\n    },\n    {\n      \"Date\": \"<date>\",\n      \"CloseTime\": \"<time>\"\n    }\n  ],\n  \"isOpen\": \"<boolean>\",\n  \"TradingHours\": {\n    \"Open\": \"<time>\",\n    \"Close\": \"<time>\",\n    \"OpenUTC\": \"<time>\",\n    \"CloseUTC\": \"<time>\",\n    \"WorkingDays\": \"<string>\"\n  },\n  \"ActiveTickers\": \"<integer>\",\n  \"PreviousDayUpdatedTickers\": \"<integer>\",\n  \"UpdatedTickers\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-6ed13d59-0df8-464a-a071-f09169bd8757"
+                },
+                {
+                  "id": "110d328f-a6a6-4a9d-a482-60456fe7bb04",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-details/:EXCHANGE_CODE?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&format_version=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-details",
+                        ":EXCHANGE_CODE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Response format version.",
+                          "key": "format_version",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE_CODE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-110d328f-a6a6-4a9d-a482-60456fe7bb04"
+                },
+                {
+                  "id": "ce1920eb-14b4-451a-a3b3-d3eed3f2fd70",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-details/:EXCHANGE_CODE?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&format_version=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-details",
+                        ":EXCHANGE_CODE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Response format version.",
+                          "key": "format_version",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE_CODE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-ce1920eb-14b4-451a-a3b3-d3eed3f2fd70"
+                },
+                {
+                  "id": "8299a9e9-c8d6-4f9a-a3c8-9fd8055c01fe",
+                  "name": "Exchange not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-details/:EXCHANGE_CODE?api_token=<API Key>&fmt=csv&from=<date>&to=<date>&format_version=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-details",
+                        ":EXCHANGE_CODE"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Response format version.",
+                          "key": "format_version",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "EXCHANGE_CODE"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-8299a9e9-c8d6-4f9a-a3c8-9fd8055c01fe"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-92be8d3e-9f9d-4006-a4c0-8198bd0ca7e0"
+            }
+          ],
+          "id": "1b09000a-ad2a-435f-b367-221c01505e79",
+          "createdAt": "2026-07-28T01:34:42.000Z",
+          "updatedAt": "2026-07-28T01:34:42.000Z",
+          "uid": "35240-1b09000a-ad2a-435f-b367-221c01505e79"
+        }
+      ],
+      "id": "5262b84d-5821-4f2d-ab15-fa24a4da137f",
+      "createdAt": "2026-07-28T01:34:42.000Z",
+      "updatedAt": "2026-07-28T01:34:42.000Z",
+      "uid": "35240-5262b84d-5821-4f2d-ab15-fa24a4da137f"
+    },
+    {
+      "name": "exchange-symbol-list",
+      "item": [
+        {
+          "name": "{exchangeCode}",
+          "item": [
+            {
+              "name": "Retrieve the list of tickers for a specific exchange.",
+              "id": "f2f7a8c8-348f-417a-9d7c-7967af2e004b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/exchange-symbol-list/:exchangeCode?api_token=<string>&fmt=csv&delisted=0&type=fund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exchange-symbol-list",
+                    ":exchangeCode"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Response format. Options: 'json' (default) or 'csv'.",
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "description": "Include delisted (inactive) tickers. Set to '1' to include.",
+                      "key": "delisted",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Filter by ticker type. Options: 'common_stock', 'preferred_stock', 'stock', 'etf', 'fund'.",
+                      "key": "type",
+                      "value": "fund"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "4735157d-5f58-41ed-b7ec-5e560cec21ed",
+                      "key": "exchangeCode",
+                      "value": "<string>",
+                      "description": "(Required) Exchange code, e.g., 'PSE' for the Philippines Stock Exchange or 'US' for combined US exchanges."
+                    }
+                  ]
+                },
+                "description": "Returns a list of active or delisted symbols for the specified exchange, with optional filters by ticker type."
+              },
+              "response": [
+                {
+                  "id": "8c4c0f04-1c23-4210-9808-061178af1783",
+                  "name": "Successful response with a list of tickers.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-symbol-list/:exchangeCode?api_token=<API Key>&fmt=csv&delisted=0&type=fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-symbol-list",
+                        ":exchangeCode"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options: 'json' (default) or 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Include delisted (inactive) tickers. Set to '1' to include.",
+                          "key": "delisted",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by ticker type. Options: 'common_stock', 'preferred_stock', 'stock', 'etf', 'fund'.",
+                          "key": "type",
+                          "value": "fund"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchangeCode"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Isin\": \"<string,null>\"\n  },\n  {\n    \"Code\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Country\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"Type\": \"<string>\",\n    \"Isin\": \"<string,null>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-8c4c0f04-1c23-4210-9808-061178af1783"
+                },
+                {
+                  "id": "fab83d32-6ad1-48c9-b260-eaa5a47dd0d1",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-symbol-list/:exchangeCode?api_token=<API Key>&fmt=csv&delisted=0&type=fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-symbol-list",
+                        ":exchangeCode"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options: 'json' (default) or 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Include delisted (inactive) tickers. Set to '1' to include.",
+                          "key": "delisted",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by ticker type. Options: 'common_stock', 'preferred_stock', 'stock', 'etf', 'fund'.",
+                          "key": "type",
+                          "value": "fund"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchangeCode"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-fab83d32-6ad1-48c9-b260-eaa5a47dd0d1"
+                },
+                {
+                  "id": "58d675dd-0b6f-4807-9f42-24f6b3459260",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/exchange-symbol-list/:exchangeCode?api_token=<API Key>&fmt=csv&delisted=0&type=fund",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "exchange-symbol-list",
+                        ":exchangeCode"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Response format. Options: 'json' (default) or 'csv'.",
+                          "key": "fmt",
+                          "value": "csv"
+                        },
+                        {
+                          "description": "Include delisted (inactive) tickers. Set to '1' to include.",
+                          "key": "delisted",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Filter by ticker type. Options: 'common_stock', 'preferred_stock', 'stock', 'etf', 'fund'.",
+                          "key": "type",
+                          "value": "fund"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "exchangeCode"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-58d675dd-0b6f-4807-9f42-24f6b3459260"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-f2f7a8c8-348f-417a-9d7c-7967af2e004b"
+            }
+          ],
+          "id": "1128477e-37ab-4d33-b38b-ab5b68c993e1",
+          "createdAt": "2026-07-28T01:34:42.000Z",
+          "updatedAt": "2026-07-28T01:34:42.000Z",
+          "uid": "35240-1128477e-37ab-4d33-b38b-ab5b68c993e1"
+        }
+      ],
+      "id": "b7fff9f9-249b-4dff-b133-ff32dd8a3fe8",
+      "createdAt": "2026-07-28T01:34:42.000Z",
+      "updatedAt": "2026-07-28T01:34:42.000Z",
+      "uid": "35240-b7fff9f9-249b-4dff-b133-ff32dd8a3fe8"
+    },
+    {
+      "name": "exchanges-list",
+      "item": [
+        {
+          "name": "List supported exchanges",
+          "id": "64776dbb-b618-4547-a0f9-087903f8cc79",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/exchanges-list?api_token=<string>&fmt=csv",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "exchanges-list"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                  "key": "fmt",
+                  "value": "csv"
+                }
+              ]
+            },
+            "description": "Retrieve the list of supported exchanges with their details."
+          },
+          "response": [
+            {
+              "id": "f767f60f-5b0e-4f48-8e47-0d76f9bc4b8b",
+              "name": "Successful response with a list of exchanges.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/exchanges-list?api_token=<API Key>&fmt=csv",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exchanges-list"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "csv"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"Name\": \"<string>\",\n    \"Code\": \"<string>\",\n    \"OperatingMIC\": \"<string,null>\",\n    \"Country\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"CountryISO2\": \"<string>\",\n    \"CountryISO3\": \"<string>\"\n  },\n  {\n    \"Name\": \"<string>\",\n    \"Code\": \"<string>\",\n    \"OperatingMIC\": \"<string,null>\",\n    \"Country\": \"<string>\",\n    \"Currency\": \"<string>\",\n    \"CountryISO2\": \"<string>\",\n    \"CountryISO3\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-f767f60f-5b0e-4f48-8e47-0d76f9bc4b8b"
+            },
+            {
+              "id": "4696b785-3fe8-4fe7-a2dc-b43c648114ff",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/exchanges-list?api_token=<API Key>&fmt=csv",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exchanges-list"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "csv"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-4696b785-3fe8-4fe7-a2dc-b43c648114ff"
+            },
+            {
+              "id": "1b29eed7-9ce6-4dba-8f0a-a357fddaa342",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/exchanges-list?api_token=<API Key>&fmt=csv",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "exchanges-list"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON.",
+                      "key": "fmt",
+                      "value": "csv"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-1b29eed7-9ce6-4dba-8f0a-a357fddaa342"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:42.000Z",
+          "updatedAt": "2026-07-28T01:34:42.000Z",
+          "uid": "35240-64776dbb-b618-4547-a0f9-087903f8cc79"
+        }
+      ],
+      "id": "fe7952ba-e4d3-449d-89d1-ae5fc5b0dca6",
+      "createdAt": "2026-07-28T01:34:42.000Z",
+      "updatedAt": "2026-07-28T01:34:42.000Z",
+      "uid": "35240-fe7952ba-e4d3-449d-89d1-ae5fc5b0dca6"
+    },
+    {
+      "name": "id-mapping",
+      "item": [
+        {
+          "name": "Map between financial identifiers",
+          "id": "ddc76cf4-fed1-4bb9-8320-7417a24a73a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/id-mapping?api_token=<string>&filter[symbol]=<string>&filter[ex]=<string>&filter[isin]=<string>&filter[figi]=<string>&filter[lei]=<string>&filter[cusip]=<string>&filter[cik]=<string>&page[limit]=<integer>&page[offset]=<integer>&fmt=json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "id-mapping"
+              ],
+              "query": [
+                {
+                  "description": "(Required) API token for authentication.",
+                  "key": "api_token",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by ticker symbol (e.g., 'AAPL').",
+                  "key": "filter[symbol]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by exchange code (e.g., 'US').",
+                  "key": "filter[ex]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by ISIN code (e.g., 'US0378331005').",
+                  "key": "filter[isin]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by FIGI identifier.",
+                  "key": "filter[figi]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by LEI code.",
+                  "key": "filter[lei]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by CUSIP identifier.",
+                  "key": "filter[cusip]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by CIK number.",
+                  "key": "filter[cik]",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of records per page.",
+                  "key": "page[limit]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination offset.",
+                  "key": "page[offset]",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Output format.",
+                  "key": "fmt",
+                  "value": "json"
+                }
+              ]
+            },
+            "description": "Look up securities by various identifiers including symbol, exchange code, ISIN, FIGI, LEI, CUSIP, and CIK.\n\n**At least one of the following filter parameters is required**:\n`filter[symbol]`, `filter[isin]`, `filter[figi]`, `filter[lei]`, `filter[cusip]`, `filter[cik]`, or `filter[ex]`.\nA request without any of these will return HTTP 422.\n"
+          },
+          "response": [
+            {
+              "id": "b921232e-868a-46eb-99ea-4e9d8c7f56cd",
+              "name": "Successfully retrieved identifier mappings.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/id-mapping?api_token=<API Key>&filter[symbol]=<string>&filter[ex]=<string>&filter[isin]=<string>&filter[figi]=<string>&filter[lei]=<string>&filter[cusip]=<string>&filter[cik]=<string>&page[limit]=<integer>&page[offset]=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "id-mapping"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filter by ticker symbol (e.g., 'AAPL').",
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exchange code (e.g., 'US').",
+                      "key": "filter[ex]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by ISIN code (e.g., 'US0378331005').",
+                      "key": "filter[isin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by FIGI identifier.",
+                      "key": "filter[figi]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by LEI code.",
+                      "key": "filter[lei]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CUSIP identifier.",
+                      "key": "filter[cusip]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CIK number.",
+                      "key": "filter[cik]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of records per page.",
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination offset.",
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"Code\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"ISIN\": \"<string>\",\n    \"FIGI\": \"<string>\",\n    \"LEI\": \"<string>\",\n    \"CUSIP\": \"<string>\",\n    \"CIK\": \"<string>\"\n  },\n  {\n    \"Code\": \"<string>\",\n    \"Exchange\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"ISIN\": \"<string>\",\n    \"FIGI\": \"<string>\",\n    \"LEI\": \"<string>\",\n    \"CUSIP\": \"<string>\",\n    \"CIK\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-b921232e-868a-46eb-99ea-4e9d8c7f56cd"
+            },
+            {
+              "id": "e021e661-100d-4ba5-bbb8-624060b21d97",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/id-mapping?api_token=<API Key>&filter[symbol]=<string>&filter[ex]=<string>&filter[isin]=<string>&filter[figi]=<string>&filter[lei]=<string>&filter[cusip]=<string>&filter[cik]=<string>&page[limit]=<integer>&page[offset]=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "id-mapping"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filter by ticker symbol (e.g., 'AAPL').",
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exchange code (e.g., 'US').",
+                      "key": "filter[ex]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by ISIN code (e.g., 'US0378331005').",
+                      "key": "filter[isin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by FIGI identifier.",
+                      "key": "filter[figi]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by LEI code.",
+                      "key": "filter[lei]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CUSIP identifier.",
+                      "key": "filter[cusip]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CIK number.",
+                      "key": "filter[cik]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of records per page.",
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination offset.",
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-e021e661-100d-4ba5-bbb8-624060b21d97"
+            },
+            {
+              "id": "9436207e-75be-4b9a-b2c8-7d0ca0d5c27f",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/id-mapping?api_token=<API Key>&filter[symbol]=<string>&filter[ex]=<string>&filter[isin]=<string>&filter[figi]=<string>&filter[lei]=<string>&filter[cusip]=<string>&filter[cik]=<string>&page[limit]=<integer>&page[offset]=<integer>&fmt=json",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "id-mapping"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    },
+                    {
+                      "description": "Filter by ticker symbol (e.g., 'AAPL').",
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exchange code (e.g., 'US').",
+                      "key": "filter[ex]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by ISIN code (e.g., 'US0378331005').",
+                      "key": "filter[isin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by FIGI identifier.",
+                      "key": "filter[figi]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by LEI code.",
+                      "key": "filter[lei]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CUSIP identifier.",
+                      "key": "filter[cusip]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by CIK number.",
+                      "key": "filter[cik]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of records per page.",
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination offset.",
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Output format.",
+                      "key": "fmt",
+                      "value": "json"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-9436207e-75be-4b9a-b2c8-7d0ca0d5c27f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:34:42.000Z",
+          "updatedAt": "2026-07-28T01:34:42.000Z",
+          "uid": "35240-ddc76cf4-fed1-4bb9-8320-7417a24a73a2"
+        }
+      ],
+      "id": "fbbad58c-8c02-4620-8d2f-69f9f7925d66",
+      "createdAt": "2026-07-28T01:34:42.000Z",
+      "updatedAt": "2026-07-28T01:34:42.000Z",
+      "uid": "35240-fbbad58c-8c02-4620-8d2f-69f9f7925d66"
+    },
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "exchange-details",
+          "item": [
+            {
+              "name": "{code}",
+              "item": [
+                {
+                  "name": "Get exchange details and trading hours (v2)",
+                  "id": "3f2aee86-5a49-479a-820f-0b018fd15add",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/exchange-details/:code?api_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "exchange-details",
+                        ":code"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ca70e934-21cb-406a-80c9-9c41a056d381",
+                          "key": "code",
+                          "value": "<string>",
+                          "description": "(Required) Exchange code (case-insensitive). Use /v2/exchange-details to get the list of supported codes."
+                        }
+                      ]
+                    },
+                    "description": "Returns trading hours, extended sessions (pre-market, after-hours), lunch breaks, and the full holiday calendar for the requested exchange. Covers 73 exchanges with verified data. The code parameter is case-insensitive."
+                  },
+                  "response": [
+                    {
+                      "id": "6a8d81bc-d975-43c9-b208-20bfc343aa92",
+                      "name": "Successful response with exchange details, trading hours, and holiday calendar.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/exchange-details/:code?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "exchange-details",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"Name\": \"<string>\",\n    \"Code\": \"<string>\",\n    \"Timezone\": \"<string>\",\n    \"TradingHours\": {\n      \"Open\": \"<string>\",\n      \"Close\": \"<string>\",\n      \"WorkingDays\": \"<string>\",\n      \"PreMarketOpen\": \"<string>\",\n      \"PreMarketClose\": \"<string>\",\n      \"AfterHoursOpen\": \"<string>\",\n      \"AfterHoursClose\": \"<string>\",\n      \"LunchBreakStart\": \"<string>\",\n      \"LunchBreakEnd\": \"<string>\"\n    },\n    \"ExchangeHolidays\": {\n      \"irure7\": {\n        \"Holiday\": \"<string>\",\n        \"Type\": \"EarlyClose\",\n        \"EarlyClose\": \"<string>\"\n      },\n      \"eu342\": {\n        \"Holiday\": \"<string>\",\n        \"Type\": \"Bank\",\n        \"EarlyClose\": \"<string>\"\n      },\n      \"inb4\": {\n        \"Holiday\": \"<string>\",\n        \"Type\": \"Official\",\n        \"EarlyClose\": \"<string>\"\n      },\n      \"occaecat_dd\": {\n        \"Holiday\": \"<string>\",\n        \"Type\": \"Official\",\n        \"EarlyClose\": \"<string>\"\n      }\n    }\n  },\n  \"meta\": \"<array>\",\n  \"links\": \"<array>\"\n}",
+                      "createdAt": "2026-07-28T01:34:42.000Z",
+                      "updatedAt": "2026-07-28T01:34:42.000Z",
+                      "uid": "35240-6a8d81bc-d975-43c9-b208-20bfc343aa92"
+                    },
+                    {
+                      "id": "8da8658e-a2fe-4284-93b6-967354d625a4",
+                      "name": "Unauthorized \u2014 missing or invalid API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/exchange-details/:code?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "exchange-details",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:42.000Z",
+                      "updatedAt": "2026-07-28T01:34:42.000Z",
+                      "uid": "35240-8da8658e-a2fe-4284-93b6-967354d625a4"
+                    },
+                    {
+                      "id": "e0e7093b-2ad9-44fa-811f-479033cf514e",
+                      "name": "Exchange not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/exchange-details/:code?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "exchange-details",
+                            ":code"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) API token for authentication.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "code"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:34:42.000Z",
+                      "updatedAt": "2026-07-28T01:34:42.000Z",
+                      "uid": "35240-e0e7093b-2ad9-44fa-811f-479033cf514e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-3f2aee86-5a49-479a-820f-0b018fd15add"
+                }
+              ],
+              "id": "cc129f80-3d1c-4051-ae16-b3d1f1eb8341",
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-cc129f80-3d1c-4051-ae16-b3d1f1eb8341"
+            },
+            {
+              "name": "List available exchanges (v2)",
+              "id": "837a598f-3e65-4103-9b76-254b1d5ee5c6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/exchange-details?api_token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "exchange-details"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns an array of all exchange codes supported by the v2 endpoint. Use these codes to request details for a specific exchange via /v2/exchange-details/{code}."
+              },
+              "response": [
+                {
+                  "id": "5ba92a4e-7f60-4056-adc3-44589e13fc15",
+                  "name": "Successful response with list of exchange codes.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/exchange-details?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "exchange-details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-5ba92a4e-7f60-4056-adc3-44589e13fc15"
+                },
+                {
+                  "id": "260fa2ab-9199-4289-b614-f866cb6d77b0",
+                  "name": "Unauthorized \u2014 missing or invalid API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/exchange-details?api_token=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "exchange-details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:34:42.000Z",
+                  "updatedAt": "2026-07-28T01:34:42.000Z",
+                  "uid": "35240-260fa2ab-9199-4289-b614-f866cb6d77b0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:34:42.000Z",
+              "updatedAt": "2026-07-28T01:34:42.000Z",
+              "uid": "35240-837a598f-3e65-4103-9b76-254b1d5ee5c6"
+            }
+          ],
+          "id": "8279cffd-abc7-401a-9ad9-50e0eb47e751",
+          "createdAt": "2026-07-28T01:34:42.000Z",
+          "updatedAt": "2026-07-28T01:34:42.000Z",
+          "uid": "35240-8279cffd-abc7-401a-9ad9-50e0eb47e751"
+        }
+      ],
+      "id": "c080ed14-7a61-4c76-84ba-ec01ec8025c2",
+      "createdAt": "2026-07-28T01:34:42.000Z",
+      "updatedAt": "2026-07-28T01:34:42.000Z",
+      "uid": "35240-c080ed14-7a61-4c76-84ba-ec01ec8025c2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}

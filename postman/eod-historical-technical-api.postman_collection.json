@@ -1,0 +1,395 @@
+{
+  "info": {
+    "_postman_id": "24f5b942-4f77-4219-82f5-7a31609fa696",
+    "name": "EODHD Financial Data Calendar Technical API",
+    "description": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:35:01.000Z",
+    "updatedAt": "2026-07-28T01:35:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-24f5b942-4f77-4219-82f5-7a31609fa696"
+  },
+  "item": [
+    {
+      "name": "technical",
+      "item": [
+        {
+          "name": "{ticker}",
+          "item": [
+            {
+              "name": "Retrieve technical indicator data for a specified symbol.",
+              "id": "fce2e024-8c68-495b-b160-1dd4d4cada91",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/technical/:ticker?api_token=<string>&function=beta&period=50&from=<date>&to=<date>&order=a&fmt=json&splitadjusted_only=0&filter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "technical",
+                    ":ticker"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token for authentication.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average).",
+                      "key": "function",
+                      "value": "beta"
+                    },
+                    {
+                      "description": "Number of data points used to calculate the indicator. Default is 50.",
+                      "key": "period",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending.",
+                      "key": "order",
+                      "value": "a"
+                    },
+                    {
+                      "description": "Output format, either 'json' or 'csv'. Default is 'json'.",
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'.",
+                      "key": "splitadjusted_only",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter.",
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "487b12a9-2244-4dd1-9c97-e0016c3ab87c",
+                      "key": "ticker",
+                      "value": "<string>",
+                      "description": "(Required) Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+                    }
+                  ]
+                },
+                "description": "Fetches technical indicator data, such as moving averages and other analytics, based on specified parameters."
+              },
+              "response": [
+                {
+                  "id": "39f37693-8fd8-4f30-b52a-12d2f5104685",
+                  "name": "Successful response with technical indicator data.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/technical/:ticker?api_token=<API Key>&function=beta&period=50&from=<date>&to=<date>&order=a&fmt=json&splitadjusted_only=0&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "technical",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average).",
+                          "key": "function",
+                          "value": "beta"
+                        },
+                        {
+                          "description": "Number of data points used to calculate the indicator. Default is 50.",
+                          "key": "period",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending.",
+                          "key": "order",
+                          "value": "a"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'.",
+                          "key": "splitadjusted_only",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter.",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"date\": \"<date>\",\n    \"sma\": \"<number>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"sma\": \"<number>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:35:01.000Z",
+                  "updatedAt": "2026-07-28T01:35:01.000Z",
+                  "uid": "35240-39f37693-8fd8-4f30-b52a-12d2f5104685"
+                },
+                {
+                  "id": "402030ae-a905-41a6-9fef-74cc462fbca9",
+                  "name": "Invalid request parameters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/technical/:ticker?api_token=<API Key>&function=beta&period=50&from=<date>&to=<date>&order=a&fmt=json&splitadjusted_only=0&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "technical",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average).",
+                          "key": "function",
+                          "value": "beta"
+                        },
+                        {
+                          "description": "Number of data points used to calculate the indicator. Default is 50.",
+                          "key": "period",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending.",
+                          "key": "order",
+                          "value": "a"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'.",
+                          "key": "splitadjusted_only",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter.",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:35:01.000Z",
+                  "updatedAt": "2026-07-28T01:35:01.000Z",
+                  "uid": "35240-402030ae-a905-41a6-9fef-74cc462fbca9"
+                },
+                {
+                  "id": "aad800db-1ed7-42cb-96f3-82bfbfd70019",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/technical/:ticker?api_token=<API Key>&function=beta&period=50&from=<date>&to=<date>&order=a&fmt=json&splitadjusted_only=0&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "technical",
+                        ":ticker"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token for authentication.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average).",
+                          "key": "function",
+                          "value": "beta"
+                        },
+                        {
+                          "description": "Number of data points used to calculate the indicator. Default is 50.",
+                          "key": "period",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Start date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for data retrieval in 'YYYY-MM-DD' format.",
+                          "key": "to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending.",
+                          "key": "order",
+                          "value": "a"
+                        },
+                        {
+                          "description": "Output format, either 'json' or 'csv'. Default is 'json'.",
+                          "key": "fmt",
+                          "value": "json"
+                        },
+                        {
+                          "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'.",
+                          "key": "splitadjusted_only",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter.",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "ticker"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:35:01.000Z",
+                  "updatedAt": "2026-07-28T01:35:01.000Z",
+                  "uid": "35240-aad800db-1ed7-42cb-96f3-82bfbfd70019"
+                }
+              ],
+              "createdAt": "2026-07-28T01:35:01.000Z",
+              "updatedAt": "2026-07-28T01:35:01.000Z",
+              "uid": "35240-fce2e024-8c68-495b-b160-1dd4d4cada91"
+            }
+          ],
+          "id": "01c9cf11-8069-4f50-8482-d58f1b4ef53e",
+          "createdAt": "2026-07-28T01:35:01.000Z",
+          "updatedAt": "2026-07-28T01:35:01.000Z",
+          "uid": "35240-01c9cf11-8069-4f50-8482-d58f1b4ef53e"
+        }
+      ],
+      "id": "977c0a3e-144a-4752-b73a-9d507f988f76",
+      "createdAt": "2026-07-28T01:35:01.000Z",
+      "updatedAt": "2026-07-28T01:35:01.000Z",
+      "uid": "35240-977c0a3e-144a-4752-b73a-9d507f988f76"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://eodhd.com/api"
+    }
+  ]
+}
