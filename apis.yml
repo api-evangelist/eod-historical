@@ -32,7 +32,7 @@ tags:
   - Historical Data
 created: '2026-06-13'
 modified: '2026-06-13'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   EOD Historical Data (EODHD) provides institutional-grade financial data through a REST API at
   https://eodhd.com/api covering 150,000+ tickers across 60+ global exchanges. The API spans
