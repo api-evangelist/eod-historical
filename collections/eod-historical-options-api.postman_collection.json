@@ -1,0 +1,2170 @@
+{
+  "item": [
+    {
+      "id": "6b90988a-1acf-4abc-8d66-14c84ca5ee7e",
+      "name": "Options",
+      "description": {
+        "content": "Options contracts and pricing data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70cf8b81-3ebc-497a-bc22-7ed8c44169ed",
+          "name": "Get options contracts",
+          "request": {
+            "name": "Get options contracts",
+            "description": {
+              "content": "Fetch options contracts filtered by underlying symbol, expiration, strike, type, or contract name. Supports sorting, pagination, and field selection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "unicornbay",
+                "options",
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[contract]",
+                  "value": "<string>",
+                  "description": "Exact contract name, e.g., AAPL270115P00450000"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[underlying_symbol]",
+                  "value": "<string>",
+                  "description": "Underlying symbol, e.g., AAPL"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_eq]",
+                  "value": "<string>",
+                  "description": "Expiration equals (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_from]",
+                  "value": "<string>",
+                  "description": "Expiration from (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_to]",
+                  "value": "<string>",
+                  "description": "Expiration to (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_eq]",
+                  "value": "<string>",
+                  "description": "Trade time equals (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_from]",
+                  "value": "<string>",
+                  "description": "Trade time from (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_to]",
+                  "value": "<string>",
+                  "description": "Trade time to (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "Option type"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_eq]",
+                  "value": "<number>",
+                  "description": "Strike equals"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_from]",
+                  "value": "<number>",
+                  "description": "Strike from"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_to]",
+                  "value": "<number>",
+                  "description": "Strike to"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort by expiration date or strike (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "Pagination offset (records to skip). Max 10000."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "1000",
+                  "description": "Pagination limit. Default & max 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields[options-contracts]",
+                  "value": "<string>",
+                  "description": "CSV of fields to include (e.g., contract,exp_date,strike)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Response format."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f26c6639-631a-4ef4-a6b1-fc136df05a92",
+              "name": "Contracts list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"offset\": 0,\n    \"limit\": 5,\n    \"total\": 14394,\n    \"fields\": [\n      \"contract\",\n      \"underlying_symbol\",\n      \"exp_date\",\n      \"expiration_type\",\n      \"type\",\n      \"strike\",\n      \"exchange\",\n      \"currency\",\n      \"open\",\n      \"high\",\n      \"low\",\n      \"last\",\n      \"last_size\",\n      \"change\",\n      \"pctchange\",\n      \"previous\",\n      \"previous_date\",\n      \"bid\",\n      \"bid_date\",\n      \"bid_size\",\n      \"ask\",\n      \"ask_date\",\n      \"ask_size\",\n      \"moneyness\",\n      \"volume\",\n      \"volume_change\",\n      \"volume_pctchange\",\n      \"open_interest\",\n      \"open_interest_change\",\n      \"open_interest_pctchange\",\n      \"volatility\",\n      \"volatility_change\",\n      \"volatility_pctchange\",\n      \"theoretical\",\n      \"delta\",\n      \"gamma\",\n      \"theta\",\n      \"vega\",\n      \"rho\",\n      \"tradetime\",\n      \"vol_oi_ratio\",\n      \"dte\",\n      \"midpoint\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"AAPL271217C00420000\",\n      \"type\": \"options-contracts\",\n      \"attributes\": {\n        \"contract\": \"AAPL271217C00420000\",\n        \"underlying_symbol\": \"AAPL\",\n        \"exp_date\": \"2027-12-17\",\n        \"expiration_type\": \"monthly\",\n        \"type\": \"call\",\n        \"strike\": 420,\n        \"exchange\": \"NASDAQ\",\n        \"currency\": \"USD\",\n        \"open\": 3.35,\n        \"high\": 3.35,\n        \"low\": 3.29,\n        \"last\": 3.29,\n        \"last_size\": 1,\n        \"change\": 0.09,\n        \"pctchange\": 2.81,\n        \"previous\": 3.2,\n        \"previous_date\": \"2025-08-11\",\n        \"bid\": 2.85,\n        \"bid_date\": \"2025-08-12 20:00:00\",\n        \"bid_size\": 58,\n        \"ask\": 4.4,\n        \"ask_date\": \"2025-08-12 20:00:00\",\n        \"ask_size\": 173,\n        \"moneyness\": -0.83,\n        \"volume\": 4,\n        \"volume_change\": -5,\n        \"volume_pctchange\": -55.56,\n        \"open_interest\": 299,\n        \"open_interest_change\": 7,\n        \"open_interest_pctchange\": 2.4,\n        \"volatility\": 0.2337,\n        \"volatility_change\": -0.0023,\n        \"volatility_pctchange\": -0.99,\n        \"theoretical\": 3.29,\n        \"delta\": 0.097466,\n        \"gamma\": 0.002088,\n        \"theta\": -0.00993,\n        \"vega\": 0.604392,\n        \"rho\": 0.448547,\n        \"tradetime\": \"2025-08-12\",\n        \"vol_oi_ratio\": 0.01,\n        \"dte\": 857,\n        \"midpoint\": 3.63\n      }\n    }\n  ],\n  \"links\": {\n    \"next\": \"https://eodhd.com/api/mp/unicornbay/options/contracts?sort=-exp_date&filter[underlying_symbol]=AAPL&page[offset]=5&page[limit]=5\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5b5938b-1542-462f-a7d0-593eaa8d2fab",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d8dfc81-c39e-4420-bf37-ae5535d916b3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66ed1405-9688-4431-bd8b-560d71e0b286",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f08e5d32-5ddf-40ad-85a7-34695c917bd9",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b356c06-ab34-4894-9253-7a66998a2553",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-contracts]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76c78dd4-48d2-4dab-8e47-65aade395c3a",
+          "name": "Get end-of-day options data",
+          "request": {
+            "name": "Get end-of-day options data",
+            "description": {
+              "content": "Returns EOD trades/bid data for options, with the same filter set as contracts. Supports compact mode (`compact=1`) to return arrays instead of objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "unicornbay",
+                "options",
+                "eod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[contract]",
+                  "value": "<string>",
+                  "description": "Exact contract name, e.g., AAPL270115P00450000"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[underlying_symbol]",
+                  "value": "<string>",
+                  "description": "Underlying symbol, e.g., AAPL"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_eq]",
+                  "value": "<string>",
+                  "description": "Expiration equals (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_from]",
+                  "value": "<string>",
+                  "description": "Expiration from (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exp_date_to]",
+                  "value": "<string>",
+                  "description": "Expiration to (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_eq]",
+                  "value": "<string>",
+                  "description": "Trade time equals (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_from]",
+                  "value": "<string>",
+                  "description": "Trade time from (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tradetime_to]",
+                  "value": "<string>",
+                  "description": "Trade time to (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type]",
+                  "value": "<string>",
+                  "description": "Option type"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_eq]",
+                  "value": "<number>",
+                  "description": "Strike equals"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_from]",
+                  "value": "<number>",
+                  "description": "Strike from"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[strike_to]",
+                  "value": "<number>",
+                  "description": "Strike to"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort by expiration date or strike (asc/desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "Pagination offset (records to skip). Max 10000."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "1000",
+                  "description": "Pagination limit. Default & max 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields[options-eod]",
+                  "value": "<string>",
+                  "description": "CSV of fields to include (e.g., contract,exp_date,strike)."
+                },
+                {
+                  "disabled": false,
+                  "key": "compact",
+                  "value": "0",
+                  "description": "Set 1 for compact mode (rows as arrays in `data`, columns = `meta.fields`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Response format."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8bdca7f0-3932-4a06-abbb-b80f8e000735",
+              "name": "EOD options data (standard or compact).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"offset\": 0,\n    \"limit\": 5,\n    \"total\": 227,\n    \"fields\": [\n      \"contract\",\n      \"underlying_symbol\",\n      \"exp_date\",\n      \"expiration_type\",\n      \"type\",\n      \"strike\",\n      \"exchange\",\n      \"currency\",\n      \"open\",\n      \"high\",\n      \"low\",\n      \"last\",\n      \"last_size\",\n      \"change\",\n      \"pctchange\",\n      \"previous\",\n      \"previous_date\",\n      \"bid\",\n      \"bid_date\",\n      \"bid_size\",\n      \"ask\",\n      \"ask_date\",\n      \"ask_size\",\n      \"moneyness\",\n      \"volume\",\n      \"volume_change\",\n      \"volume_pctchange\",\n      \"open_interest\",\n      \"open_interest_change\",\n      \"open_interest_pctchange\",\n      \"volatility\",\n      \"volatility_change\",\n      \"volatility_pctchange\",\n      \"theoretical\",\n      \"delta\",\n      \"gamma\",\n      \"theta\",\n      \"vega\",\n      \"rho\",\n      \"tradetime\",\n      \"vol_oi_ratio\",\n      \"dte\",\n      \"midpoint\"\n    ]\n  },\n  \"data\": [\n    {\n      \"id\": \"AAPL270115P00450000-2025-08-12\",\n      \"type\": \"options-eod\",\n      \"attributes\": {\n        \"contract\": \"AAPL270115P00450000\",\n        \"underlying_symbol\": \"AAPL\",\n        \"exp_date\": \"2027-01-15\",\n        \"expiration_type\": \"monthly\",\n        \"type\": \"put\",\n        \"strike\": 450,\n        \"exchange\": \"NASDAQ\",\n        \"currency\": \"USD\",\n        \"open\": 0,\n        \"high\": 0,\n        \"low\": 0,\n        \"last\": 245.9,\n        \"last_size\": 0,\n        \"change\": 0,\n        \"pctchange\": 0,\n        \"previous\": 0,\n        \"previous_date\": \"\",\n        \"bid\": 218.4,\n        \"bid_date\": \"2025-08-12 19:59:59\",\n        \"bid_size\": 115,\n        \"ask\": 222.2,\n        \"ask_date\": \"2025-08-12 19:59:59\",\n        \"ask_size\": 17,\n        \"moneyness\": 0.96,\n        \"volume\": 0,\n        \"volume_change\": 0,\n        \"volume_pctchange\": 0,\n        \"open_interest\": 0,\n        \"open_interest_change\": 0,\n        \"open_interest_pctchange\": 0,\n        \"volatility\": 0.4863,\n        \"volatility_change\": 0,\n        \"volatility_pctchange\": 0,\n        \"theoretical\": 222.2,\n        \"delta\": -0.877218,\n        \"gamma\": 0.001594,\n        \"theta\": -0.012408,\n        \"vega\": 0.482281,\n        \"rho\": -1,\n        \"tradetime\": \"2025-06-08\",\n        \"vol_oi_ratio\": 0,\n        \"dte\": 521,\n        \"midpoint\": 220.3\n      }\n    }\n  ],\n  \"links\": {\n    \"next\": \"https://eodhd.com/api/mp/unicornbay/options/eod?sort=-exp_date&filter[contract]=AAPL270115P00450000&page[offset]=5&page[limit]=5\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31609cd3-5fee-48b7-ab5e-de3c17b05917",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df8d53b4-40b6-41d9-8ea6-ab1b7138501b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a397aa7d-f622-46b2-9716-e15f1dbc27f6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "471db5ee-f841-420c-a89a-43dbf66ce7a6",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a002dccf-b440-44f5-9395-d32bb06a5b17",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[contract]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[underlying_symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exp_date_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_eq]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_from]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tradetime_to]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[strike_eq]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_from]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[strike_to]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fields[options-eod]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "compact",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88f24241-555b-4f07-8a1a-50570ffaba03",
+          "name": "List underlying symbols with options",
+          "request": {
+            "name": "List underlying symbols with options",
+            "description": {
+              "content": "Returns the list of all supported stock symbols for which option contracts are available. May be paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "unicornbay",
+                "options",
+                "underlying-symbols"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "Pagination offset (records to skip)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "1000",
+                  "description": "Pagination limit. Default & max 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Response format."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6da942a-acb3-4b16-9443-0073596c27a4",
+              "name": "Supported underlying symbols.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"total\": 5972,\n    \"fields\": [\n      \"underlying_symbol\"\n    ],\n    \"compact\": true\n  },\n  \"data\": [\n    \"A\",\n    \"AA\",\n    \"AAAU\",\n    \"AACT\",\n    \"AADI\",\n    \"AAL\",\n    \"AAMI\",\n    \"AAN\",\n    \"AAOI\",\n    \"AAON\",\n    \"AAP\",\n    \"AAPL\"\n  ],\n  \"links\": {\n    \"next\": \"\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "991db629-b1d7-4e60-a8ed-84b25e7a680c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32cfa368-69eb-4ae1-a2bd-6d7e8a55cdc6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08ccf748-6e29-4c1f-9122-05e7a215da62",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "986e1fbd-7663-4edd-a475-3894790df9d0",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b63107d1-23e2-4bfd-977d-2f3b1d42ca85",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "unicornbay",
+                    "options",
+                    "underlying-symbols"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3162,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "95e15468-ab5e-44e4-85a7-813f4d259f66",
+    "name": "EODHD Financial Data Calendar Options API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

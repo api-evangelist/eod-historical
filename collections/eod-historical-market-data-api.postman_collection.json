@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "d9752c24-405f-48a6-a728-00e510665464",
+      "name": "Market Data",
+      "description": {
+        "content": "Market capitalization and other market data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "716c7177-8a87-44c6-97e2-cde7ab1e6575",
+          "name": "Retrieve historical market capitalization data",
+          "request": {
+            "name": "Retrieve historical market capitalization data",
+            "description": {
+              "content": "Fetches historical market capitalization for a specified stock symbol with weekly frequency.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "historical-market-cap",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "reverse",
+                  "value": "<string>",
+                  "description": "Set to 'true' to reverse sort order (newest first)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70d6b9ad-e832-4647-ac82-3c232d2d4352",
+              "name": "Successfully retrieved historical market capitalization data.\n\nThe response is a JSON object whose keys are sequential integer indices (as strings: \"0\", \"1\", \"2\", ...) and whose values are objects containing `date` and `value`. Iterate over the values, not the keys.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "historical-market-cap",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"0\": {\n    \"date\": \"2022-06-07\",\n    \"value\": 2406898266500\n  },\n  \"1\": {\n    \"date\": \"2022-06-14\",\n    \"value\": 2148744629600\n  },\n  \"2\": {\n    \"date\": \"2022-06-21\",\n    \"value\": 2199080542500\n  },\n  \"3\": {\n    \"date\": \"2022-06-28\",\n    \"value\": 2212148752300\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f1ce0a4-a562-470a-926f-1b6fb7a2d071",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "historical-market-cap",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f5102110-6fe0-4248-9641-80ec777bbfd8",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "historical-market-cap",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8aad1f3-721a-40c5-83a4-c913e90ffe6d",
+              "name": "Market capitalization data not found for the specified ticker or date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "historical-market-cap",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "reverse",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "39fcf6e9-5ca1-4c67-bf9a-f3fcf50bd536",
+    "name": "EODHD Financial Data Calendar Market Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

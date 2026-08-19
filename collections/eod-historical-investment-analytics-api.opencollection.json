@@ -1,0 +1,458 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Investment Analytics API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Investment Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Analyse bond by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/analyse/bond/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "Bond ISIN code."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns PRAAMS risk scoring and analysis for a specific bond identified by ISIN."
+        },
+        {
+          "info": {
+            "name": "Analyse equity by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/analyse/equity/isin/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "Equity ISIN code."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns PRAAMS risk scoring and analysis for a specific equity identified by ISIN."
+        },
+        {
+          "info": {
+            "name": "Analyse equity by ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/analyse/equity/ticker/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol (e.g., 'AAPL.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns PRAAMS risk scoring and analysis for a specific equity identified by ticker."
+        },
+        {
+          "info": {
+            "name": "Get bank balance sheet by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/bank/balance_sheet/isin/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "ISIN code (e.g., 'US46625H1005')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns bank-specific balance sheet analysis for the specified ISIN from PRAAMS."
+        },
+        {
+          "info": {
+            "name": "Get bank balance sheet by ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/bank/balance_sheet/ticker/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol (e.g., 'JPM.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns bank-specific balance sheet analysis for the specified ticker from PRAAMS."
+        },
+        {
+          "info": {
+            "name": "Get bank income statement by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/bank/income_statement/isin/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "ISIN code (e.g., 'US46625H1005')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns bank-specific income statement analysis for the specified ISIN from PRAAMS."
+        },
+        {
+          "info": {
+            "name": "Get bank income statement by ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/bank/income_statement/ticker/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol (e.g., 'JPM.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns bank-specific income statement analysis for the specified ticker from PRAAMS."
+        },
+        {
+          "info": {
+            "name": "Explore bonds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/explore/bond",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "risk_category",
+                "value": "",
+                "type": "query",
+                "description": "Filter by risk category (e.g., 'Low', 'Medium', 'High')."
+              },
+              {
+                "name": "min_yield",
+                "value": "",
+                "type": "query",
+                "description": "Minimum yield to maturity filter."
+              },
+              {
+                "name": "max_yield",
+                "value": "",
+                "type": "query",
+                "description": "Maximum yield to maturity filter."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Filter by currency (e.g., 'USD', 'EUR')."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Search and filter bonds using PRAAMS analytics. Returns a list of bonds matching the specified criteria with risk scores."
+        },
+        {
+          "info": {
+            "name": "Explore equities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/explore/equity",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "risk_category",
+                "value": "",
+                "type": "query",
+                "description": "Filter by risk category (e.g., 'Low', 'Medium', 'High')."
+              },
+              {
+                "name": "sector",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sector."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code."
+              },
+              {
+                "name": "min_market_cap",
+                "value": "",
+                "type": "query",
+                "description": "Minimum market capitalization filter."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Search and filter equities using PRAAMS analytics. Returns a list of equities matching the specified criteria with risk scores."
+        },
+        {
+          "info": {
+            "name": "Get bond report by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/reports/bond/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "Bond ISIN code."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a comprehensive PRAAMS report for a specific bond, including risk assessment and analytics."
+        },
+        {
+          "info": {
+            "name": "Get equity report by ISIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/reports/equity/isin/:isin",
+            "params": [
+              {
+                "name": "isin",
+                "value": "",
+                "type": "path",
+                "description": "Equity ISIN code."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a comprehensive PRAAMS report for a specific equity identified by ISIN."
+        },
+        {
+          "info": {
+            "name": "Get equity report by ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/praams/reports/equity/ticker/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol (e.g., 'AAPL.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a comprehensive PRAAMS report for a specific equity, including risk assessment and analytics."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

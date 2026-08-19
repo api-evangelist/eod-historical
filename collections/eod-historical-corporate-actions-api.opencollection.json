@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Corporate Actions API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Corporate Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve insider transaction data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/insider-transactions",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Max number of entries per result, from 1 to 1000. Default is 100."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date."
+              },
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format (only 'json' supported)."
+              }
+            ]
+          },
+          "docs": "Fetch insider transaction data for US-listed companies. Covers insider buys and sells, providing transaction details such as date, shares, and price."
+        },
+        {
+          "info": {
+            "name": "Retrieve symbol change history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/symbol-change-history",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for symbol change history in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for symbol change history in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "ex",
+                "value": "",
+                "type": "query",
+                "description": "Exchange code filter (e.g., 'US')."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON."
+              }
+            ]
+          },
+          "docs": "Retrieve the symbol change history within a specified date range. Only US exchanges are currently supported."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

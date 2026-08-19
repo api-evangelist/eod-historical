@@ -1,0 +1,311 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Options API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Options",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get options contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/options/contracts",
+            "params": [
+              {
+                "name": "filter[contract]",
+                "value": "",
+                "type": "query",
+                "description": "Exact contract name, e.g., AAPL270115P00450000"
+              },
+              {
+                "name": "filter[underlying_symbol]",
+                "value": "",
+                "type": "query",
+                "description": "Underlying symbol, e.g., AAPL"
+              },
+              {
+                "name": "filter[exp_date_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration equals (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[exp_date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration from (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[exp_date_to]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration to (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time equals (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_from]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time from (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_to]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time to (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[type]",
+                "value": "",
+                "type": "query",
+                "description": "Option type"
+              },
+              {
+                "name": "filter[strike_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Strike equals"
+              },
+              {
+                "name": "filter[strike_from]",
+                "value": "",
+                "type": "query",
+                "description": "Strike from"
+              },
+              {
+                "name": "filter[strike_to]",
+                "value": "",
+                "type": "query",
+                "description": "Strike to"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort by expiration date or strike (asc/desc)."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset (records to skip). Max 10000."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit. Default & max 1000."
+              },
+              {
+                "name": "fields[options-contracts]",
+                "value": "",
+                "type": "query",
+                "description": "CSV of fields to include (e.g., contract,exp_date,strike)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Fetch options contracts filtered by underlying symbol, expiration, strike, type, or contract name. Supports sorting, pagination, and field selection."
+        },
+        {
+          "info": {
+            "name": "Get end-of-day options data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/options/eod",
+            "params": [
+              {
+                "name": "filter[contract]",
+                "value": "",
+                "type": "query",
+                "description": "Exact contract name, e.g., AAPL270115P00450000"
+              },
+              {
+                "name": "filter[underlying_symbol]",
+                "value": "",
+                "type": "query",
+                "description": "Underlying symbol, e.g., AAPL"
+              },
+              {
+                "name": "filter[exp_date_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration equals (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[exp_date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration from (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[exp_date_to]",
+                "value": "",
+                "type": "query",
+                "description": "Expiration to (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time equals (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_from]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time from (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[tradetime_to]",
+                "value": "",
+                "type": "query",
+                "description": "Trade time to (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[type]",
+                "value": "",
+                "type": "query",
+                "description": "Option type"
+              },
+              {
+                "name": "filter[strike_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Strike equals"
+              },
+              {
+                "name": "filter[strike_from]",
+                "value": "",
+                "type": "query",
+                "description": "Strike from"
+              },
+              {
+                "name": "filter[strike_to]",
+                "value": "",
+                "type": "query",
+                "description": "Strike to"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort by expiration date or strike (asc/desc)."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset (records to skip). Max 10000."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit. Default & max 1000."
+              },
+              {
+                "name": "fields[options-eod]",
+                "value": "",
+                "type": "query",
+                "description": "CSV of fields to include (e.g., contract,exp_date,strike)."
+              },
+              {
+                "name": "compact",
+                "value": "",
+                "type": "query",
+                "description": "Set 1 for compact mode (rows as arrays in `data`, columns = `meta.fields`)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns EOD trades/bid data for options, with the same filter set as contracts. Supports compact mode (`compact=1`) to return arrays instead of objects."
+        },
+        {
+          "info": {
+            "name": "List underlying symbols with options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/options/underlying-symbols",
+            "params": [
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset (records to skip)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination limit. Default & max 1000."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns the list of all supported stock symbols for which option contracts are available. May be paginated."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

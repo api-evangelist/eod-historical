@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Fundamentals API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fundamentals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve bulk fundamental data for an exchange",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/bulk-fundamentals/:EXCHANGE",
+            "params": [
+              {
+                "name": "EXCHANGE",
+                "value": "",
+                "type": "path",
+                "description": "Exchange code (e.g., 'US', 'LSE', 'TO')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL')."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination (number of records to skip)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (max 500)."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "API version for response format."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Fetches fundamental data in bulk for all symbols on a given exchange. Supports filtering by specific symbols and data sections (General, Highlights, Valuation, etc.)."
+        },
+        {
+          "info": {
+            "name": "Retrieve filtered fundamental data for a specific symbol",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/fundamentals/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "The ticker symbol in the format SYMBOL.EXCHANGE, e.g., 'AAPL.US' for Apple Inc. on NASDAQ."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication. Use 'demo' for limited access with specific symbols."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections."
+              },
+              {
+                "name": "historical",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for historical data in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for historical data in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "API version for response format."
+              },
+              {
+                "name": "no_cache",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to bypass cache and get fresh data."
+              }
+            ]
+          },
+          "docs": "Fetches various sections of fundamental data for a given stock symbol. Use filters to specify the data section and sub-sections, such as Financials::Balance_Sheet::quarterly::2024-06-30 for quarterly Balance Sheet data."
+        },
+        {
+          "info": {
+            "name": "Retrieve bulk fundamental data for an exchange (v1.1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/v1.1/bulk-fundamentals/:EXCHANGE",
+            "params": [
+              {
+                "name": "EXCHANGE",
+                "value": "",
+                "type": "path",
+                "description": "Exchange code (e.g., 'US', 'LSE', 'TO')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of symbols to filter (e.g., 'AAPL,MSFT,GOOGL')."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination (number of records to skip)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return (max 500)."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "API version for response format."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format. In v1.1, only json format is supported."
+              }
+            ]
+          },
+          "docs": "Fetches fundamental data in bulk for all symbols on a given exchange using API v1.1. Supports filtering by specific symbols and data sections (General, Highlights, Valuation, etc.). In v1.1, the fmt parameter only supports json format."
+        },
+        {
+          "info": {
+            "name": "Retrieve filtered fundamental data for a specific symbol (v1.1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/v1.1/fundamentals/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "The ticker symbol in the format SYMBOL.EXCHANGE, e.g., 'AAPL.US' for Apple Inc. on NASDAQ."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication. Use 'demo' for limited access with specific symbols."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter parameter to specify data section and optional sub-sections, e.g., `Financials::Balance_Sheet::quarterly::2024-06-30`. Supported sections include General, Highlights, Valuation, SharesStats, Technicals, SplitsDividends, AnalystRatings, Holders, InsiderTransactions, ESGScores, outstandingShares, Earnings, and Financials. When omitted, returns all sections."
+              },
+              {
+                "name": "historical",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to return historical data for certain sections (e.g., outstandingShares)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for historical data in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for historical data in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query",
+                "description": "API version for response format."
+              },
+              {
+                "name": "no_cache",
+                "value": "",
+                "type": "query",
+                "description": "Set to 1 to bypass cache and get fresh data."
+              }
+            ]
+          },
+          "docs": "Fetches various sections of fundamental data for a given stock symbol using API v1.1. This version differs from v1 in the Earnings Trend section, which is split into Quarterly and Annual sub-objects with an additional \"quarter\" field on quarterly items. Use filters to specify the data section and sub-sections, such as Financials::Balance_Sheet::quarterly::2024-06-30 for quarterly Balance Sheet data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Market Data API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Market Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve historical market capitalization data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/historical-market-cap/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "The ticker symbol of the stock, e.g., 'AAPL.US' or simply 'AAPL'."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "reverse",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'true' to reverse sort order (newest first)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+              }
+            ]
+          },
+          "docs": "Fetches historical market capitalization for a specified stock symbol with weekly frequency."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

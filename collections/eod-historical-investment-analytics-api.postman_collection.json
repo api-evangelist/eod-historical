@@ -1,0 +1,2823 @@
+{
+  "item": [
+    {
+      "id": "033f37ff-a11f-48e1-9711-da6e5558e8fe",
+      "name": "Investment Analytics",
+      "description": {
+        "content": "Risk scoring, bond analysis, bank financials, reports (PRAAMS)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28512e4f-2ead-40bc-83bb-2634fc366ec5",
+          "name": "Analyse bond by ISIN",
+          "request": {
+            "name": "Analyse bond by ISIN",
+            "description": {
+              "content": "Returns PRAAMS risk scoring and analysis for a specific bond identified by ISIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "analyse",
+                "bond",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) Bond ISIN code."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94a6b0f8-136b-4ab4-b8a1-0dd52abc9546",
+              "name": "Successfully retrieved bond analysis.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"risk_score\": 1478.346307084688,\n  \"risk_category\": \"string\",\n  \"yield_to_maturity\": 8416.7511390186,\n  \"duration\": 5457.838128188847,\n  \"convexity\": 3505.09701184884,\n  \"credit_rating\": \"string\",\n  \"coupon_rate\": 5647.4685610186025,\n  \"maturity_date\": \"1948-03-08\",\n  \"issuer\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "633cfb93-65f3-4c89-8a0f-c2e93dc57ae3",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e879115d-6dad-4bf6-88e3-2370a392f3f8",
+              "name": "Bond not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62e7f9f6-659f-4e2d-b6f7-720075c53ba5",
+          "name": "Analyse equity by ISIN",
+          "request": {
+            "name": "Analyse equity by ISIN",
+            "description": {
+              "content": "Returns PRAAMS risk scoring and analysis for a specific equity identified by ISIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "analyse",
+                "equity",
+                "isin",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) Equity ISIN code."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a5ae6e4-5618-4b30-a350-799a258c53b7",
+              "name": "Successfully retrieved equity analysis.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"risk_score\": 3016.5646850632997,\n  \"risk_category\": \"string\",\n  \"volatility\": 2342.110280086801,\n  \"beta\": 4011.4298394358393,\n  \"sharpe_ratio\": 328.9211957041227,\n  \"max_drawdown\": 6456.483248022156,\n  \"sector\": \"string\",\n  \"market_cap\": 7612.282617348993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77b6234c-af33-4b0a-8b46-513fa26ee465",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8224d6d-6a4d-4029-a17f-c7580abe9ad5",
+              "name": "Equity not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "818e2912-c839-4979-81cc-d493bf995eea",
+          "name": "Analyse equity by ticker",
+          "request": {
+            "name": "Analyse equity by ticker",
+            "description": {
+              "content": "Returns PRAAMS risk scoring and analysis for a specific equity identified by ticker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "analyse",
+                "equity",
+                "ticker",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a07ab59b-82e7-469b-bfed-28328a37b2b6",
+              "name": "Successfully retrieved equity analysis.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": \"string\",\n  \"name\": \"string\",\n  \"risk_score\": 5978.81897137176,\n  \"risk_category\": \"string\",\n  \"volatility\": 4569.271939932616,\n  \"beta\": 4823.972053276243,\n  \"sharpe_ratio\": 9945.719035012777,\n  \"max_drawdown\": 712.3801897665993,\n  \"sector\": \"string\",\n  \"market_cap\": 6851.69122903272\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6888a10b-a9b0-49ee-b4eb-437f6da3d5ac",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03ed37c4-8eed-4fb1-81e5-67fb35cd9386",
+              "name": "Equity not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "analyse",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a53c6283-969a-44e0-9866-c173493e9276",
+          "name": "Get bank balance sheet by ISIN",
+          "request": {
+            "name": "Get bank balance sheet by ISIN",
+            "description": {
+              "content": "Returns bank-specific balance sheet analysis for the specified ISIN from PRAAMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "bank",
+                "balance_sheet",
+                "isin",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5866431a-a234-4b82-a432-73b50ac6980b",
+              "name": "Successfully retrieved bank balance sheet.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"total_assets\": 7585.907066940244,\n  \"total_liabilities\": 2358.701878620786,\n  \"total_equity\": 8295.792536980663,\n  \"loans_net\": 2059.4916140873797,\n  \"deposits\": 530.8563743022931,\n  \"tier1_capital_ratio\": 2769.528532108323,\n  \"leverage_ratio\": 6109.285730031782,\n  \"periods\": [\n    {\n      \"date\": \"1951-03-03\",\n      \"total_assets\": 6759.113979078835,\n      \"total_liabilities\": 3893.7360637174766,\n      \"total_equity\": 3843.195136565789\n    },\n    {\n      \"date\": \"1959-12-12\",\n      \"total_assets\": 7339.499033346018,\n      \"total_liabilities\": 9275.744833843202,\n      \"total_equity\": 4814.991053158215\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c88a689-876a-4d75-a0b8-b6f2a460a9b1",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c9753e3-77f4-4b78-8d83-35249af48ad9",
+              "name": "Bank data not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a38e5eab-30a1-4b4f-9c3f-e2aec70cd051",
+          "name": "Get bank balance sheet by ticker",
+          "request": {
+            "name": "Get bank balance sheet by ticker",
+            "description": {
+              "content": "Returns bank-specific balance sheet analysis for the specified ticker from PRAAMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "bank",
+                "balance_sheet",
+                "ticker",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67e5f963-b053-4641-b15e-be76a578512a",
+              "name": "Successfully retrieved bank balance sheet.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": \"string\",\n  \"name\": \"string\",\n  \"total_assets\": 5361.376778898967,\n  \"total_liabilities\": 694.202738089813,\n  \"total_equity\": 4628.957214661042,\n  \"loans_net\": 3625.759882600963,\n  \"deposits\": 404.5404638713268,\n  \"tier1_capital_ratio\": 4688.254969470224,\n  \"leverage_ratio\": 8324.227874644792,\n  \"periods\": [\n    {\n      \"date\": \"1965-05-04\",\n      \"total_assets\": 3283.667203257047,\n      \"total_liabilities\": 5645.18101762475,\n      \"total_equity\": 347.19358324347473\n    },\n    {\n      \"date\": \"2017-01-06\",\n      \"total_assets\": 5352.080755530364,\n      \"total_liabilities\": 2414.7225923838923,\n      \"total_equity\": 6908.668135607808\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1e010ea-9e72-452d-81cc-70e105f9ffb5",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9905b64-1141-453b-97f9-6105d11950e2",
+              "name": "Bank data not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "balance_sheet",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0414678e-872f-43a7-8f89-25c25cf2220c",
+          "name": "Get bank income statement by ISIN",
+          "request": {
+            "name": "Get bank income statement by ISIN",
+            "description": {
+              "content": "Returns bank-specific income statement analysis for the specified ISIN from PRAAMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "bank",
+                "income_statement",
+                "isin",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72ffc899-b540-4b2c-9e56-c6e78d39bccf",
+              "name": "Successfully retrieved bank income statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"net_interest_income\": 9363.144952019222,\n  \"non_interest_income\": 2846.1316993782757,\n  \"provision_for_loan_losses\": 4299.711908355027,\n  \"net_income\": 7248.603203257866,\n  \"return_on_assets\": 3884.932757147558,\n  \"return_on_equity\": 6103.336042992938,\n  \"efficiency_ratio\": 7327.4490826792635,\n  \"periods\": [\n    {\n      \"date\": \"1973-06-19\",\n      \"net_interest_income\": 4049.448482567968,\n      \"net_income\": 5062.402150545725\n    },\n    {\n      \"date\": \"2014-09-22\",\n      \"net_interest_income\": 8253.86022203503,\n      \"net_income\": 3821.315246397429\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ddf2cec-d47a-4f09-8a7b-14513b82bd0e",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b5db1ab-d4ab-46c6-aee3-666eb1452084",
+              "name": "Bank data not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) ISIN code (e.g., 'US46625H1005')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08b7ca0d-90bb-4216-afef-426ab307a5b6",
+          "name": "Get bank income statement by ticker",
+          "request": {
+            "name": "Get bank income statement by ticker",
+            "description": {
+              "content": "Returns bank-specific income statement analysis for the specified ticker from PRAAMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "bank",
+                "income_statement",
+                "ticker",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f049e976-8080-495d-a77d-f3d72b0de2ca",
+              "name": "Successfully retrieved bank income statement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": \"string\",\n  \"name\": \"string\",\n  \"net_interest_income\": 3008.9400117847954,\n  \"non_interest_income\": 6527.3769125562485,\n  \"provision_for_loan_losses\": 1902.216915588595,\n  \"net_income\": 6695.325827595819,\n  \"return_on_assets\": 3366.0477006372535,\n  \"return_on_equity\": 6921.1557104844405,\n  \"efficiency_ratio\": 5722.065889052856,\n  \"periods\": [\n    {\n      \"date\": \"2008-11-21\",\n      \"net_interest_income\": 7940.642840189997,\n      \"net_income\": 4768.587339465199\n    },\n    {\n      \"date\": \"1996-12-20\",\n      \"net_interest_income\": 3695.932819995479,\n      \"net_income\": 1835.9038357687284\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb009769-d6c7-4025-a82c-8bb6948c1c32",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24273833-2163-4840-8c77-e13aba7a498e",
+              "name": "Bank data not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "bank",
+                    "income_statement",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'JPM.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d647c8e1-09b1-4b8f-9959-6a16cbd74354",
+          "name": "Explore bonds",
+          "request": {
+            "name": "Explore bonds",
+            "description": {
+              "content": "Search and filter bonds using PRAAMS analytics. Returns a list of bonds matching the specified criteria with risk scores.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "explore",
+                "bond"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "risk_category",
+                  "value": "<string>",
+                  "description": "Filter by risk category (e.g., 'Low', 'Medium', 'High')."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_yield",
+                  "value": "<number>",
+                  "description": "Minimum yield to maturity filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "max_yield",
+                  "value": "<number>",
+                  "description": "Maximum yield to maturity filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Filter by currency (e.g., 'USD', 'EUR')."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5aea49d0-216e-4d42-965d-6e4ac2d4b7e6",
+              "name": "Successfully retrieved bond list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "explore",
+                    "bond"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "risk_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_yield",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_yield",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1273,\n  \"offset\": 5428,\n  \"limit\": 5350,\n  \"bonds\": [\n    {\n      \"isin\": \"string\",\n      \"name\": \"string\",\n      \"risk_score\": 1759.617318828205,\n      \"risk_category\": \"string\",\n      \"yield_to_maturity\": 4412.766901200448,\n      \"coupon_rate\": 3614.123610432044,\n      \"maturity_date\": \"1980-08-30\",\n      \"currency\": \"string\",\n      \"credit_rating\": \"string\"\n    },\n    {\n      \"isin\": \"string\",\n      \"name\": \"string\",\n      \"risk_score\": 6669.348184213005,\n      \"risk_category\": \"string\",\n      \"yield_to_maturity\": 9806.450887275136,\n      \"coupon_rate\": 6555.178946748522,\n      \"maturity_date\": \"2021-02-03\",\n      \"currency\": \"string\",\n      \"credit_rating\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "418c0061-31fb-4dda-87aa-fce814b3fa04",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "explore",
+                    "bond"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "risk_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_yield",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "max_yield",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a64f7d44-41b2-4881-9b33-d8898b55af3d",
+          "name": "Explore equities",
+          "request": {
+            "name": "Explore equities",
+            "description": {
+              "content": "Search and filter equities using PRAAMS analytics. Returns a list of equities matching the specified criteria with risk scores.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "explore",
+                "equity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "risk_category",
+                  "value": "<string>",
+                  "description": "Filter by risk category (e.g., 'Low', 'Medium', 'High')."
+                },
+                {
+                  "disabled": false,
+                  "key": "sector",
+                  "value": "<string>",
+                  "description": "Filter by sector."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Filter by country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_market_cap",
+                  "value": "<number>",
+                  "description": "Minimum market capitalization filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d89de1a-6462-4194-8436-cbc66edf91be",
+              "name": "Successfully retrieved equity list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "explore",
+                    "equity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "risk_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_market_cap",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8434,\n  \"offset\": 3315,\n  \"limit\": 6486,\n  \"equities\": [\n    {\n      \"ticker\": \"string\",\n      \"isin\": \"string\",\n      \"name\": \"string\",\n      \"risk_score\": 8355.410300369595,\n      \"risk_category\": \"string\",\n      \"sector\": \"string\",\n      \"country\": \"string\",\n      \"market_cap\": 6393.0710102344465,\n      \"beta\": 8714.0048307415\n    },\n    {\n      \"ticker\": \"string\",\n      \"isin\": \"string\",\n      \"name\": \"string\",\n      \"risk_score\": 5985.807407106033,\n      \"risk_category\": \"string\",\n      \"sector\": \"string\",\n      \"country\": \"string\",\n      \"market_cap\": 4300.978188497979,\n      \"beta\": 8374.51915039077\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e5bb021-4bc4-4b3c-a1ac-fff4227c85f4",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "explore",
+                    "equity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "risk_category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sector",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_market_cap",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a8b5c51-498b-4ff7-ad1e-164e36734db1",
+          "name": "Get bond report by ISIN",
+          "request": {
+            "name": "Get bond report by ISIN",
+            "description": {
+              "content": "Returns a comprehensive PRAAMS report for a specific bond, including risk assessment and analytics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "reports",
+                "bond",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) Bond ISIN code."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f9c09c6-8e52-40b3-a421-223a9b41aa01",
+              "name": "Successfully retrieved bond report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"report_date\": \"1991-02-16\",\n  \"risk_summary\": {\n    \"risk_score\": 5188.612125501381,\n    \"risk_category\": \"string\",\n    \"credit_risk\": \"string\",\n    \"interest_rate_risk\": \"string\"\n  },\n  \"bond_details\": {\n    \"coupon_rate\": 1751.3658578538582,\n    \"maturity_date\": \"1999-09-20\",\n    \"yield_to_maturity\": 3153.7986777087535,\n    \"duration\": 750.0185313829799,\n    \"convexity\": 8926.545350677601,\n    \"issuer\": \"string\",\n    \"credit_rating\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "548fefc7-c4d2-413a-8a38-22811ce2c757",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1eb19ab-fe8e-4a6d-9222-c9e3395efc9c",
+              "name": "Bond not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "bond",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Bond ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab328d29-d8ef-499f-b340-d11902c8c59d",
+          "name": "Get equity report by ISIN",
+          "request": {
+            "name": "Get equity report by ISIN",
+            "description": {
+              "content": "Returns a comprehensive PRAAMS report for a specific equity identified by ISIN.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "reports",
+                "equity",
+                "isin",
+                ":isin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "isin",
+                  "description": "(Required) Equity ISIN code."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90ca4245-c1a9-4308-87bc-094804dc3f58",
+              "name": "Successfully retrieved equity report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isin\": \"string\",\n  \"name\": \"string\",\n  \"report_date\": \"1984-06-17\",\n  \"risk_summary\": {\n    \"risk_score\": 331.7408484746187,\n    \"risk_category\": \"string\",\n    \"volatility_risk\": \"string\",\n    \"market_risk\": \"string\"\n  },\n  \"equity_details\": {\n    \"sector\": \"string\",\n    \"market_cap\": 9966.686279587077,\n    \"beta\": 9651.695013052506,\n    \"pe_ratio\": 1387.0280663842848,\n    \"dividend_yield\": 3025.7129388220483\n  },\n  \"performance\": {\n    \"return_1y\": 5679.130082126298,\n    \"return_3y\": 1867.372136722928,\n    \"sharpe_ratio\": 3479.8285829911592,\n    \"max_drawdown\": 6176.6480353352945\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5acf692-5640-47c9-9f10-a4a71d07312c",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8806e74-103a-4db7-aabf-730c494b1c02",
+              "name": "Equity not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "isin",
+                    ":isin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "isin",
+                      "description": "(Required) Equity ISIN code."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9abf3bb-6e93-458d-8595-e95881fa92ce",
+          "name": "Get equity report by ticker",
+          "request": {
+            "name": "Get equity report by ticker",
+            "description": {
+              "content": "Returns a comprehensive PRAAMS report for a specific equity, including risk assessment and analytics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mp",
+                "praams",
+                "reports",
+                "equity",
+                "ticker",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "776711f7-c9ab-4e22-8447-90dc4d8d6602",
+              "name": "Successfully retrieved equity report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": \"string\",\n  \"name\": \"string\",\n  \"report_date\": \"1972-04-16\",\n  \"risk_summary\": {\n    \"risk_score\": 9335.76152331864,\n    \"risk_category\": \"string\",\n    \"volatility_risk\": \"string\",\n    \"market_risk\": \"string\"\n  },\n  \"equity_details\": {\n    \"sector\": \"string\",\n    \"market_cap\": 8194.263686276296,\n    \"beta\": 4320.876696255576,\n    \"pe_ratio\": 817.9863464485626,\n    \"dividend_yield\": 9989.894211695399\n  },\n  \"performance\": {\n    \"return_1y\": 2191.4811961531423,\n    \"return_3y\": 3440.439610083358,\n    \"sharpe_ratio\": 5819.114869389696,\n    \"max_drawdown\": 118.90430202370794\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e34048e3-bb88-4180-a68e-edcc32bc686b",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c2a68ae-03aa-408b-a103-e0b03122dfda",
+              "name": "Equity not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mp",
+                    "praams",
+                    "reports",
+                    "equity",
+                    "ticker",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol (e.g., 'AAPL.US')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "083bbaeb-aed1-4f6e-8205-32725fad2660",
+    "name": "EODHD Financial Data Calendar Investment Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

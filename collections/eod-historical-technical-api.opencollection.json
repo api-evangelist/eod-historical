@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Technical API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Technical",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve technical indicator data for a specified symbol.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/technical/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication."
+              },
+              {
+                "name": "function",
+                "value": "",
+                "type": "query",
+                "description": "The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average)."
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Number of data points used to calculate the indicator. Default is 50."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'json' or 'csv'. Default is 'json'."
+              },
+              {
+                "name": "splitadjusted_only",
+                "value": "",
+                "type": "query",
+                "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter."
+              }
+            ]
+          },
+          "docs": "Fetches technical indicator data, such as moving averages and other analytics, based on specified parameters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

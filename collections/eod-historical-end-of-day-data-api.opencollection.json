@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar End-of-Day Data API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "End-of-Day Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve end-of-day historical price data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/eod/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol of the company"
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication"
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format (e.g., 'json')"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for historical data (YYYY-MM-DD)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for historical data (YYYY-MM-DD)"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Data period (e.g., 'd' for daily, 'w' for weekly, 'm' for monthly)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter for specific last known data points"
+              }
+            ]
+          },
+          "docs": "Retrieve end-of-day historical data for a specific company by its ticker symbol, with optional filters for specific data points."
+        },
+        {
+          "info": {
+            "name": "Retrieve bulk EOD, splits, or dividends data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/eod-bulk-last-day/:exchange",
+            "params": [
+              {
+                "name": "exchange",
+                "value": "",
+                "type": "path",
+                "description": "Exchange symbol (e.g., 'VI' for Vienna or 'US' for the U.S.)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format ('json' or 'csv')."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Data type ('eod' for end-of-day data, 'splits' for stock splits, 'dividends' for dividend information)."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Specific date for historical data (YYYY-MM-DD). Defaults to the last trading day."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of specific tickers to retrieve data for (e.g., 'MSFT,AAPL'). Only available for EOD data."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Extended filter for additional data such as company name, EMA, etc. Only available in JSON format."
+              }
+            ]
+          },
+          "docs": "Retrieve bulk end-of-day data, splits, or dividends for an entire exchange or specific tickers, with an option for extended data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

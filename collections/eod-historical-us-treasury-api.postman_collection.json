@@ -1,0 +1,1145 @@
+{
+  "item": [
+    {
+      "id": "c25694a5-0d4e-44d7-88fa-9ef6cb1e1774",
+      "name": "US Treasury",
+      "description": {
+        "content": "US Treasury interest rates (bills, yields, long-term, real yields)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59745fe0-fea8-4b5f-848d-ee065c853635",
+          "name": "Get US Treasury bill rates",
+          "request": {
+            "name": "Get US Treasury bill rates",
+            "description": {
+              "content": "Returns daily US Treasury bill rates (discount rates for 4-week, 8-week, 13-week, 17-week, 26-week, and 52-week bills).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ust",
+                "bill-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year (e.g., 2024)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2c43049-0b2d-48c6-b9f0-110b9170de8d",
+              "name": "Successfully retrieved Treasury bill rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "bill-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2009-06-09\",\n    \"4_weeks_bank_discount\": 2519.0480816215368,\n    \"4_weeks_coupon_equivalent\": 9985.181574375818,\n    \"8_weeks_bank_discount\": 4952.098879942109,\n    \"8_weeks_coupon_equivalent\": 3628.3202641065905,\n    \"13_weeks_bank_discount\": 1590.587003673204,\n    \"13_weeks_coupon_equivalent\": 49.50945310152277,\n    \"26_weeks_bank_discount\": 7691.338493121961,\n    \"26_weeks_coupon_equivalent\": 6356.0802933381965,\n    \"52_weeks_bank_discount\": 5000.250847532706,\n    \"52_weeks_coupon_equivalent\": 30.843330756588074\n  },\n  {\n    \"date\": \"1958-03-08\",\n    \"4_weeks_bank_discount\": 7545.723083482845,\n    \"4_weeks_coupon_equivalent\": 1899.5625552782037,\n    \"8_weeks_bank_discount\": 2396.530281287167,\n    \"8_weeks_coupon_equivalent\": 4627.503111830046,\n    \"13_weeks_bank_discount\": 0.9485641339712636,\n    \"13_weeks_coupon_equivalent\": 9535.333347577734,\n    \"26_weeks_bank_discount\": 996.8963596629077,\n    \"26_weeks_coupon_equivalent\": 5649.181821370477,\n    \"52_weeks_bank_discount\": 1431.5838907162115,\n    \"52_weeks_coupon_equivalent\": 9993.698392482987\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b4bdacc-b95a-4b3d-8ef9-0a33379b5c79",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "bill-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b01e46d-7e89-4bca-8151-5916238bf85f",
+              "name": "Data not found for specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "bill-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5d0552d-5b0d-4e8e-904d-651c7b4951e2",
+          "name": "Get US Treasury long-term rates",
+          "request": {
+            "name": "Get US Treasury long-term rates",
+            "description": {
+              "content": "Returns US Treasury long-term average rates and extrapolation factors for maturities beyond 30 years.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ust",
+                "long-term-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year (e.g., 2024)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba949687-ff3c-474c-b95d-6ef351860ef2",
+              "name": "Successfully retrieved long-term rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "long-term-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2012-05-03\",\n    \"lt_composite_gt_10\": 6190.148679465484,\n    \"treasury_20_year_cmt\": 9139.30802200943,\n    \"extrapolation_factor\": 5195.351452283829\n  },\n  {\n    \"date\": \"1982-11-06\",\n    \"lt_composite_gt_10\": 8777.146297681378,\n    \"treasury_20_year_cmt\": 9026.776578335806,\n    \"extrapolation_factor\": 261.0500523708981\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "438a755a-f58c-40f4-8e61-53420a226aff",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "long-term-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f94bcef-18be-4aa3-8ff5-2921400db97f",
+              "name": "Data not found for specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "long-term-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "680cb560-0477-4c8e-9fcf-27fa6004b779",
+          "name": "Get US Treasury real yield curve rates",
+          "request": {
+            "name": "Get US Treasury real yield curve rates",
+            "description": {
+              "content": "Returns daily US Treasury real yield curve rates (TIPS-derived real yields for 5-year, 7-year, 10-year, 20-year, and 30-year maturities).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ust",
+                "real-yield-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year (e.g., 2024)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7077c4cf-1da6-430c-a9a2-4c8b959017b1",
+              "name": "Successfully retrieved real yield rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "real-yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"1986-12-29\",\n    \"5_years\": 5505.400739149736,\n    \"7_years\": 3606.1297910108105,\n    \"10_years\": 5545.097360796457,\n    \"20_years\": 9206.050571103633,\n    \"30_years\": 3663.4328718832753\n  },\n  {\n    \"date\": \"1968-12-15\",\n    \"5_years\": 3277.3978363814717,\n    \"7_years\": 5657.442454224188,\n    \"10_years\": 7546.331723287263,\n    \"20_years\": 4776.777799683016,\n    \"30_years\": 2324.155257408338\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66cf487d-0d93-4554-8cbb-80dd5596b5ab",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "real-yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d55ade7-d685-47a1-88d0-29bcaf7d5ca5",
+              "name": "Data not found for specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "real-yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08f1f8b4-e919-46ec-a7ae-11b3c750d641",
+          "name": "Get US Treasury yield curve rates",
+          "request": {
+            "name": "Get US Treasury yield curve rates",
+            "description": {
+              "content": "Returns daily US Treasury yield curve rates (constant maturity rates for 1-month through 30-year maturities).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ust",
+                "yield-rates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[year]",
+                  "value": "<integer>",
+                  "description": "Filter by year (e.g., 2024)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of records per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b4ebde9-3f31-44f2-abc9-917cad1608cb",
+              "name": "Successfully retrieved Treasury yield rates.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"1958-09-07\",\n    \"1_month\": 671.6596519031448,\n    \"2_months\": 9657.577672945004,\n    \"3_months\": 7220.152718869474,\n    \"4_months\": 9590.93458448669,\n    \"6_months\": 300.69192608088156,\n    \"1_year\": 3063.9745398287664,\n    \"2_years\": 5144.348233932296,\n    \"3_years\": 6028.204847910906,\n    \"5_years\": 858.7086730699023,\n    \"7_years\": 249.06659145063736,\n    \"10_years\": 7201.619987135215,\n    \"20_years\": 3445.352792377666,\n    \"30_years\": 2881.4325788014216\n  },\n  {\n    \"date\": \"1978-08-31\",\n    \"1_month\": 3089.0756748685667,\n    \"2_months\": 55.98176798042864,\n    \"3_months\": 1588.6366553085495,\n    \"4_months\": 7117.371017137793,\n    \"6_months\": 8958.869749788431,\n    \"1_year\": 179.84962317049934,\n    \"2_years\": 468.42294955490746,\n    \"3_years\": 5007.29557391021,\n    \"5_years\": 2160.6912904316487,\n    \"7_years\": 5511.802878090416,\n    \"10_years\": 4473.077100184682,\n    \"20_years\": 9459.6075205641,\n    \"30_years\": 3920.544878466161\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3b42e2b-cede-4e0c-8732-a45219acfe4d",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "58cf5102-25ea-4c5e-b182-5c13c375d238",
+              "name": "Data not found for specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ust",
+                    "yield-rates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[year]",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "48bbbf19-0de5-4603-be0c-b613677aac09",
+    "name": "EODHD Financial Data Calendar US Treasury API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

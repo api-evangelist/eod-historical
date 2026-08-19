@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar ESG API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ESG",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ESG-rated companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/companies",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a list of all companies with ESG ratings available from Investverte."
+        },
+        {
+          "info": {
+            "name": "List ESG country scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/countries",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a list of all countries with their aggregate ESG scores from Investverte."
+        },
+        {
+          "info": {
+            "name": "Get ESG country details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/country/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Country code (e.g., 'US', 'GB', 'DE')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns detailed ESG scores and metrics for a specific country from Investverte."
+        },
+        {
+          "info": {
+            "name": "Get ESG rating for a company",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/esg/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol (e.g., 'AAPL.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns detailed ESG ratings and scores for a specific company from Investverte."
+        },
+        {
+          "info": {
+            "name": "Get ESG sector details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/sector/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Sector identifier."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns detailed ESG scores and metrics for a specific sector from Investverte."
+        },
+        {
+          "info": {
+            "name": "List ESG sector scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/investverte/sectors",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a list of all sectors with their aggregate ESG scores from Investverte."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

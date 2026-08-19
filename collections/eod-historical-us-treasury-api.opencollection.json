@@ -1,0 +1,246 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar US Treasury API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "US Treasury",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get US Treasury bill rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/ust/bill-rates",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[year]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by year (e.g., 2024)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns daily US Treasury bill rates (discount rates for 4-week, 8-week, 13-week, 17-week, 26-week, and 52-week bills)."
+        },
+        {
+          "info": {
+            "name": "Get US Treasury long-term rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/ust/long-term-rates",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[year]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by year (e.g., 2024)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns US Treasury long-term average rates and extrapolation factors for maturities beyond 30 years."
+        },
+        {
+          "info": {
+            "name": "Get US Treasury real yield curve rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/ust/real-yield-rates",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[year]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by year (e.g., 2024)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns daily US Treasury real yield curve rates (TIPS-derived real yields for 5-year, 7-year, 10-year, 20-year, and 30-year maturities)."
+        },
+        {
+          "info": {
+            "name": "Get US Treasury yield curve rates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/ust/yield-rates",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[year]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by year (e.g., 2024)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns daily US Treasury yield curve rates (constant maturity rates for 1-month through 30-year maturities)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

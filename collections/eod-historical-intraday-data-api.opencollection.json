@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Intraday Data API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Intraday Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve intraday historical price data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/intraday/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol with exchange code (e.g., 'AAPL.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Interval for data points. Options are '1m' (1 minute), '5m' (5 minutes), '15m' (15 minutes), '30m' (30 minutes), and '1h' (1 hour)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Defaults to CSV if not specified. Options are 'json' and 'csv'."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start datetime in Unix timestamp (UTC). For example, 1627896900 for '2021-08-02 09:35:00'."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End datetime in Unix timestamp (UTC). For example, 1630575300 for '2021-09-02 09:35:00'."
+              }
+            ]
+          },
+          "docs": "Retrieve intraday historical stock data for a specific ticker."
+        },
+        {
+          "info": {
+            "name": "Retrieve marketplace tick data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/tickdata/ticks",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Ticker symbol (e.g., 'AAPL' or 'AAPL.US')."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start UNIX timestamp (UTC)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End UNIX timestamp (UTC)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of ticks to return."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Get tick-level data via the UnicornBay marketplace data provider. Returns granular trade-by-trade data for supported symbols."
+        },
+        {
+          "info": {
+            "name": "Retrieve delayed real-time stock prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/real-time/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol with exchange code (e.g., 'AAPL.US')."
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of additional ticker symbols for multiple requests in a single call (e.g., 'VTI,EUR.FOREX')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "ex",
+                "value": "",
+                "type": "query",
+                "description": "Exchange code filter (e.g., 'US')."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON."
+              }
+            ]
+          },
+          "docs": "Retrieve live (delayed) stock prices for specified ticker(s)."
+        },
+        {
+          "info": {
+            "name": "Retrieve historical tick data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/ticks",
+            "params": [
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Ticker symbol (e.g., 'AAPL' or 'AAPL.US' for US-listed stocks)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API key for authentication"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start UNIX timestamp (UTC) for filtering data."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End UNIX timestamp (UTC) for filtering data."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of ticks to return."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format (only 'json' supported)"
+              }
+            ]
+          },
+          "docs": "Get historical stock tick data for US equities using UNIX time for filtering. Limited to US exchanges."
+        },
+        {
+          "info": {
+            "name": "Get US delayed stock quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/us-quote-delayed",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication."
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated ticker symbols (e.g., 'AAPL,MSFT,GOOGL')."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to return (e.g., 'close,volume,change_p')."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns 15-minute delayed quote data for US equities. Supports multiple symbols in a single request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

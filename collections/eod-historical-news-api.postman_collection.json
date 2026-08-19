@@ -1,0 +1,1177 @@
+{
+  "item": [
+    {
+      "id": "d88e699c-7437-42f9-a923-e570444ba913",
+      "name": "News",
+      "description": {
+        "content": "Financial news and sentiment analysis",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f489c52c-5f66-4abe-8e40-2cb185daa5d1",
+          "name": "Retrieve financial news articles",
+          "request": {
+            "name": "Retrieve financial news articles",
+            "description": {
+              "content": "Retrieve financial news articles for a specific company ticker or topic",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "<string>",
+                  "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "t",
+                  "value": "<string>",
+                  "description": "Tag to get news on a given topic. Required if 's' is not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for news data (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for news data (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "The number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "The offset of the data"
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "<string>",
+                  "description": "Response format (e.g., 'json')"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee80bc2b-97e1-4fb1-9634-fc253cbb918c",
+              "name": "Successful response with financial news articles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2024-06-05T20:35:00+00:00\",\n    \"title\": \"Usher and Apple CEO Tim Cook had a meeting...\",\n    \"content\": \"Usher has some suggestions for Apple CEO Tim Cook...\",\n    \"link\": \"https://finance.yahoo.com/news/usher-apple-ceo-tim-cook-203500033.html\",\n    \"symbols\": [\n      \"AAPL.US\"\n    ],\n    \"tags\": [],\n    \"sentiment\": {\n      \"polarity\": 0.997,\n      \"neg\": 0.024,\n      \"neu\": 0.871,\n      \"pos\": 0.105\n    }\n  },\n  {\n    \"date\": \"2024-06-05T20:33:57+00:00\",\n    \"title\": \"The 2030's Millionaire Club: 3 Hyper-Growth Stocks to Buy Now\",\n    \"content\": \"Hyper-growth stocks offer excitement...\",\n    \"link\": \"https://finance.yahoo.com/news/2030-millionaire-club-3-hyper-203357155.html\",\n    \"symbols\": [\n      \"AAPL.US\",\n      \"NVDA.US\",\n      \"PLTR.US\"\n    ],\n    \"tags\": [],\n    \"sentiment\": {\n      \"polarity\": 1,\n      \"neg\": 0.018,\n      \"neu\": 0.781,\n      \"pos\": 0.202\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62760cda-7515-4a47-a8f7-30f59a559b48",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90015169-17bb-4194-9c47-5e135f5d0713",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2184abe2-445f-4a00-af89-f91b7f755ec8",
+              "name": "No news articles found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "t",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00311d48-4b91-4d4f-930c-c69a4bdf9b1f",
+          "name": "Top weighted news keywords for a ticker",
+          "request": {
+            "name": "Top weighted news keywords for a ticker",
+            "description": {
+              "content": "Returns the most relevant words from financial news for the given ticker and period, with weights (frequency ? significance).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news-word-weights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "<string>",
+                  "description": "(Required) Ticker to analyze, e.g., AAPL or AAPL.US"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[date_from]",
+                  "value": "<date>",
+                  "description": "Start date (YYYY-MM-DD)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[date_to]",
+                  "value": "<date>",
+                  "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[to]",
+                  "value": "<date>",
+                  "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "10",
+                  "description": "Number of top words to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Response format"
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dd6ab48-d388-48c9-9e74-1cca2d385c16",
+              "name": "Weighted keywords for the requested period",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"appl\": 0.01922,\n    \"tariff\": 0.01889,\n    \"stock\": 0.01884,\n    \"trump\": 0.01115,\n    \"companies\": 0.00983,\n    \"market\": 0.00919,\n    \"china\": 0.0079,\n    \"trade\": 0.00723,\n    \"ai\": 0.00605,\n    \"price\": 0.00577\n  },\n  \"meta\": {\n    \"news_processed\": 300,\n    \"news_found\": 5748\n  },\n  \"links\": {\n    \"next\": \"\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e176eb05-ddb3-48e2-b18c-8de759797568",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1544,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a1f8e74-1cfd-4dcb-b387-ff577cd125ce",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1544,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a7014cb-afd1-47d2-bb85-d8b50076b095",
+              "name": "No results found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1544,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a15e65d8-f8b0-4440-809c-ee5183bd442b",
+              "name": "Too many requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1544,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97dc638e-6929-4e02-ad50-f66edc4915e6",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news-word-weights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1544,\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44ce9db0-b952-48b2-be1e-1794b06862f5",
+          "name": "Retrieve market news sentiment data",
+          "request": {
+            "name": "Retrieve market news sentiment data",
+            "description": {
+              "content": "Retrieve sentiment analysis for financial news related to specified tickers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sentiments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "s",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us')."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for sentiment data (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for sentiment data (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "<string>",
+                  "description": "Response format (only 'json' is supported)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9d2d1e2-5983-4ebc-8e31-b2831d5cce83",
+              "name": "Successful response with sentiment data by ticker.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sentiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ticker\": {\n    \"BTC-USD.CC\": [\n      {\n        \"date\": \"2022-02-22\",\n        \"count\": 8,\n        \"normalized\": -0.1811\n      },\n      {\n        \"date\": \"2022-02-21\",\n        \"count\": 5,\n        \"normalized\": 0.2824\n      }\n    ],\n    \"AAPL.US\": [\n      {\n        \"date\": \"2022-02-22\",\n        \"count\": 23,\n        \"normalized\": 0.6152\n      },\n      {\n        \"date\": \"2022-02-21\",\n        \"count\": 23,\n        \"normalized\": 0.3668\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d6a85f4-6ae1-427f-9dcc-433f82f54417",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sentiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8972fc57-71cc-4e6b-98cd-457c8ab0578b",
+              "name": "Unauthorized. Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sentiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14262c9e-439c-425e-854a-3874feae4c21",
+              "name": "No sentiment data found for specified tickers or date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sentiments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "s",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3f5b6155-3195-4b4e-9c30-1b0b5276443a",
+    "name": "EODHD Financial Data Calendar News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

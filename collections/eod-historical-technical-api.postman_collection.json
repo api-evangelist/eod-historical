@@ -1,0 +1,391 @@
+{
+  "item": [
+    {
+      "id": "3a50dc8b-9d41-4f9f-a315-da9202cbf4da",
+      "name": "Technical",
+      "description": {
+        "content": "Technical analysis indicators",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d84cd60-ddb9-4e3a-9415-d4f66f4b8ee9",
+          "name": "Retrieve technical indicator data for a specified symbol.",
+          "request": {
+            "name": "Retrieve technical indicator data for a specified symbol.",
+            "description": {
+              "content": "Fetches technical indicator data, such as moving averages and other analytics, based on specified parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "technical",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "function",
+                  "value": "<string>",
+                  "description": "(Required) The function to calculate the technical indicator (e.g., 'sma' for Simple Moving Average)."
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "50",
+                  "description": "Number of data points used to calculate the indicator. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "a",
+                  "description": "Sort order of dates: 'a' for ascending, 'd' for descending. Default is ascending."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format, either 'json' or 'csv'. Default is 'json'."
+                },
+                {
+                  "disabled": false,
+                  "key": "splitadjusted_only",
+                  "value": "0",
+                  "description": "For select functions, adjust data only for splits by setting to '1'. Default is '0'."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Retrieve only the last value by specifying 'last_ema' or 'last_volume' as the filter."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05d661f9-10c6-4150-86f6-cb13d92f689f",
+              "name": "Successful response with technical indicator data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "technical",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "function",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "50"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "a"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "splitadjusted_only",
+                      "value": "0"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2020-12-31\",\n    \"sma\": 118.4358\n  },\n  {\n    \"date\": \"2020-12-30\",\n    \"sma\": 118.1347\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f81d7732-b7d7-4a60-af45-d0e36838559b",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "technical",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "function",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "50"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "a"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "splitadjusted_only",
+                      "value": "0"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9a06cff-0c6f-42c4-9572-825d890f130e",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "technical",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "function",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "50"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "a"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "splitadjusted_only",
+                      "value": "0"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Symbol in the format {SYMBOL_NAME}.{EXCHANGE_ID}, e.g., AAPL.US for Apple Inc."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c6abfeca-97a2-44d8-b8ba-5013ff4ec0e9",
+    "name": "EODHD Financial Data Calendar Technical API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

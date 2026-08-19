@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar User API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve internal user account information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/internal-user",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "YOUR_API_TOKEN_HERE",
+                "type": "query",
+                "description": "API token for authentication. You can find this in your account dashboard on eodhd.com."
+              }
+            ]
+          },
+          "docs": "Fetch detailed internal account information for the authenticated user, including subscription type, usage statistics, and available data feeds. Requires a valid `api_token` as a query parameter."
+        },
+        {
+          "info": {
+            "name": "Get current user details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/user",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns details about the authenticated user, including subscription info and API usage."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

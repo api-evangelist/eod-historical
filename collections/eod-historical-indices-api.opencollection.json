@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Indices API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Indices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Index components (current + historical)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/spglobal/comp/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Index symbol, e.g., GSPC.INDX"
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns the current components and historical changes for an index symbol."
+        },
+        {
+          "info": {
+            "name": "List of indices with details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/mp/unicornbay/spglobal/list",
+            "params": [
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns essential EOD details for 100+ S&P & Dow Jones indices."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

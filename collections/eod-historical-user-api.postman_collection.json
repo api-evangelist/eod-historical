@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "e702cbf9-a255-410d-b772-d08a32e87238",
+      "name": "User",
+      "description": {
+        "content": "User account and subscription information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5dd8288-d324-4465-b2fa-b014c3425a9d",
+          "name": "Retrieve internal user account information",
+          "request": {
+            "name": "Retrieve internal user account information",
+            "description": {
+              "content": "Fetch detailed internal account information for the authenticated user, including subscription type, usage statistics, and available data feeds. Requires a valid `api_token` as a query parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "internal-user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication. You can find this in your account dashboard on eodhd.com."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0667dae-07af-4c6f-95a5-97192fda1cfa",
+              "name": "Successful response with user information.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "YOUR_API_TOKEN_HERE"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\",\n  \"subscriptionType\": \"monthly\",\n  \"paymentMethod\": \"Stripe\",\n  \"apiRequests\": 1234,\n  \"apiRequestsDate\": \"2025-01-15\",\n  \"dailyRateLimit\": 100000,\n  \"extraLimit\": 0,\n  \"inviteToken\": \"\",\n  \"inviteTokenClicked\": 0,\n  \"subscriptionMode\": \"paid\",\n  \"availableDataFeeds\": [\n    \"Bulk Splits and Dividends API\",\n    \"Fundamental Data\",\n    \"Bond Fundamentals API\",\n    \"Stock Options Data\",\n    \"News API\",\n    \"commodities\",\n    \"sec_filings\",\n    \"id_mapping\",\n    \"Technical API Data\",\n    \"Intraday Data API\",\n    \"EOD Historical Data\",\n    \"Search API\",\n    \"dividends\",\n    \"Dividends Data Feed\",\n    \"Split Data Feed\",\n    \"Calendar Data\",\n    \"Live (delayed) Data API\",\n    \"CBOE Data API\",\n    \"Real-time Data via WebSockets\",\n    \"Economic Events API\",\n    \"Sentiment Data API\",\n    \"Tick Data\",\n    \"Exchanges List API\"\n  ],\n  \"availableMarketplaceDataFeeds\": {\n    \"dailyRateLimit\": 100000,\n    \"requestsSpent\": 30,\n    \"timeToReset\": \"08:53 GMT+0000\",\n    \"subscriptions\": [\n      \"US Stock Options Data API\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb7007f7-6357-4d0e-a8fa-92b53d69e718",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "YOUR_API_TOKEN_HERE"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b2a02cb-3f9d-436e-905c-5d446fa17bff",
+              "name": "Unauthorized. The API token is missing, invalid, or expired.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "YOUR_API_TOKEN_HERE"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a7923d9-fadd-4905-82df-9ae064188fba",
+              "name": "User not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "YOUR_API_TOKEN_HERE"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddc7fea7-86b5-45d1-b0ac-f40982b6ae96",
+          "name": "Get current user details",
+          "request": {
+            "name": "Get current user details",
+            "description": {
+              "content": "Returns details about the authenticated user, including subscription info and API usage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7062075b-fdfd-4bd2-a3e5-a4cf8a7e9107",
+              "name": "Successfully retrieved user details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"email\": \"string\",\n  \"subscriptionType\": \"string\",\n  \"paymentMethod\": \"string\",\n  \"apiRequests\": 1735,\n  \"apiRequestsDate\": \"string\",\n  \"dailyRateLimit\": 5272\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03a88d5e-3a57-4290-91bf-d197e084e608",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3de57f61-a204-48fc-ad70-b9eb7c5c8d8e",
+    "name": "EODHD Financial Data Calendar User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

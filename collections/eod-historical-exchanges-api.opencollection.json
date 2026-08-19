@@ -1,0 +1,266 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Exchanges API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Exchanges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve details for a specific exchange",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/exchange-details/:EXCHANGE_CODE",
+            "params": [
+              {
+                "name": "EXCHANGE_CODE",
+                "value": "",
+                "type": "path",
+                "description": "Exchange code for which details are to be retrieved (e.g., 'US' for the USA exchange)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for holiday data (YYYY-MM-DD). Defaults to 6 months before the current date."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for holiday data (YYYY-MM-DD). Defaults to 6 months after the current date."
+              },
+              {
+                "name": "format_version",
+                "value": "",
+                "type": "query",
+                "description": "Response format version."
+              }
+            ]
+          },
+          "docs": "Retrieve exchange details, trading hours, holidays, and active tickers for a specified exchange."
+        },
+        {
+          "info": {
+            "name": "Retrieve the list of tickers for a specific exchange.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/exchange-symbol-list/:exchangeCode",
+            "params": [
+              {
+                "name": "exchangeCode",
+                "value": "",
+                "type": "path",
+                "description": "Exchange code, e.g., 'PSE' for the Philippines Stock Exchange or 'US' for combined US exchanges."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Options: 'json' (default) or 'csv'."
+              },
+              {
+                "name": "delisted",
+                "value": "",
+                "type": "query",
+                "description": "Include delisted (inactive) tickers. Set to '1' to include."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticker type. Options: 'common_stock', 'preferred_stock', 'stock', 'etf', 'fund'."
+              }
+            ]
+          },
+          "docs": "Returns a list of active or delisted symbols for the specified exchange, with optional filters by ticker type."
+        },
+        {
+          "info": {
+            "name": "List supported exchanges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/exchanges-list",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON."
+              }
+            ]
+          },
+          "docs": "Retrieve the list of supported exchanges with their details."
+        },
+        {
+          "info": {
+            "name": "Map between financial identifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/id-mapping",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "filter[symbol]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ticker symbol (e.g., 'AAPL')."
+              },
+              {
+                "name": "filter[ex]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by exchange code (e.g., 'US')."
+              },
+              {
+                "name": "filter[isin]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by ISIN code (e.g., 'US0378331005')."
+              },
+              {
+                "name": "filter[figi]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by FIGI identifier."
+              },
+              {
+                "name": "filter[lei]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by LEI code."
+              },
+              {
+                "name": "filter[cusip]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by CUSIP identifier."
+              },
+              {
+                "name": "filter[cik]",
+                "value": "",
+                "type": "query",
+                "description": "Filter by CIK number."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Look up securities by various identifiers including symbol, exchange code, ISIN, FIGI, LEI, CUSIP, and CIK.\n\n**At least one of the following filter parameters is required**:\n`filter[symbol]`, `filter[isin]`, `filter[figi]`, `filter[lei]`, `filter[cusip]`, `filter[cik]`, or `filter[ex]`.\nA request without any of these will return HTTP 422.\n"
+        },
+        {
+          "info": {
+            "name": "List available exchanges (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/v2/exchange-details",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns an array of all exchange codes supported by the v2 endpoint. Use these codes to request details for a specific exchange via /v2/exchange-details/{code}."
+        },
+        {
+          "info": {
+            "name": "Get exchange details and trading hours (v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/v2/exchange-details/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Exchange code (case-insensitive). Use /v2/exchange-details to get the list of supported codes."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns trading hours, extended sessions (pre-market, after-hours), lunch breaks, and the full holiday calendar for the requested exchange. Covers 73 exchanges with verified data. The code parameter is case-insensitive."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

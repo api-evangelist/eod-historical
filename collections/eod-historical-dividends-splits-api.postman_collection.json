@@ -1,0 +1,671 @@
+{
+  "item": [
+    {
+      "id": "fce6f77d-6b0e-4cc3-a656-bfbb8bd7ff1c",
+      "name": "Dividends & Splits",
+      "description": {
+        "content": "Dividend and split history",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9044a93a-6d6a-43a5-b3c4-016e50874a6f",
+          "name": "Retrieve historical dividend data",
+          "request": {
+            "name": "Retrieve historical dividend data",
+            "description": {
+              "content": "Fetches historical dividend data for a specified stock symbol, including key dividend dates and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "div",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cfd4ccf-c996-4920-83e2-515905485d28",
+              "name": "Successfully retrieved historical dividend data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "div",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2012-08-09\",\n    \"declarationDate\": \"2012-07-24\",\n    \"recordDate\": \"2012-08-13\",\n    \"paymentDate\": \"2012-08-16\",\n    \"period\": \"Quarterly\",\n    \"value\": 0.0946,\n    \"unadjustedValue\": 2.6488,\n    \"currency\": \"USD\"\n  },\n  {\n    \"date\": \"2012-11-07\",\n    \"declarationDate\": \"2012-10-25\",\n    \"recordDate\": \"2012-11-12\",\n    \"paymentDate\": \"2012-11-15\",\n    \"period\": \"Quarterly\",\n    \"value\": 0.0946,\n    \"unadjustedValue\": 2.6488,\n    \"currency\": \"USD\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a92b1d5b-6ef3-44ad-9391-ce325fd95fb0",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "div",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62f23c4c-1adc-4880-9b1b-7b55425f544f",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "div",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2faf66b5-44ab-4a43-b463-ed10ac532773",
+              "name": "Dividend data not found for the specified ticker or date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "div",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cee113a2-a252-4460-86f6-ab64860e5b6c",
+          "name": "Retrieve historical split data",
+          "request": {
+            "name": "Retrieve historical split data",
+            "description": {
+              "content": "Fetches historical stock split data for a specified ticker, including split dates and ratios.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "splits",
+                ":ticker"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ticker",
+                  "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bea0c831-8da6-40b4-bc40-f1a9a329ca2c",
+              "name": "Successfully retrieved historical split data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "splits",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2000-06-21\",\n    \"split\": \"2.000000/1.000000\"\n  },\n  {\n    \"date\": \"2005-02-28\",\n    \"split\": \"2.000000/1.000000\"\n  },\n  {\n    \"date\": \"2014-06-09\",\n    \"split\": \"7.000000/1.000000\"\n  },\n  {\n    \"date\": \"2020-08-31\",\n    \"split\": \"4.000000/1.000000\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b124b76-8231-40d1-884d-12be6cf3a26c",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "splits",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24296859-7a26-48ae-a5c9-98f58fcc04d7",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "splits",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c11f7e2-ee20-4b51-8218-007b3b8635fd",
+              "name": "Split data not found for the specified ticker or date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "splits",
+                    ":ticker"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ticker",
+                      "description": "(Required) Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4b5bf2bb-283c-4652-ad85-7891de13421e",
+    "name": "EODHD Financial Data Calendar Dividends & Splits API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

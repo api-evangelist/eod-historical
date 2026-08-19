@@ -1,0 +1,647 @@
+{
+  "item": [
+    {
+      "id": "b50af449-a429-4a06-9494-294bfeb795ee",
+      "name": "Corporate Actions",
+      "description": {
+        "content": "Symbol changes and insider transactions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f127091-f314-4933-83ad-ed32196af82e",
+          "name": "Retrieve insider transaction data",
+          "request": {
+            "name": "Retrieve insider transaction data",
+            "description": {
+              "content": "Fetch insider transaction data for US-listed companies. Covers insider buys and sells, providing transaction details such as date, shares, and price.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "insider-transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Max number of entries per result, from 1 to 1000. Default is 100."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for transactions (format: YYYY-MM-DD). Defaults to one year before current date."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for transactions (format: YYYY-MM-DD). Defaults to current date."
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "Ticker symbol for filtering results (e.g., 'AAPL.US'). If omitted, returns data for all symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format (only 'json' supported)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38e35d63-b46d-4f9f-bce6-503b3fd607b9",
+              "name": "Successful response with insider transaction data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"code\": \"AAPL\",\n    \"exchange\": \"US\",\n    \"date\": \"2023-03-09\",\n    \"reportDate\": \"2023-03-13\",\n    \"ownerCik\": 320193,\n    \"ownerName\": \"Tim Cook\",\n    \"ownerRelationship\": \"CEO\",\n    \"ownerTitle\": \"CEO\",\n    \"transactionDate\": \"2023-03-09\",\n    \"transactionCode\": \"P\",\n    \"transactionAmount\": 5000,\n    \"transactionPrice\": 120.5,\n    \"transactionAcquiredDisposed\": \"A\",\n    \"postTransactionAmount\": 5000,\n    \"link\": \"https://www.sec.gov/Archives/edgar/data/0000320193/000141588922012089/xslF345X03/form4.xml\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2da3aacd-9716-493f-987a-4a7a7fab15f2",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "804285bd-7eb5-400a-8907-fb6f98864322",
+              "name": "Unauthorized access, invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b19e55aa-95cb-402a-aa98-9ddf6d189a2f",
+              "name": "No insider transaction data found for the specified criteria.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "insider-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00eff50c-4569-4dcb-9d53-5df849430887",
+          "name": "Retrieve symbol change history",
+          "request": {
+            "name": "Retrieve symbol change history",
+            "description": {
+              "content": "Retrieve the symbol change history within a specified date range. Only US exchanges are currently supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "symbol-change-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "(Required) Start date for symbol change history in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "(Required) End date for symbol change history in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "ex",
+                  "value": "<string>",
+                  "description": "Exchange code filter (e.g., 'US')."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "<string>",
+                  "description": "Response format. Options are 'json' and 'csv'. Defaults to JSON."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26aa107a-7359-46a7-8830-f599ef6ae8b1",
+              "name": "Successful response with symbol change history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"CBTX\",\n    \"new_symbol\": \"STEL\",\n    \"company_name\": \"Stellar Bancorp, Inc. Common Stock\",\n    \"effective\": \"2022-10-03\"\n  },\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"FFR\",\n    \"new_symbol\": \"DTRE\",\n    \"company_name\": \"First Trust Alerian Disruptive Technology Real Estate ETF\",\n    \"effective\": \"2022-10-03\"\n  },\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"XPER\",\n    \"new_symbol\": \"ADEA\",\n    \"company_name\": \"Adeia Inc. Common Stock\",\n    \"effective\": \"2022-10-03\"\n  },\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"CNTQ\",\n    \"new_symbol\": \"DFLI\",\n    \"company_name\": \"Dragonfly Energy Holdings Corp. Common Stock (NV)\",\n    \"effective\": \"2022-10-10\"\n  },\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"CNTQW\",\n    \"new_symbol\": \"DFLIW\",\n    \"company_name\": \"Dragonfly Energy Holdings Corp. Warrant\",\n    \"effective\": \"2022-10-10\"\n  },\n  {\n    \"exchange\": \"US\",\n    \"old_symbol\": \"LLL\",\n    \"new_symbol\": \"JXJT\",\n    \"company_name\": \"JX Luxventure Limited Common Stock\",\n    \"effective\": \"2022-10-10\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "424fc199-9026-496e-9ccd-76de50d84da2",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "812b47aa-9b89-4d0a-bd97-4ef77327fc89",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c47f9b5-f64e-46b3-b100-08b4d181dcfa",
+              "name": "No symbol change history found for the specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "symbol-change-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ex",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea7ad053-4ebf-4892-96dc-580a71b2305f",
+    "name": "EODHD Financial Data Calendar Corporate Actions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Dividends & Splits API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dividends & Splits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve historical dividend data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/div/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+              }
+            ]
+          },
+          "docs": "Fetches historical dividend data for a specified stock symbol, including key dividend dates and values."
+        },
+        {
+          "info": {
+            "name": "Retrieve historical split data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/splits/:ticker",
+            "params": [
+              {
+                "name": "ticker",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol of the stock in the format {SYMBOL_NAME}.{EXCHANGE_ID} (e.g., 'AAPL.US' for NASDAQ or 'AAPL.MX' for the Mexican Stock Exchange)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for data retrieval in 'YYYY-MM-DD' format. Defaults to earliest available data if not provided."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for data retrieval in 'YYYY-MM-DD' format. Defaults to latest available data if not provided."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'json' or 'csv'. Defaults to 'json'."
+              }
+            ]
+          },
+          "docs": "Fetches historical stock split data for a specified ticker, including split dates and ratios."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

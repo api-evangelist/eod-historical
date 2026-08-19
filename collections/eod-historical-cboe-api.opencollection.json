@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar CBOE API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CBOE",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get CBOE index historical data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/cboe/index",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "filter[index_code]",
+                "value": "",
+                "type": "query",
+                "description": "CBOE index code (e.g., 'VIX', 'SPX')."
+              },
+              {
+                "name": "filter[feed_type]",
+                "value": "",
+                "type": "query",
+                "description": "Feed type filter."
+              },
+              {
+                "name": "filter[date]",
+                "value": "",
+                "type": "query",
+                "description": "Date filter in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[include_review]",
+                "value": "",
+                "type": "query",
+                "description": "Include review data."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns historical end-of-day data for a specific CBOE index, including daily open, high, low, close values."
+        },
+        {
+          "info": {
+            "name": "List CBOE indices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/cboe/indices",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns a list of all available CBOE indices with their latest values and metadata."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

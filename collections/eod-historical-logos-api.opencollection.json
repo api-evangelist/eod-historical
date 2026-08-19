@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Logos API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Logos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get ticker logo (PNG)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/logo/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Ticker with exchange, e.g., AAPL.US"
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns a 200x200 PNG logo (transparent background) for the given ticker symbol, formatted as {ticker}.{exchange} (e.g., AAPL.US)."
+        },
+        {
+          "info": {
+            "name": "Get ticker logo (SVG)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/logo-svg/:symbol",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Ticker with exchange, e.g., AAPL.US"
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns an SVG logo for the given ticker symbol, formatted as {ticker}.{exchange} (e.g., AAPL.US)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

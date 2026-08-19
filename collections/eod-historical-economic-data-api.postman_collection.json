@@ -1,0 +1,1008 @@
+{
+  "item": [
+    {
+      "id": "d670068d-a7d5-4ffd-9c5d-8100b0463488",
+      "name": "Economic Data",
+      "description": {
+        "content": "Economic events and macro indicators",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6e7b823-3d23-436e-90ea-d3a7a70491a7",
+          "name": "Get historical commodity prices",
+          "request": {
+            "name": "Get historical commodity prices",
+            "description": {
+              "content": "Returns historical price data for a specific commodity by its code (e.g., WTI, BRENT, NATURAL_GAS).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commodities",
+                "historical",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "daily",
+                  "description": "Data interval — 'daily' (default), 'weekly', or 'monthly'."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54e61e14-cd91-4f56-ac0b-72826c76644e",
+              "name": "Successfully retrieved commodity historical data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commodities",
+                    "historical",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2001-12-09\",\n    \"open\": 7548.1690492000735,\n    \"high\": 4568.636876499919,\n    \"low\": 2983.0442880490136,\n    \"close\": 1560.1206503304322,\n    \"adjusted_close\": 7245.420189174038,\n    \"volume\": 3378.757210022795\n  },\n  {\n    \"date\": \"1995-07-09\",\n    \"open\": 7016.070398161517,\n    \"high\": 563.4312281836008,\n    \"low\": 6227.184249557679,\n    \"close\": 1469.9530373378977,\n    \"adjusted_close\": 7022.551823011125,\n    \"volume\": 5043.157884952917\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "785027c2-98d5-490a-9756-58ad8e7c945e",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commodities",
+                    "historical",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fb5900c-7fa6-4861-9f27-c39feb254488",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commodities",
+                    "historical",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb6c1f7a-2217-4c2b-bd12-b0d84b69013d",
+              "name": "Commodity not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commodities",
+                    "historical",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2fa1256-7f80-46f4-88cc-dff931eb7d00",
+          "name": "Retrieve economic events data",
+          "request": {
+            "name": "Retrieve economic events data",
+            "description": {
+              "content": "Fetches economic events by date range, country, comparison type, and other optional parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "economic-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States."
+                },
+                {
+                  "disabled": false,
+                  "key": "comparison",
+                  "value": "<string>",
+                  "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Data offset, from 0 to 1000. Default is 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Number of results to return, from 0 to 1000. Default is 50."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca2ed7cb-38d5-473f-93e7-682c3d43df9a",
+              "name": "Successfully retrieved economic events data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "economic-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comparison",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"Participation Rate\",\n    \"comparison\": \"\",\n    \"period\": \"May\",\n    \"country\": \"US\",\n    \"date\": \"2022-06-03 16:30:00\",\n    \"actual\": 62.3,\n    \"previous\": 62.2,\n    \"estimate\": \"\",\n    \"change\": 0.1,\n    \"change_percentage\": 0.161\n  },\n  {\n    \"type\": \"Nonfarm Payrolls Private\",\n    \"comparison\": \"\",\n    \"period\": \"May\",\n    \"country\": \"US\",\n    \"date\": \"2022-06-03 16:30:00\",\n    \"actual\": 333,\n    \"previous\": 405,\n    \"estimate\": 325,\n    \"change\": -72,\n    \"change_percentage\": -17.778\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38a33fcd-df86-49b6-abb1-7e74fe8ab828",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "economic-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comparison",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5021e7bb-fc75-4e40-ab96-282ebec5c2ac",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "economic-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comparison",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa846c3e-374a-42c0-9c2c-42fcdb0ddfee",
+              "name": "No economic events data found for the specified parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "economic-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "comparison",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d65d383b-3909-4ce2-aa3a-605261a42a0f",
+          "name": "Retrieve macroeconomic indicators for a specific country",
+          "request": {
+            "name": "Retrieve macroeconomic indicators for a specific country",
+            "description": {
+              "content": "Fetches macroeconomic data for a selected indicator, such as GDP or inflation, by country code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "macro-indicator",
+                ":country"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "indicator",
+                  "value": "gdp_current_usd",
+                  "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format: 'json' or 'csv'. Default is 'json'."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country",
+                  "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bb6c7d7-3a15-4bef-bb81-721636c756ca",
+              "name": "Successfully retrieved macroeconomic data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "macro-indicator",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator",
+                      "value": "gdp_current_usd"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"CountryCode\": \"USA\",\n    \"CountryName\": \"United States\",\n    \"Indicator\": \"Inflation, consumer prices (annual %)\",\n    \"Date\": \"2023-12-31\",\n    \"Period\": \"Annual\",\n    \"Value\": 4.1163\n  },\n  {\n    \"CountryCode\": \"USA\",\n    \"CountryName\": \"United States\",\n    \"Indicator\": \"Inflation, consumer prices (annual %)\",\n    \"Date\": \"2022-12-31\",\n    \"Period\": \"Annual\",\n    \"Value\": 8.0028\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f93745d0-dcbf-435f-a451-33432714f371",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "macro-indicator",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator",
+                      "value": "gdp_current_usd"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9cb587b-4cd2-4a4b-b663-776b4d0c0e00",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "macro-indicator",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator",
+                      "value": "gdp_current_usd"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fcc9268-5fab-4de4-9d65-6c780f7041da",
+              "name": "Data not found for the specified country or indicator.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "macro-indicator",
+                    ":country"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "indicator",
+                      "value": "gdp_current_usd"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country",
+                      "description": "(Required) Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ad62acbe-095c-43ea-9b99-54a8a5fc658e",
+    "name": "EODHD Financial Data Calendar Economic Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

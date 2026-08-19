@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar News API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve financial news articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/news",
+            "params": [
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Ticker code to get news for (e.g., 'AAPL.US'). Required if 't' is not provided."
+              },
+              {
+                "name": "t",
+                "value": "",
+                "type": "query",
+                "description": "Tag to get news on a given topic. Required if 's' is not provided."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for news data (YYYY-MM-DD)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for news data (YYYY-MM-DD)"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the data"
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format (e.g., 'json')"
+              }
+            ]
+          },
+          "docs": "Retrieve financial news articles for a specific company ticker or topic"
+        },
+        {
+          "info": {
+            "name": "Top weighted news keywords for a ticker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/news-word-weights",
+            "params": [
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Ticker to analyze, e.g., AAPL or AAPL.US"
+              },
+              {
+                "name": "filter[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Start date (YYYY-MM-DD)"
+              },
+              {
+                "name": "filter[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "End date (YYYY-MM-DD). Prefer this over the legacy alias `filter[to]`."
+              },
+              {
+                "name": "filter[to]",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated alias for `filter[date_to]` (YYYY-MM-DD). Use only one of these parameters."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of top words to return"
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format"
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              }
+            ]
+          },
+          "docs": "Returns the most relevant words from financial news for the given ticker and period, with weights (frequency ? significance)."
+        },
+        {
+          "info": {
+            "name": "Retrieve market news sentiment data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/sentiments",
+            "params": [
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of ticker codes to retrieve sentiment data for (e.g., 'btc-usd.cc,aapl.us')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for sentiment data (YYYY-MM-DD)."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for sentiment data (YYYY-MM-DD)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Response format (only 'json' is supported)."
+              }
+            ]
+          },
+          "docs": "Retrieve sentiment analysis for financial news related to specified tickers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

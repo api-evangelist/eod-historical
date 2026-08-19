@@ -1,0 +1,656 @@
+{
+  "item": [
+    {
+      "id": "33fc7829-f1de-4886-8530-6dc4f2635e00",
+      "name": "Screening",
+      "description": {
+        "content": "Stock screening tools",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5b4f6d56-abc9-467c-982a-7bf1a0bc21ba",
+          "name": "Get filtered stock data based on user-defined criteria.",
+          "request": {
+            "name": "Get filtered stock data based on user-defined criteria.",
+            "description": {
+              "content": "Retrieves stock data filtered by criteria such as market capitalization, exchange, sector, and more. Results can be sorted and paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "screener"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "Filters to apply, structured as nested arrays (e.g., [[\"field\", \"operation\", value], ...])."
+                },
+                {
+                  "disabled": false,
+                  "key": "signals",
+                  "value": "<string>",
+                  "description": "Signals to filter tickers by pre-calculated fields (e.g., 200d_new_hi, bookvalue_pos)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorts results by a specified field in ascending or descending order (e.g., market_capitalization.desc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Number of results per request. Minimum 1, maximum 500. Default is 50."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Data offset for paginating results. Minimum 0, maximum 999. Default is 0."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b528621-da3b-4fa5-a9d8-7ded8c7541db",
+              "name": "Successful response with filtered stock data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screener"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "[[\"market_capitalization\",\">\",1000000000],[\"sector\",\"=\",\"Technology\"]]"
+                    },
+                    {
+                      "key": "signals",
+                      "value": "200d_new_hi,bookvalue_pos"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "market_capitalization.desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"code\": \"AAPL\",\n      \"name\": \"Apple Inc\",\n      \"last_day_data_date\": \"2024-10-25\",\n      \"adjusted_close\": 231.41,\n      \"refund_1d\": 0.84,\n      \"refund_1d_p\": 0.36,\n      \"refund_5d\": -3.59,\n      \"refund_5d_p\": -1.53,\n      \"exchange\": \"US\",\n      \"currency_symbol\": \"$\",\n      \"market_capitalization\": 3518380900352,\n      \"earnings_share\": 6.6,\n      \"dividend_yield\": 0.0043,\n      \"sector\": \"Technology\",\n      \"industry\": \"Consumer Electronics\",\n      \"avgvol_1d\": 38776700,\n      \"avgvol_200d\": 59597856\n    },\n    {\n      \"code\": \"NVDA\",\n      \"name\": \"NVIDIA Corporation\",\n      \"last_day_data_date\": \"2024-10-25\",\n      \"adjusted_close\": 141.54,\n      \"refund_1d\": 1.13,\n      \"refund_1d_p\": 0.8,\n      \"refund_5d\": 3.54,\n      \"refund_5d_p\": 2.57,\n      \"exchange\": \"US\",\n      \"currency_symbol\": \"$\",\n      \"market_capitalization\": 3471975907328,\n      \"earnings_share\": 2.15,\n      \"dividend_yield\": 0.0003,\n      \"sector\": \"Technology\",\n      \"industry\": \"Semiconductors\",\n      \"avgvol_1d\": 205122109,\n      \"avgvol_200d\": 411629851.58\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de4577d1-bd83-467e-9255-dbb605ac2893",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screener"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "[[\"market_capitalization\",\">\",1000000000],[\"sector\",\"=\",\"Technology\"]]"
+                    },
+                    {
+                      "key": "signals",
+                      "value": "200d_new_hi,bookvalue_pos"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "market_capitalization.desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b4e712f-040b-4082-b1ff-a842c115eff4",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screener"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "[[\"market_capitalization\",\">\",1000000000],[\"sector\",\"=\",\"Technology\"]]"
+                    },
+                    {
+                      "key": "signals",
+                      "value": "200d_new_hi,bookvalue_pos"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "market_capitalization.desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f36a639-8106-40a5-8375-7f5e0639aa19",
+          "name": "Search stocks, companies, and ISINs",
+          "request": {
+            "name": "Search stocks, companies, and ISINs",
+            "description": {
+              "content": "Search for stocks, companies, or ISINs by a query (e.g., company name, stock symbol, or ISIN)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                ":query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) API token for authentication"
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "<string>",
+                  "description": "Response format (e.g., 'json')"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by security type."
+                },
+                {
+                  "disabled": false,
+                  "key": "exchange",
+                  "value": "<string>",
+                  "description": "Filter by exchange code (e.g., 'US', 'LSE')."
+                },
+                {
+                  "disabled": false,
+                  "key": "bonds_only",
+                  "value": "<integer>",
+                  "description": "Set to 1 to return bonds only."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "query",
+                  "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a911e186-e597-417f-8b1e-01bbd5df5451",
+              "name": "Successful response with search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bonds_only",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Code\": \"AAPL\",\n    \"Exchange\": \"US\",\n    \"Name\": \"Apple Inc\",\n    \"Type\": \"Common Stock\",\n    \"Country\": \"USA\",\n    \"Currency\": \"USD\",\n    \"ISIN\": \"US0378331005\",\n    \"previousClose\": 230.76,\n    \"previousCloseDate\": \"2024-10-23\"\n  },\n  {\n    \"Code\": \"AMZN\",\n    \"Exchange\": \"US\",\n    \"Name\": \"Amazon.com Inc\",\n    \"Type\": \"Common Stock\",\n    \"Country\": \"USA\",\n    \"Currency\": \"USD\",\n    \"ISIN\": \"US0231351067\",\n    \"previousClose\": 184.71,\n    \"previousCloseDate\": \"2024-10-23\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24c54641-1969-4d87-bfca-e69a54e7ae7d",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bonds_only",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9f9252b-dc6b-4fe4-b8a9-c50d0810661b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bonds_only",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a1deda0-4b9e-4e0e-8680-c8451dde127f",
+              "name": "No results found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "exchange",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bonds_only",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) The search query (e.g., 'AAPL', 'Amazon', or ISIN 'US3453708600')"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a928da7b-e310-4965-8ada-999d0a551077",
+    "name": "EODHD Financial Data Calendar Screening API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

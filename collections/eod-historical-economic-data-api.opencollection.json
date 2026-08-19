@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar Economic Data API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Economic Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get historical commodity prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/commodities/historical/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Commodity code (e.g., 'WTI', 'BRENT', 'NATURAL_GAS', 'GOLD', 'SILVER', 'COPPER', 'PLATINUM', 'PALLADIUM', 'WHEAT', 'CORN', 'SOYBEANS', 'RICE', 'SUGAR', 'COFFEE', 'COTTON', 'COCOA', 'OATS', 'LUMBER', 'RUBBER', 'ETHANOL', 'PROPANE', 'URANIUM', 'COAL')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "API token for authentication."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval — 'daily' (default), 'weekly', or 'monthly'."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format."
+              }
+            ]
+          },
+          "docs": "Returns historical price data for a specific commodity by its code (e.g., WTI, BRENT, NATURAL_GAS)."
+        },
+        {
+          "info": {
+            "name": "Retrieve economic events data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/economic-events",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for data retrieval in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country code in ISO 3166-1 alpha-2 format, e.g., 'US' for the United States."
+              },
+              {
+                "name": "comparison",
+                "value": "",
+                "type": "query",
+                "description": "Comparison type, e.g., 'mom' for month-over-month, 'qoq' for quarter-over-quarter, 'yoy' for year-over-year."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Data offset, from 0 to 1000. Default is 0."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return, from 0 to 1000. Default is 50."
+              }
+            ]
+          },
+          "docs": "Fetches economic events by date range, country, comparison type, and other optional parameters."
+        },
+        {
+          "info": {
+            "name": "Retrieve macroeconomic indicators for a specific country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/macro-indicator/:country",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "path",
+                "description": "Country code in ISO Alpha-3 format (e.g., 'USA' for United States, 'FRA' for France)."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for authentication."
+              },
+              {
+                "name": "indicator",
+                "value": "",
+                "type": "query",
+                "description": "The macroeconomic indicator to retrieve. Default is 'gdp_current_usd'."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format: 'json' or 'csv'. Default is 'json'."
+              }
+            ]
+          },
+          "docs": "Fetches macroeconomic data for a selected indicator, such as GDP or inflation, by country code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

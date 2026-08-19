@@ -1,0 +1,1431 @@
+{
+  "item": [
+    {
+      "id": "08877672-ab02-41c4-aef3-949fe040c8b6",
+      "name": "Calendar",
+      "description": {
+        "content": "Calendar events including earnings, IPOs, splits, dividends, and trends",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f621eb2-1f5a-4ad6-a110-f7289a0e1e68",
+          "name": "Retrieve upcoming dividends calendar",
+          "request": {
+            "name": "Retrieve upcoming dividends calendar",
+            "description": {
+              "content": "Look up upcoming and historical dividend events.\n\nUses the JSON:API filter/page convention. **At least one of `filter[date_eq]` or `filter[symbol]` is required** — a request without either will return HTTP 422.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "dividends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token for accessing the API."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[date_eq]",
+                  "value": "<date>",
+                  "description": "Exact date in 'YYYY-MM-DD' format. Required if `filter[symbol]` is not present.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[date_from]",
+                  "value": "<date>",
+                  "description": "Start date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[date_to]",
+                  "value": "<date>",
+                  "description": "End date in 'YYYY-MM-DD' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[symbol]",
+                  "value": "<string>",
+                  "description": "Ticker symbol (e.g., 'AAPL.US'). When provided, `filter[date_eq]` may be omitted.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "Number of records per page (1-10000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "<integer>",
+                  "description": "Pagination offset (0-1000000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format. Defaults to 'json'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dd5016b-f794-4038-8b1d-912db726459c",
+              "name": "Successfully retrieved dividends calendar data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_eq]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"total\": 91\n  },\n  \"data\": [\n    {\n      \"date\": \"2026-05-11\",\n      \"symbol\": \"AAPL.US\"\n    },\n    {\n      \"date\": \"2026-05-12\",\n      \"symbol\": \"MSFT.US\"\n    }\n  ],\n  \"links\": {\n    \"self\": \"https://eodhd.com/api/calendar/dividends?filter[symbol]=AAPL.US\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "544b7d39-1bc1-43ec-bd39-65008c7b0950",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_eq]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22b41d6c-8135-48ed-b704-20cfdf8bb899",
+              "name": "Validation error. Returned when required filter is missing or parameters are malformed.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[date_eq]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_from]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[date_to]",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "filter[symbol]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"filter\": [\n      \"The filter field is required.\"\n    ],\n    \"filter.date_eq\": [\n      \"The filter.date eq field is required when filter.symbol is not present.\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7026dd14-523c-4a89-af62-8f69133f990b",
+          "name": "Retrieve upcoming earnings data",
+          "request": {
+            "name": "Retrieve upcoming earnings data",
+            "description": {
+              "content": "Fetches upcoming earnings data, with optional parameters for date ranges and specific symbols.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "earnings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token for accessing the API."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for earnings data, in 'YYYY-MM-DD' format. Defaults to today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for earnings data, in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Specific symbols to retrieve earnings data for, separated by commas (e.g., 'AAPL.US,MSFT.US'). Overrides the 'from' and 'to' parameters if used."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "csv",
+                  "description": "Output format, either 'csv' or 'json'. Defaults to 'csv'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5aa4a1f4-f068-408c-9f3a-cc55ff8094ed",
+              "name": "Successfully retrieved earnings data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"Earnings\",\n  \"description\": \"Historical and upcoming Earnings\",\n  \"from\": \"2018-12-02\",\n  \"to\": \"2018-12-05\",\n  \"earnings\": [\n    {\n      \"code\": \"AAPL.US\",\n      \"report_date\": \"2023-02-02\",\n      \"date\": \"2022-12-31\",\n      \"before_after_market\": \"AfterMarket\",\n      \"currency\": \"USD\",\n      \"actual\": 1.88,\n      \"estimate\": 1.94,\n      \"difference\": -0.06,\n      \"percent\": -3.0928\n    },\n    {\n      \"code\": \"MSFT.US\",\n      \"report_date\": \"2023-04-25\",\n      \"date\": \"2023-03-31\",\n      \"before_after_market\": \"AfterMarket\",\n      \"currency\": \"USD\",\n      \"actual\": 2.45,\n      \"estimate\": 2.23,\n      \"difference\": 0.22,\n      \"percent\": 9.8655\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e04fc8b1-58d2-47f3-a557-802fda6263eb",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f92cb49b-3067-4008-81cc-6f7447e6d511",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e7c6ea8-22a9-4616-9c56-3bcbcf35ca4c",
+              "name": "Earnings data not found for the specified parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "earnings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddb2b9be-62f3-43c6-8ac9-7832a685930c",
+          "name": "Retrieve upcoming IPO data",
+          "request": {
+            "name": "Retrieve upcoming IPO data",
+            "description": {
+              "content": "Fetches historical and upcoming IPOs for specified date ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "ipos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for IPO data in 'YYYY-MM-DD' format. Defaults to today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for IPO data in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "csv",
+                  "description": "Output format. Possible values: 'csv' for CSV and 'json' for JSON. Defaults to 'csv'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "079bd1a4-1c42-4f9d-ac30-ee44f4bf3db8",
+              "name": "Successfully retrieved IPO data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"IPOs\",\n  \"description\": \"Historical and upcoming IPOs\",\n  \"from\": \"2018-12-02\",\n  \"to\": \"2018-12-06\",\n  \"ipos\": [\n    {\n      \"code\": \"603629.SHG\",\n      \"name\": \"Jiangsu Lettall Electn Co Ltd\",\n      \"exchange\": \"Shanghai\",\n      \"currency\": \"CNY\",\n      \"start_date\": \"2018-12-11\",\n      \"filing_date\": \"2017-06-15\",\n      \"amended_date\": \"2018-12-03\",\n      \"price_from\": 0,\n      \"price_to\": 0,\n      \"offer_price\": 0,\n      \"shares\": 25000000,\n      \"deal_type\": \"Expected\"\n    },\n    {\n      \"code\": \"N/A\",\n      \"name\": \"Gsp Resource Corp\",\n      \"exchange\": \"TSXV\",\n      \"currency\": \"CAD\",\n      \"start_date\": \"2018-12-03\",\n      \"filing_date\": \"2018-08-13\",\n      \"amended_date\": \"2018-11-29\",\n      \"price_from\": 0.1523,\n      \"price_to\": 0.1523,\n      \"offer_price\": 0.2,\n      \"shares\": 2500000,\n      \"deal_type\": \"Priced\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00276b98-967c-4ecc-a713-3e24a6d4b16d",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9fe80e8-912d-49df-9eea-3f11827f838e",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8631256c-b82a-4805-87dc-fd70ed325ff6",
+              "name": "No IPO data found for the specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "ipos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4311366b-e4d5-45c5-8368-a953a54a7d1c",
+          "name": "Retrieve upcoming and historical stock splits",
+          "request": {
+            "name": "Retrieve upcoming and historical stock splits",
+            "description": {
+              "content": "Fetches information on stock splits for specified date ranges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "splits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<date>",
+                  "description": "Start date for split data in 'YYYY-MM-DD' format. Defaults to today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<date>",
+                  "description": "End date for split data in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "csv",
+                  "description": "Output format, either 'csv' or 'json'. Default is 'csv'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd3b13c2-03b7-46b8-a98f-ddc3088cfd74",
+              "name": "Successfully retrieved split data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"description\": \"string\",\n  \"from\": \"1973-06-08\",\n  \"to\": \"1947-07-31\",\n  \"splits\": [\n    {\n      \"code\": \"string\",\n      \"split_date\": \"1972-06-01\",\n      \"old_shares\": 9770,\n      \"new_shares\": 6255,\n      \"optionable\": \"Y\"\n    },\n    {\n      \"code\": \"string\",\n      \"split_date\": \"2001-11-26\",\n      \"old_shares\": 7506,\n      \"new_shares\": 1568,\n      \"optionable\": \"N\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a90c5b28-c235-4362-8a05-e7e1be9c58dd",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b18dc62a-132a-42f0-9457-cec3e086f68f",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f643849-9d30-4a48-9573-570bb2cc21da",
+              "name": "No split data found for the specified date range.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "csv"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3af0e743-3ddd-4961-92e9-2bb4a2c3d06d",
+          "name": "Retrieve earnings trends data",
+          "request": {
+            "name": "Retrieve earnings trends data",
+            "description": {
+              "content": "Fetches historical and upcoming earnings trends, including EPS and revenue estimates, trends, and revisions for specific stock symbols.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "calendar",
+                "trends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock symbols to retrieve trends data for (e.g., 'AAPL.US,MSFT.US')."
+                },
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API key for authentication."
+                },
+                {
+                  "disabled": false,
+                  "key": "fmt",
+                  "value": "json",
+                  "description": "Output format. Currently supports only 'json'."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "669b9054-1141-439f-b3e5-c9cf6d8aa20a",
+              "name": "Successfully retrieved earnings trends data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"Trends\",\n  \"description\": \"Historical and upcoming earning trends\",\n  \"symbols\": \"AAPL.US\",\n  \"trends\": [\n    [\n      {\n        \"code\": \"AAPL.US\",\n        \"date\": \"2025-09-30\",\n        \"period\": \"+1y\",\n        \"growth\": \"0.1200\",\n        \"earningsEstimateAvg\": \"7.4700\",\n        \"earningsEstimateLow\": \"6.8800\",\n        \"earningsEstimateHigh\": \"7.9300\",\n        \"earningsEstimateYearAgoEps\": \"6.6700\",\n        \"earningsEstimateNumberOfAnalysts\": \"42\",\n        \"earningsEstimateGrowth\": \"0.1200\",\n        \"revenueEstimateAvg\": \"420689000000.00\",\n        \"revenueEstimateLow\": \"401691000000.00\",\n        \"revenueEstimateHigh\": \"441882000000.00\",\n        \"revenueEstimateYearAgoEps\": \"\",\n        \"revenueEstimateNumberOfAnalysts\": \"40\",\n        \"revenueEstimateGrowth\": \"0.0780\",\n        \"epsTrendCurrent\": \"7.4700\",\n        \"epsTrend7daysAgo\": \"7.4800\",\n        \"epsTrend30daysAgo\": \"7.4800\",\n        \"epsTrend60daysAgo\": \"7.4800\",\n        \"epsTrend90daysAgo\": \"7.3400\",\n        \"epsRevisionsUpLast7days\": \"1\",\n        \"epsRevisionsUpLast30days\": \"4\",\n        \"epsRevisionsDownLast30days\": \"3\"\n      }\n    ]\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7b705c3-6855-42df-811b-0e50049ad881",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92735cf3-77ea-4f0c-b437-88a21b887f0f",
+              "name": "Unauthorized. Invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0cc5a83-794a-4178-a239-157568a9e752",
+              "name": "Earnings trends data not found for the specified symbols.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "calendar",
+                    "trends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fmt",
+                      "value": "json"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eodhd.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bad0e3a0-08d4-4390-943b-a39503cf2cf9",
+    "name": "EODHD Financial Data Calendar API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)\n\nContact Support:\n Name: EODHD Support\n Email: supportlevel1@eodhistoricaldata.com",
+      "type": "text/plain"
+    }
+  }
+}

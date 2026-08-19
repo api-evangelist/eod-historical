@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EODHD Financial Data Calendar API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calendar",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve upcoming dividends calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/calendar/dividends",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for accessing the API."
+              },
+              {
+                "name": "filter[date_eq]",
+                "value": "",
+                "type": "query",
+                "description": "Exact date in 'YYYY-MM-DD' format. Required if `filter[symbol]` is not present.\n"
+              },
+              {
+                "name": "filter[date_from]",
+                "value": "",
+                "type": "query",
+                "description": "Start date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[date_to]",
+                "value": "",
+                "type": "query",
+                "description": "End date in 'YYYY-MM-DD' format."
+              },
+              {
+                "name": "filter[symbol]",
+                "value": "",
+                "type": "query",
+                "description": "Ticker symbol (e.g., 'AAPL.US'). When provided, `filter[date_eq]` may be omitted.\n"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page (1-10000)."
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset (0-1000000)."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format. Defaults to 'json'."
+              }
+            ]
+          },
+          "docs": "Look up upcoming and historical dividend events.\n\nUses the JSON:API filter/page convention. **At least one of `filter[date_eq]` or `filter[symbol]` is required** — a request without either will return HTTP 422.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve upcoming earnings data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/calendar/earnings",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token for accessing the API."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for earnings data, in 'YYYY-MM-DD' format. Defaults to today if not provided."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for earnings data, in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Specific symbols to retrieve earnings data for, separated by commas (e.g., 'AAPL.US,MSFT.US'). Overrides the 'from' and 'to' parameters if used."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'csv' or 'json'. Defaults to 'csv'."
+              }
+            ]
+          },
+          "docs": "Fetches upcoming earnings data, with optional parameters for date ranges and specific symbols."
+        },
+        {
+          "info": {
+            "name": "Retrieve upcoming IPO data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/calendar/ipos",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for IPO data in 'YYYY-MM-DD' format. Defaults to today if not provided."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for IPO data in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format. Possible values: 'csv' for CSV and 'json' for JSON. Defaults to 'csv'."
+              }
+            ]
+          },
+          "docs": "Fetches historical and upcoming IPOs for specified date ranges."
+        },
+        {
+          "info": {
+            "name": "Retrieve upcoming and historical stock splits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/calendar/splits",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for split data in 'YYYY-MM-DD' format. Defaults to today if not provided."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date for split data in 'YYYY-MM-DD' format. Defaults to 7 days from today if not provided."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format, either 'csv' or 'json'. Default is 'csv'."
+              }
+            ]
+          },
+          "docs": "Fetches information on stock splits for specified date ranges."
+        },
+        {
+          "info": {
+            "name": "Retrieve earnings trends data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eodhd.com/api/calendar/trends",
+            "params": [
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock symbols to retrieve trends data for (e.g., 'AAPL.US,MSFT.US')."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API key for authentication."
+              },
+              {
+                "name": "fmt",
+                "value": "",
+                "type": "query",
+                "description": "Output format. Currently supports only 'json'."
+              }
+            ]
+          },
+          "docs": "Fetches historical and upcoming earnings trends, including EPS and revenue estimates, trends, and revisions for specific stock symbols."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
