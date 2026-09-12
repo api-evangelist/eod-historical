@@ -389,6 +389,8 @@ apis:
   - type: GitHubOrganization
     url: https://github.com/EodHistoricalData
 common:
+  - type: Website
+    url: https://www.eodhd.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/eod-historical-data/overview
   - type: AgenticAccess
