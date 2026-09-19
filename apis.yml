@@ -186,6 +186,8 @@ apis:
   humanURL: https://eodhd.com/financial-apis/
   baseURL: https://eodhd.com/api
   tags:
+  - Exchange
+  tags_raw:
   - Exchanges
   properties:
   - type: OpenAPI
@@ -266,6 +268,8 @@ apis:
   humanURL: https://eodhd.com/financial-apis/
   baseURL: https://eodhd.com/api
   tags:
+  - Logo
+  tags_raw:
   - Logos
   properties:
   - type: OpenAPI
