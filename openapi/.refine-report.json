@@ -1,35 +1,16 @@
 {
   "provider": "eod-historical",
   "sources": [
-    "eod-historical-calendar-api-openapi.yml",
-    "eod-historical-cboe-api-openapi.yml",
-    "eod-historical-corporate-actions-api-openapi.yml",
-    "eod-historical-dividends-splits-api-openapi.yml",
-    "eod-historical-economic-data-api-openapi.yml",
-    "eod-historical-end-of-day-data-api-openapi.yml",
-    "eod-historical-esg-api-openapi.yml",
-    "eod-historical-exchanges-api-openapi.yml",
-    "eod-historical-fundamentals-api-openapi.yml",
-    "eod-historical-indices-api-openapi.yml",
-    "eod-historical-intraday-data-api-openapi.yml",
-    "eod-historical-investment-analytics-api-openapi.yml",
-    "eod-historical-logos-api-openapi.yml",
-    "eod-historical-market-data-api-openapi.yml",
-    "eod-historical-news-api-openapi.yml",
-    "eod-historical-options-api-openapi.yml",
-    "eod-historical-screening-api-openapi.yml",
-    "eod-historical-technical-api-openapi.yml",
-    "eod-historical-us-treasury-api-openapi.yml",
-    "eod-historical-user-api-openapi.yml"
+    "_original/openapi.yaml"
   ],
   "outputs": [
-    "eod-historical-calendar-api-openapi.yml",
     "eod-historical-cboe-api-openapi.yml",
+    "eod-historical-calendar-api-openapi.yml",
     "eod-historical-corporate-actions-api-openapi.yml",
     "eod-historical-dividends-splits-api-openapi.yml",
+    "eod-historical-esg-api-openapi.yml",
     "eod-historical-economic-data-api-openapi.yml",
     "eod-historical-end-of-day-data-api-openapi.yml",
-    "eod-historical-esg-api-openapi.yml",
     "eod-historical-exchanges-api-openapi.yml",
     "eod-historical-fundamentals-api-openapi.yml",
     "eod-historical-indices-api-openapi.yml",
@@ -47,6 +28,31 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "eod-historical-calendar-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-cboe-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-corporate-actions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-dividends-splits-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-economic-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-end-of-day-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-esg-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-exchanges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-fundamentals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-indices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-intraday-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-investment-analytics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-logos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-market-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-news-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-options-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-screening-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-technical-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-us-treasury-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "eod-historical-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

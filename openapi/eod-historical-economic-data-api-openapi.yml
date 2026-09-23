@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: EODHD Financial Data Calendar Economic Data API
+  title: EODHD Financial Data Economic Data API
   description: Comprehensive API for retrieving financial data including stock prices, fundamentals, calendar events, news, and more from EOD Historical Data (eodhd.com)
   version: 2.0.0
   contact:
